@@ -1,0 +1,6 @@
+fragment NetworkCoreVersionGroup on versiongroup {
+    id: id
+    generationId: generation_id
+    name: name
+    order: order
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package de.niklasbednarczyk.nbdex.disk.pokedex.impl.proto;
+
+
+message DiskPokedexPreferences {
+  message Category {
+    optional bool isDefault = 1;
+    optional bool isBaby = 2;
+    optional bool isBattleOnly = 3;
+    optional bool isLegendary = 4;
+    optional bool isMega = 5;
+    optional bool isMythical = 6;
+  }
+
+  optional int32 pokedexId = 1;
+  optional int32 generationId = 2;
+  optional int32 typeId = 3;
+  optional Category category = 4;
+}

@@ -1,0 +1,6 @@
+fragment NetworkCorePokedexDescription on pokedexdescription {
+    id: id
+    description: description
+    languageId: language_id
+    pokedexId: pokedex_id
+}

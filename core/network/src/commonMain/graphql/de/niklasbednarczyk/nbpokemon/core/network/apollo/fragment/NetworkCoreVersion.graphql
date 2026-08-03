@@ -1,0 +1,5 @@
+fragment NetworkCoreVersion on version {
+    id: id
+    name: name
+    versionGroupId: version_group_id
+}

@@ -1,0 +1,6 @@
+fragment NetworkCoreRegionName on regionname {
+    id: id
+    languageId: language_id
+    name: name
+    regionId: region_id
+}

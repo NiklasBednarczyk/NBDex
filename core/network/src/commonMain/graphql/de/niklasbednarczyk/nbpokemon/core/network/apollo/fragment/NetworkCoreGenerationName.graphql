@@ -1,0 +1,6 @@
+fragment NetworkCoreGenerationName on generationname {
+    id: id
+    generationId: generation_id
+    languageId: language_id
+    name: name
+}

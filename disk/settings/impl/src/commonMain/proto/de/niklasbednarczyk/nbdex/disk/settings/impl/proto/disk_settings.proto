@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package de.niklasbednarczyk.nbdex.disk.settings.impl.proto;
+
+message DiskSettings {
+  enum PaneExpansionAnchor {
+    FULL_LIST = 0;
+    FULL_DETAIL = 1;
+    HALF_LIST_HALF_DETAIL = 2;
+    DEFAULT_PANE_PREFERRED_WIDTH = 3;
+    DEFAULT_PANE_PREFERRED_WIDTH_XL = 4;
+  }
+
+  enum Theme {
+    SYSTEM_DEFAULT = 0;
+    LIGHT = 1;
+    DARK = 2;
+  }
+
+  enum Contrast {
+    STANDARD = 0;
+    MEDIUM = 1;
+    HIGH = 2;
+  }
+
+  optional PaneExpansionAnchor paneExpansionAnchor = 1;
+  optional Theme theme = 2;
+  optional Contrast contrast = 3;
+}

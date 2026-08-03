@@ -1,0 +1,6 @@
+fragment NetworkCorePokemonDexNumber on pokemondexnumber {
+    id: id
+    pokedexId: pokedex_id
+    pokedexNumber: pokedex_number
+    pokemonSpeciesId: pokemon_species_id
+}
