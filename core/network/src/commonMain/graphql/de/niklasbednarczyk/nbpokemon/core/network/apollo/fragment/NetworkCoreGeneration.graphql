@@ -1,0 +1,5 @@
+fragment NetworkCoreGeneration on generation {
+    id: id
+    name: name
+    regionId: region_id
+}

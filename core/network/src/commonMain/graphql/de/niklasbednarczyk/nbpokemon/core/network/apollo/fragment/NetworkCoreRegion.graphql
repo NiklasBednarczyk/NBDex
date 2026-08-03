@@ -1,0 +1,4 @@
+fragment NetworkCoreRegion on region {
+    id: id
+    name: name
+}

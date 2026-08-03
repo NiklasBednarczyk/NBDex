@@ -1,0 +1,7 @@
+fragment NetworkCorePokemonSpeciesName on pokemonspeciesname {
+    id: id
+    genus: genus
+    languageId: language_id
+    name: name
+    pokemonSpeciesId: pokemon_species_id
+}

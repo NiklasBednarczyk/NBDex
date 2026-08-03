@@ -1,0 +1,7 @@
+fragment NetworkCorePokemonFormName on pokemonformname {
+    id: id
+    languageId: language_id
+    name: name
+    pokemonFormId: pokemon_form_id
+    pokemonName: pokemon_name
+}

@@ -1,0 +1,6 @@
+fragment NetworkCoreTypeName on typename {
+    id: id
+    languageId: language_id
+    name: name
+    typeId: type_id
+}

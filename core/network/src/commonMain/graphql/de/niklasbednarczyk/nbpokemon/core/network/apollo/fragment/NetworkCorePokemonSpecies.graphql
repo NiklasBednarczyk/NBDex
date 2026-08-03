@@ -1,0 +1,21 @@
+fragment NetworkCorePokemonSpecies on pokemonspecies {
+    id: id
+    baseHappiness: base_happiness
+    captureRate: capture_rate
+    evolutionChainId: evolution_chain_id
+    evolvesFromSpeciesId: evolves_from_species_id
+    formsSwitchable: forms_switchable
+    genderRate: gender_rate
+    generationId: generation_id
+    growthRateId: growth_rate_id
+    hasGenderDifferences: has_gender_differences
+    hatchCounter: hatch_counter
+    isBaby: is_baby
+    isLegendary: is_legendary
+    isMythical: is_mythical
+    name: name
+    order: order
+    pokemonColorId: pokemon_color_id
+    pokemonHabitatId: pokemon_habitat_id
+    pokemonShapeId: pokemon_shape_id
+}

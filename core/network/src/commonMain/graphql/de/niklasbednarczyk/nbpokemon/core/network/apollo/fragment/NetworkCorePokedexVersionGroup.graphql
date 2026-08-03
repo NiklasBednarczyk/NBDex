@@ -1,0 +1,5 @@
+fragment NetworkCorePokedexVersionGroup on pokedexversiongroup {
+   id: id
+   pokedexId: pokedex_id
+   versionGroupId: version_group_id
+}

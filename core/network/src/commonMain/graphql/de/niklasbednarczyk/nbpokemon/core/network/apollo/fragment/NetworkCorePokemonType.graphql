@@ -1,0 +1,6 @@
+fragment NetworkCorePokemonType on pokemontype {
+    id: id
+    pokemonId: pokemon_id
+    slot: slot
+    typeId: type_id
+}

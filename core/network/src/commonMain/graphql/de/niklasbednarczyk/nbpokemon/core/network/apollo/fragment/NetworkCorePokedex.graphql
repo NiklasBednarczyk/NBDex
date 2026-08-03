@@ -1,0 +1,6 @@
+fragment NetworkCorePokedex on pokedex {
+    id: id
+    isMainSeries: is_main_series
+    name: name
+    regionId: region_id
+}

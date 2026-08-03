@@ -1,0 +1,6 @@
+fragment NetworkCorePokedexName on pokedexname {
+    id: id
+    languageId: language_id
+    name: name
+    pokedexId: pokedex_id
+}

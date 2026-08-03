@@ -1,0 +1,6 @@
+fragment NetworkCoreType on type {
+    id: id
+    generationId: generation_id
+    moveDamageClassId: move_damage_class_id
+    name: name
+}

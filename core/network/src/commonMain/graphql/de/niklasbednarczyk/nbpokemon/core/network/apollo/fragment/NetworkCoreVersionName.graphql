@@ -1,0 +1,6 @@
+fragment NetworkCoreVersionName on versionname {
+    id: id
+    languageId: language_id
+    name: name
+    versionId: version_id
+}

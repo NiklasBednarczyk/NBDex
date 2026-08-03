@@ -1,0 +1,64 @@
+query NetworkPokedexEndpointsQuery(
+    $languageId: Int!
+) {
+    generations: generation {
+        ...NetworkCoreGeneration
+    }
+    generationNames: generationname(where: { language_id: { _eq: $languageId } }) {
+        ...NetworkCoreGenerationName
+    }
+    pokedexes: pokedex {
+        ...NetworkCorePokedex
+    }
+    pokedexDescriptions: pokedexdescription(where: { language_id: { _eq: $languageId } }) {
+        ...NetworkCorePokedexDescription
+    }
+    pokedexNames: pokedexname(where: { language_id: { _eq: $languageId } }) {
+        ...NetworkCorePokedexName
+    }
+    pokedexVersionGroups: pokedexversiongroup {
+        ...NetworkCorePokedexVersionGroup
+    }
+    pokemon: pokemon {
+        ...NetworkCorePokemon
+    }
+    pokemonDexNumbers: pokemondexnumber {
+        ...NetworkCorePokemonDexNumber
+    }
+    pokemonForms: pokemonform {
+        ...NetworkCorePokemonForm
+    }
+    pokemonFormNames: pokemonformname(where: { language_id: { _eq: $languageId } }) {
+        ...NetworkCorePokemonFormName
+    }
+    pokemonSpecies: pokemonspecies {
+        ...NetworkCorePokemonSpecies
+    }
+    pokemonSpeciesNames: pokemonspeciesname(where: { language_id: { _eq: $languageId } }) {
+        ...NetworkCorePokemonSpeciesName
+    }
+    pokemonTypes: pokemontype {
+        ...NetworkCorePokemonType
+    }
+    regions: region {
+        ...NetworkCoreRegion
+    }
+    regionNames: regionname(where: { language_id: { _eq: $languageId } }) {
+        ...NetworkCoreRegionName
+    }
+    types: type {
+        ...NetworkCoreType
+    }
+    typeNames: typename(where: { language_id: { _eq: $languageId } }) {
+        ...NetworkCoreTypeName
+    }
+    versions: version {
+        ...NetworkCoreVersion
+    }
+    versionGroups: versiongroup {
+        ...NetworkCoreVersionGroup
+    }
+    versionNames: versionname(where: { language_id: { _eq: $languageId } }) {
+        ...NetworkCoreVersionName
+    }
+}

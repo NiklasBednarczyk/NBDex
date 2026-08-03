@@ -1,0 +1,12 @@
+fragment NetworkCorePokemonForm on pokemonform {
+    id: id
+    formName: form_name
+    formOrder: form_order
+    isBattleOnly: is_battle_only
+    isDefault: is_default
+    isMega: is_mega
+    name: name
+    order: order
+    pokemonId: pokemon_id
+    versionGroupId: version_group_id
+}

@@ -1,0 +1,10 @@
+fragment NetworkCorePokemon on pokemon {
+    id: id
+    baseExperience: base_experience
+    height: height
+    isDefault: is_default
+    name: name
+    order: order
+    pokemonSpeciesId: pokemon_species_id
+    weight: weight
+}
