@@ -20,7 +20,7 @@ jobs:
     - name: Gradle setup
       uses: ./.github/actions/gradle-setup
     - name: Check spotless
-      run: ./gradlew spotlessCheck
+      run: ./gradlew spotlessCheck --continue
   test:
     name: Test
     runs-on: ubuntu-latest
