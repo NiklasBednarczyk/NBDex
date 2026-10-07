@@ -20,6 +20,6 @@ internal actual fun <Disk : Message<*, *>> createStorage(
         producePath = {
             val dataStoreFilePath = getFilePath(dataStoreFileName)
             dataStoreFilePath.toPath()
-        }
+        },
     )
 }

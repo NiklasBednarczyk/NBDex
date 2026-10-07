@@ -7,8 +7,9 @@ import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class DependencyComposeCoilConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         extensions.configure<KotlinMultiplatformExtension> {
             sourceSets.apply {
                 androidMain.dependencies {
@@ -27,5 +28,4 @@ class DependencyComposeCoilConventionPlugin : Plugin<Project> {
             }
         }
     }
-
 }

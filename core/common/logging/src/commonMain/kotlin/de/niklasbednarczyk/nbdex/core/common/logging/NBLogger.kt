@@ -5,7 +5,6 @@ import io.github.oshai.kotlinlogging.KotlinLogging
 import kotlin.reflect.KClass
 
 class NBLogger {
-
     private val logger: KLogger
 
     constructor(name: String) {
@@ -20,19 +19,22 @@ class NBLogger {
         )
     }
 
-    private fun initLogger(name: String?): KLogger {
+    private fun initLogger(
+        name: String?,
+    ): KLogger {
         val loggerName = name ?: "NBLogger"
         return KotlinLogging.logger(loggerName)
     }
 
-    /** Add a log message indicating [throwable] is caught along with the stack trace */
-    fun catching(throwable: Throwable) {
-        logger.error(throwable) { "Catching ${throwable::class.simpleName}" }
+    fun catching(
+        throwable: Throwable,
+    ) {
+        logger.error(throwable) { "Catching ${throwable::class.simpleName ?: "Unknown throwable"}" }
     }
 
-    /** Add a log message at level info */
-    fun i(message: () -> Any?) {
+    fun info(
+        message: () -> Any?,
+    ) {
         logger.info(message)
     }
-
 }

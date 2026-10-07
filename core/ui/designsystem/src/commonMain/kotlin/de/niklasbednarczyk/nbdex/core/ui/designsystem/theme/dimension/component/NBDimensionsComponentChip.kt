@@ -18,7 +18,6 @@ data class NBDimensionsComponentChip(
      * md.comp.suggestion-chip.container.height
      * */
     val containerHeight: Dp = 32.dp,
-
     /**
      * 1dp
      *
@@ -31,7 +30,6 @@ data class NBDimensionsComponentChip(
      * md.comp.suggestion-chip.flat.outline.width
      * */
     val containerOutlineWidth: Dp = 1.dp,
-
     /**
      * 18dp
      *

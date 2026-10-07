@@ -11,7 +11,7 @@ data class PersistencePokedexPokemonSpecies(
     val pokemonSpecies: PersistenceCorePokemonSpecies,
     @Relation(
         parentColumns = ["id"],
-        entityColumns = ["pokemonSpeciesId"]
+        entityColumns = ["pokemonSpeciesId"],
     )
     val pokemonDexNumbers: List<PersistenceCorePokemonDexNumber>,
     @Relation(

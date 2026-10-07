@@ -13,7 +13,7 @@ import androidx.compose.material3.DropdownMenuPopup
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MenuDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -30,12 +30,15 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.NBTextSingleLine
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.ArrowRight
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.Check
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.ImmutableSet
 
 @Composable
 fun <T : Any> NBDropdownMenuSingleSelectionWithNull(
     expanded: Boolean,
     onDismissRequest: () -> Unit,
-    items: List<T>,
+    items: ImmutableList<T>,
     selectedItem: T?,
     onClick: (T?) -> Unit,
     getContentText: @Composable (T) -> String,
@@ -59,11 +62,12 @@ fun <T : Any> NBDropdownMenuSingleSelectionWithNull(
 fun <Group : Any, Item : Any> NBDropdownMenuSingleSelectionGroupNullable(
     expanded: Boolean,
     onDismissRequest: () -> Unit,
-    map: Map<Group?, List<Item>>,
+    map: ImmutableMap<Group?, List<Item>>,
     selectedItem: Item,
     onClick: (Item) -> Unit,
     getGroupText: @Composable (Group?) -> String,
     getContentText: @Composable (Item) -> String,
+    modifier: Modifier = Modifier,
     getSupportingContent: @Composable ((Item) -> Unit)? = null,
     getTrailingIcon: ((Item) -> ImageVector?)? = null,
 ) {
@@ -75,7 +79,7 @@ fun <Group : Any, Item : Any> NBDropdownMenuSingleSelectionGroupNullable(
         onDismissRequest = onDismissRequest,
     ) {
         NBDropdownMenuGroup(
-            modifier = Modifier.onSizeChanged { size ->
+            modifier = modifier.onSizeChanged { size ->
                 with(density) {
                     menuWidth = size.width.toDp()
                 }
@@ -84,9 +88,7 @@ fun <Group : Any, Item : Any> NBDropdownMenuSingleSelectionGroupNullable(
             val entries = map.entries.toList()
             var selectedGroup by remember {
                 val group = entries
-                    .firstOrNull { (_, items) ->
-                        items.any { item -> item == selectedItem }
-                    }
+                    .firstOrNull { (_, items) -> items.contains(selectedItem) }
                     ?.key
                 mutableStateOf(group)
             }
@@ -96,9 +98,9 @@ fun <Group : Any, Item : Any> NBDropdownMenuSingleSelectionGroupNullable(
                     val groupInteractionSource = remember { MutableInteractionSource() }
                     var groupHeight by remember { mutableStateOf(0.dp) }
 
-                    val groupIsHovered by groupInteractionSource.collectIsHoveredAsState()
-                    LaunchedEffect(groupIsHovered) {
-                        if (groupIsHovered) {
+                    val isGroupHovered by groupInteractionSource.collectIsHoveredAsState()
+                    SideEffect(isGroupHovered) {
+                        if (isGroupHovered) {
                             selectedGroup = group
                         }
                     }
@@ -156,8 +158,8 @@ fun <Group : Any, Item : Any> NBDropdownMenuSingleSelectionGroupNullable(
 fun <T : Any> NBDropdownMenuMultiSelection(
     expanded: Boolean,
     onDismissRequest: () -> Unit,
-    items: List<T>,
-    selectedItems: Set<T>,
+    items: ImmutableList<T>,
+    selectedItems: ImmutableSet<T>,
     onClick: (T) -> Unit,
     getContentText: @Composable (T) -> String,
     getTrailingIcon: ((T) -> ImageVector?)? = null,
@@ -177,7 +179,7 @@ fun <T : Any> NBDropdownMenuMultiSelection(
 private fun <T : Any> NBDropdownMenu(
     expanded: Boolean,
     onDismissRequest: () -> Unit,
-    items: List<T>,
+    items: ImmutableList<T>,
     getContentText: @Composable (T) -> String,
     getSelected: (T) -> Boolean,
     onClick: (T) -> Unit,
@@ -206,14 +208,15 @@ private fun <T : Any> NBDropdownMenu(
 private fun NBDropdownMenuPopup(
     expanded: Boolean,
     onDismissRequest: () -> Unit,
-    offset: DpOffset = DpOffset(0.dp, 0.dp),
+    modifier: Modifier = Modifier,
+    offset: DpOffset = DpOffset(x = 0.dp, y = 0.dp),
     properties: PopupProperties = PopupProperties(focusable = true),
     content: @Composable ColumnScope.() -> Unit,
 ) {
     DropdownMenuPopup(
         expanded = expanded,
         onDismissRequest = onDismissRequest,
-        modifier = Modifier.verticalScroll(rememberScrollState()),
+        modifier = modifier.verticalScroll(rememberScrollState()),
         offset = offset,
         properties = properties,
         content = content,
@@ -239,13 +242,13 @@ private fun NBDropdownMenuGroup(
 
 @Composable
 private fun NBDropdownMenuItem(
-    modifier: Modifier = Modifier,
     index: Int,
     count: Int,
     text: String,
     selected: Boolean,
     onClick: () -> Unit,
     trailingIcon: ImageVector?,
+    modifier: Modifier = Modifier,
     supportingContent: @Composable (() -> Unit)? = null,
     interactionSource: MutableInteractionSource? = null,
 ) {

@@ -4,5 +4,5 @@ internal enum class PokedexFilter {
     CATEGORY,
     GENERATION,
     POKEDEX,
-    TYPE;
+    TYPE,
 }

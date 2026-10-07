@@ -5,11 +5,11 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 class DependencyKspConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         plugins {
-            apply(libs.getPluginId("ksp"))
+            apply(libs.getPluginId("plugin-ksp"))
         }
     }
-
 }

@@ -9,7 +9,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCoreVersionNa
 
 @Dao
 interface CoreVersionNameDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -17,11 +16,12 @@ interface CoreVersionNameDao {
                 SELECT 1 
                 FROM ${NBTableName.VERSION_NAME}
             );
-        """
+        """,
     )
     suspend fun hasVersionNames(): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertVersionNames(versionNames: List<PersistenceCoreVersionName>)
-
+    suspend fun insertVersionNames(
+        versionNames: List<PersistenceCoreVersionName>,
+    )
 }

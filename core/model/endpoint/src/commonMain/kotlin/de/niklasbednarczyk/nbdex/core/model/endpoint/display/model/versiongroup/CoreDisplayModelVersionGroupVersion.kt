@@ -7,6 +7,7 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionId
 
 interface CoreDisplayModelVersionGroupVersion :
     NBDisplayModel<CoreVersionId, CoreDisplayTypeVersion> {
+    val versionName: CoreVersionName
 
     override val id: CoreVersionId?
         get() = versionName.versionId
@@ -14,10 +15,7 @@ interface CoreDisplayModelVersionGroupVersion :
     override val displayType: CoreDisplayTypeVersion?
         get() = CoreDisplayTypeVersion.from(id)
 
-    val versionName: CoreVersionName
-
     companion object {
-
         fun example(
             versionName: CoreVersionName = CoreVersionName.example(),
         ): CoreDisplayModelVersionGroupVersion {
@@ -26,7 +24,5 @@ interface CoreDisplayModelVersionGroupVersion :
                     get() = versionName
             }
         }
-
     }
-
 }

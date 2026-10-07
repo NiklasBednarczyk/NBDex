@@ -14,7 +14,6 @@ internal class MoreViewModel(
     private val navigator: NBNavigator,
     settingsRepository: SettingsRepository,
 ) : NBViewModel() {
-
     val uiState: StateFlow<MoreUiState> = combine(
         settingsRepository.getSettings(),
         navigator.state.currentKeyFlow,
@@ -42,5 +41,4 @@ internal class MoreViewModel(
     fun navigateToTheme() {
         navigator.navigateToTheme()
     }
-
 }

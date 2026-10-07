@@ -29,11 +29,20 @@ kotlin {
             implementation(projects.persistence.pokedex.impl)
 
             implementation(
-                npm("sqlite-wasm-worker", layout.projectDirectory.dir("worker").asFile)
+                npm("sqlite-wasm-worker", layout.projectDirectory.dir("worker").asFile),
             )
         }
         wasmJsMain.dependencies {
             implementation(libs.kotlinx.browser)
+        }
+    }
+
+    targets.configureEach {
+        compilations.configureEach {
+            compileTaskProvider.get().compilerOptions {
+                // Supress warning for NBDatabaseConstructor, see https://youtrack.jetbrains.com/issue/KT-61573/Emit-the-compilation-warning-on-expect-actual-classes.-The-warning-must-mention-that-expect-actual-classes-are-in-Beta#focus=Comments-27-10358357.0-0
+                freeCompilerArgs.add("-Xexpect-actual-classes")
+            }
         }
     }
 }

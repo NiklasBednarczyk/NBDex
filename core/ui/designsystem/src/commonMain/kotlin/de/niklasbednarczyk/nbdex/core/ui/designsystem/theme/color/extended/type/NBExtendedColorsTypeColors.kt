@@ -2,7 +2,6 @@ package de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.color.extended.type
 
 import androidx.compose.ui.graphics.Color
 
-// Source color #91A119 from https://bulbapedia.bulbagarden.net/wiki/Template:Bug_color
 internal val typeBugLightStandardContrast = Color(0xFF91A119)
 internal val onTypeBugLightStandardContrast = Color(0xFF2E3400)
 internal val typeBugLightMediumContrast = Color(0xFF677400)
@@ -16,7 +15,6 @@ internal val onTypeBugDarkMediumContrast = Color(0xFF050700)
 internal val typeBugDarkHighContrast = Color(0xFFBBCC45)
 internal val onTypeBugDarkHighContrast = Color(0xFF0A0D00)
 
-// Source color #624D4E from https://bulbapedia.bulbagarden.net/wiki/Template:Dark_color
 internal val typeDarkLightStandardContrast = Color(0xFF624D4E)
 internal val onTypeDarkLightStandardContrast = Color(0xFFDBBFC0)
 internal val typeDarkLightMediumContrast = Color(0xFF624D4E)
@@ -30,7 +28,6 @@ internal val onTypeDarkDarkMediumContrast = Color(0xFF000000)
 internal val typeDarkDarkHighContrast = Color(0xFFD8BCBD)
 internal val onTypeDarkDarkHighContrast = Color(0xFF150709)
 
-// Source color #5060E1 from https://bulbapedia.bulbagarden.net/wiki/Template:Dragon_color
 internal val typeDragonLightStandardContrast = Color(0xFF5060E1)
 internal val onTypeDragonLightStandardContrast = Color(0xFFF1F0FF)
 internal val typeDragonLightMediumContrast = Color(0xFF5060E1)
@@ -44,7 +41,6 @@ internal val onTypeDragonDarkMediumContrast = Color(0xFF000000)
 internal val typeDragonDarkHighContrast = Color(0xFFB8BEFF)
 internal val onTypeDragonDarkHighContrast = Color(0xFF000337)
 
-// Source color #FAC000 from https://bulbapedia.bulbagarden.net/wiki/Template:Electric_color
 internal val typeElectricLightStandardContrast = Color(0xFFFAC000)
 internal val onTypeElectricLightStandardContrast = Color(0xFF6A5000)
 internal val typeElectricLightMediumContrast = Color(0xFF896800)
@@ -58,7 +54,6 @@ internal val onTypeElectricDarkMediumContrast = Color(0xFF473500)
 internal val typeElectricDarkHighContrast = Color(0xFFFAC000)
 internal val onTypeElectricDarkHighContrast = Color(0xFF1B1200)
 
-// Source color #EF70EF from https://bulbapedia.bulbagarden.net/wiki/Template:Fairy_color
 internal val typeFairyLightStandardContrast = Color(0xFFEF70EF)
 internal val onTypeFairyLightStandardContrast = Color(0xFF68006D)
 internal val typeFairyLightMediumContrast = Color(0xFFB036B4)
@@ -72,7 +67,6 @@ internal val onTypeFairyDarkMediumContrast = Color(0xFF2F0032)
 internal val typeFairyDarkHighContrast = Color(0xFFFFA3FA)
 internal val onTypeFairyDarkHighContrast = Color(0xFF1C001E)
 
-// Source color #FF8000 from https://bulbapedia.bulbagarden.net/wiki/Template:Fighting_color
 internal val typeFightingLightStandardContrast = Color(0xFFFF8000)
 internal val onTypeFightingLightStandardContrast = Color(0xFF5E2B00)
 internal val typeFightingLightMediumContrast = Color(0xFFAC5500)
@@ -86,7 +80,6 @@ internal val onTypeFightingDarkMediumContrast = Color(0xFF2C1100)
 internal val typeFightingDarkHighContrast = Color(0xFFFFB17D)
 internal val onTypeFightingDarkHighContrast = Color(0xFF180700)
 
-// Source color #E62829 from https://bulbapedia.bulbagarden.net/wiki/Template:Fire_color
 internal val typeFireLightStandardContrast = Color(0xFFE22527)
 internal val onTypeFireLightStandardContrast = Color(0xFFFFFBFF)
 internal val typeFireLightMediumContrast = Color(0xFFD71A20)
@@ -100,7 +93,6 @@ internal val onTypeFireDarkMediumContrast = Color(0xFF000000)
 internal val typeFireDarkHighContrast = Color(0xFFFFAEA5)
 internal val onTypeFireDarkHighContrast = Color(0xFF170000)
 
-// Source color #81B9EF from https://bulbapedia.bulbagarden.net/wiki/Template:Flying_color
 internal val typeFlyingLightStandardContrast = Color(0xFF81B9EF)
 internal val onTypeFlyingLightStandardContrast = Color(0xFF004975)
 internal val typeFlyingLightMediumContrast = Color(0xFF3571A3)
@@ -114,7 +106,6 @@ internal val onTypeFlyingDarkMediumContrast = Color(0xFF002B47)
 internal val typeFlyingDarkHighContrast = Color(0xFF90C8FE)
 internal val onTypeFlyingDarkHighContrast = Color(0xFF000C19)
 
-// Source color #704170 from https://bulbapedia.bulbagarden.net/wiki/Template:Ghost_color
 internal val typeGhostLightStandardContrast = Color(0xFF704170)
 internal val onTypeGhostLightStandardContrast = Color(0xFFEDB3E9)
 internal val typeGhostLightMediumContrast = Color(0xFF704170)
@@ -128,7 +119,6 @@ internal val onTypeGhostDarkMediumContrast = Color(0xFF000000)
 internal val typeGhostDarkHighContrast = Color(0xFFEAB0E6)
 internal val onTypeGhostDarkHighContrast = Color(0xFF1C001F)
 
-// Source color #3FA129 from https://bulbapedia.bulbagarden.net/wiki/Template:Grass_color
 internal val typeGrassLightStandardContrast = Color(0xFF22870B)
 internal val onTypeGrassLightStandardContrast = Color(0xFFF8FFEF)
 internal val typeGrassLightMediumContrast = Color(0xFF177F00)
@@ -142,7 +132,6 @@ internal val onTypeGrassDarkMediumContrast = Color(0xFF000000)
 internal val typeGrassDarkHighContrast = Color(0xFF75D95B)
 internal val onTypeGrassDarkHighContrast = Color(0xFF010F00)
 
-// Source color #915121 from https://bulbapedia.bulbagarden.net/wiki/Template:Ground_color
 internal val typeGroundLightStandardContrast = Color(0xFF915121)
 internal val onTypeGroundLightStandardContrast = Color(0xFFFFD5BC)
 internal val typeGroundLightMediumContrast = Color(0xFF915121)
@@ -156,7 +145,6 @@ internal val onTypeGroundDarkMediumContrast = Color(0xFF000000)
 internal val typeGroundDarkHighContrast = Color(0xFFFFB17D)
 internal val onTypeGroundDarkHighContrast = Color(0xFF180700)
 
-// Source color #3DCEF3 from https://bulbapedia.bulbagarden.net/wiki/Template:Ice_color
 internal val typeIceLightStandardContrast = Color(0xFF3DCEF3)
 internal val onTypeIceLightStandardContrast = Color(0xFF005567)
 internal val typeIceLightMediumContrast = Color(0xFF007790)
@@ -170,7 +158,6 @@ internal val onTypeIceDarkMediumContrast = Color(0xFF003642)
 internal val typeIceDarkHighContrast = Color(0xFF44D2F7)
 internal val onTypeIceDarkHighContrast = Color(0xFF000D12)
 
-// Source color #9FA19F from https://bulbapedia.bulbagarden.net/wiki/Template:Normal_color
 internal val typeNormalLightStandardContrast = Color(0xFF9FA19F)
 internal val onTypeNormalLightStandardContrast = Color(0xFF353837)
 internal val typeNormalLightMediumContrast = Color(0xFF6B6E6C)
@@ -184,7 +171,6 @@ internal val onTypeNormalDarkMediumContrast = Color(0xFF121514)
 internal val typeNormalDarkHighContrast = Color(0xFFC1C3C1)
 internal val onTypeNormalDarkHighContrast = Color(0xFF090C0B)
 
-// Source color #9141CB from https://bulbapedia.bulbagarden.net/wiki/Template:Poison_color
 internal val typePoisonLightStandardContrast = Color(0xFF9141CB)
 internal val onTypePoisonLightStandardContrast = Color(0xFFF7E3FF)
 internal val typePoisonLightMediumContrast = Color(0xFF9141CB)
@@ -198,7 +184,6 @@ internal val onTypePoisonDarkMediumContrast = Color(0xFF000000)
 internal val typePoisonDarkHighContrast = Color(0xFFE0B0FF)
 internal val onTypePoisonDarkHighContrast = Color(0xFF170029)
 
-// Source color #EF4179 from https://bulbapedia.bulbagarden.net/wiki/Template:Psychic_color
 internal val typePsychicLightStandardContrast = Color(0xFFD82E69)
 internal val onTypePsychicLightStandardContrast = Color(0xFFFFFBFF)
 internal val typePsychicLightMediumContrast = Color(0xFFCE2561)
@@ -212,7 +197,6 @@ internal val onTypePsychicDarkMediumContrast = Color(0xFF000000)
 internal val typePsychicDarkHighContrast = Color(0xFFFFABBC)
 internal val onTypePsychicDarkHighContrast = Color(0xFF210009)
 
-// Source color #AFA981 from https://bulbapedia.bulbagarden.net/wiki/Template:Rock_color
 internal val typeRockLightStandardContrast = Color(0xFFAFA981)
 internal val onTypeRockLightStandardContrast = Color(0xFF413E1F)
 internal val typeRockLightMediumContrast = Color(0xFF736E4A)
@@ -226,7 +210,6 @@ internal val onTypeRockDarkMediumContrast = Color(0xFF211E03)
 internal val typeRockDarkHighContrast = Color(0xFFCAC49A)
 internal val onTypeRockDarkHighContrast = Color(0xFF0D0B00)
 
-// Source color #604E82 from https://bulbapedia.bulbagarden.net/wiki/Template:XD_color
 internal val typeShadowLightStandardContrast = Color(0xFF604E82)
 internal val onTypeShadowLightStandardContrast = Color(0xFFD9C3FF)
 internal val typeShadowLightMediumContrast = Color(0xFF604E82)
@@ -240,7 +223,6 @@ internal val onTypeShadowDarkMediumContrast = Color(0xFF000000)
 internal val typeShadowDarkHighContrast = Color(0xFFCEB9F4)
 internal val onTypeShadowDarkHighContrast = Color(0xFF110030)
 
-// Source color #60A1B8 from https://bulbapedia.bulbagarden.net/wiki/Template:Steel_color
 internal val typeSteelLightStandardContrast = Color(0xFF60A1B8)
 internal val onTypeSteelLightStandardContrast = Color(0xFF003543)
 internal val typeSteelLightMediumContrast = Color(0xFF31758B)
@@ -254,7 +236,6 @@ internal val onTypeSteelDarkMediumContrast = Color(0xFF00060A)
 internal val typeSteelDarkHighContrast = Color(0xFF8BCCE4)
 internal val onTypeSteelDarkHighContrast = Color(0xFF000D13)
 
-// Source color #40B5A5 from https://bulbapedia.bulbagarden.net/wiki/Template:Stellar_color
 internal val typeStellarLightStandardContrast = Color(0xFF40B5A5)
 internal val onTypeStellarLightStandardContrast = Color(0xFF00423A)
 internal val typeStellarLightMediumContrast = Color(0xFF007B6E)
@@ -268,7 +249,6 @@ internal val onTypeStellarDarkMediumContrast = Color(0xFF001D19)
 internal val typeStellarDarkHighContrast = Color(0xFF64D5C4)
 internal val onTypeStellarDarkHighContrast = Color(0xFF000E0B)
 
-// Source color #68A090 from https://bulbapedia.bulbagarden.net/wiki/Template:Unknown_color
 internal val typeUnknownLightStandardContrast = Color(0xFF68A090)
 internal val onTypeUnknownLightStandardContrast = Color(0xFF00352B)
 internal val typeUnknownLightMediumContrast = Color(0xFF3F7768)
@@ -282,7 +262,6 @@ internal val onTypeUnknownDarkMediumContrast = Color(0xFF000000)
 internal val typeUnknownDarkHighContrast = Color(0xFF95CEBD)
 internal val onTypeUnknownDarkHighContrast = Color(0xFF000E0A)
 
-// Source color #2980EF from https://bulbapedia.bulbagarden.net/wiki/Template:Water_color
 internal val typeWaterLightStandardContrast = Color(0xFF0872E1)
 internal val onTypeWaterLightStandardContrast = Color(0xFFFEFCFF)
 internal val typeWaterLightMediumContrast = Color(0xFF006BD4)

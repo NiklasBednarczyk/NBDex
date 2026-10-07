@@ -9,7 +9,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCoreType
 
 @Dao
 interface CoreTypeDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -17,11 +16,12 @@ interface CoreTypeDao {
                 SELECT 1 
                 FROM ${NBTableName.TYPE}
             );
-        """
+        """,
     )
     suspend fun hasTypes(): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertTypes(types: List<PersistenceCoreType>)
-
+    suspend fun insertTypes(
+        types: List<PersistenceCoreType>,
+    )
 }

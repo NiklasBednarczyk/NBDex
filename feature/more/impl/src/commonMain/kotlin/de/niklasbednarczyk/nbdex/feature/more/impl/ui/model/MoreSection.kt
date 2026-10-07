@@ -7,12 +7,12 @@ import org.jetbrains.compose.resources.StringResource
 
 enum class MoreSection {
     OTHER,
-    SETTINGS;
+    SETTINGS,
+    ;
 
     val titleStringResource: StringResource
         get() = when (this) {
             OTHER -> Res.string.more_section_other
             SETTINGS -> Res.string.more_section_settings
         }
-
 }

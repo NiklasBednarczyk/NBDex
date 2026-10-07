@@ -14,9 +14,7 @@ import de.niklasbednarczyk.nbdex.disk.settings.impl.mapper.DiskSettingsThemeMapp
 import de.niklasbednarczyk.nbdex.disk.settings.impl.proto.DiskSettings
 import kotlinx.coroutines.flow.Flow
 
-internal class SettingsDiskDataSourceImpl : NBDiskDataSourceImpl<DiskSettings>(),
-    SettingsDiskDataSource {
-
+internal class SettingsDiskDataSourceImpl : NBDiskDataSourceImpl<DiskSettings>(), SettingsDiskDataSource {
     override val dataStoreName: String
         get() = NBDataStoreName.SETTINGS
 
@@ -45,7 +43,7 @@ internal class SettingsDiskDataSourceImpl : NBDiskDataSourceImpl<DiskSettings>()
             settings.copy(
                 theme = DiskSettingsThemeMapper.modelToDisk(
                     model = theme,
-                )
+                ),
             )
         }
     }
@@ -61,5 +59,4 @@ internal class SettingsDiskDataSourceImpl : NBDiskDataSourceImpl<DiskSettings>()
             )
         }
     }
-
 }

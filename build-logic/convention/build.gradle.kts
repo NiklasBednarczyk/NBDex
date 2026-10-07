@@ -10,7 +10,9 @@ dependencies {
     compileOnly(libs.apollo.gradle.plugin)
     compileOnly(libs.buildkonfig.gradle.plugin)
     compileOnly(libs.compose.gradle.plugin)
+    compileOnly(libs.detekt.gradle.plugin)
     compileOnly(libs.kotlin.gradle.plugin)
+    compileOnly(libs.spotless.plugin.gradle)
     compileOnly(libs.wire.gradle.plugin)
 }
 
@@ -60,6 +62,14 @@ gradlePlugin {
             id = libs.plugins.nbdex.dependency.datastore.get().pluginId
             implementationClass = "DependencyDatastoreConventionPlugin"
         }
+        register("dependencyDetekt") {
+            id = libs.plugins.nbdex.dependency.detekt.get().pluginId
+            implementationClass = "DependencyDetektConventionPlugin"
+        }
+        register("dependencyImmutable") {
+            id = libs.plugins.nbdex.dependency.immutable.get().pluginId
+            implementationClass = "DependencyImmutableConventionPlugin"
+        }
         register("dependencyKoinCompose") {
             id = libs.plugins.nbdex.dependency.koin.compose.get().pluginId
             implementationClass = "DependencyKoinComposeConventionPlugin"
@@ -87,6 +97,10 @@ gradlePlugin {
         register("dependencySerialization") {
             id = libs.plugins.nbdex.dependency.serialization.get().pluginId
             implementationClass = "DependencySerializationConventionPlugin"
+        }
+        register("dependencySpotless") {
+            id = libs.plugins.nbdex.dependency.spotless.get().pluginId
+            implementationClass = "DependencySpotlessConventionPlugin"
         }
         register("dependencySqlite") {
             id = libs.plugins.nbdex.dependency.sqlite.get().pluginId
@@ -143,6 +157,10 @@ gradlePlugin {
         register("libraryPersistenceImpl") {
             id = libs.plugins.nbdex.library.persistence.impl.get().pluginId
             implementationClass = "LibraryPersistenceImplConventionPlugin"
+        }
+        register("root") {
+            id = libs.plugins.nbdex.root.get().pluginId
+            implementationClass = "RootConventionPlugin"
         }
     }
 }

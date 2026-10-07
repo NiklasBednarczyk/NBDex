@@ -14,12 +14,15 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class AndroidKotlinMultiplatformLibraryConventionPlugin : Plugin<Project> {
-
     @OptIn(ExperimentalWasmDsl::class)
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         plugins {
-            apply(libs.getPluginId("android-kotlin-multiplatform-library"))
-            apply(libs.getPluginId("kotlin-multiplatform"))
+            apply(libs.getPluginId("plugin-android-kotlin-multiplatform-library"))
+            apply(libs.getPluginId("plugin-kotlin-multiplatform"))
+            apply(libs.getPluginId("nbdex-dependency-detekt"))
+            apply(libs.getPluginId("nbdex-dependency-spotless"))
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
@@ -51,6 +54,7 @@ class AndroidKotlinMultiplatformLibraryConventionPlugin : Plugin<Project> {
                 androidResources {
                     enable = true
                 }
+                withHostTest {}
             }
         }
 
@@ -58,5 +62,4 @@ class AndroidKotlinMultiplatformLibraryConventionPlugin : Plugin<Project> {
             add("androidRuntimeClasspath", libs.getLibrary("compose-ui-tooling"))
         }
     }
-
 }

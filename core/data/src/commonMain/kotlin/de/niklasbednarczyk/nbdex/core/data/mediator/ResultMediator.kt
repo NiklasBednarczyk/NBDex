@@ -14,15 +14,19 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 abstract class ResultMediator<Input : Any, Output : Any> : KoinComponent {
-
     protected abstract val loggerName: String
 
     private val dispatchers: NBDispatchers by inject()
     private val logger = NBLogger(loggerName)
 
     protected abstract suspend fun shouldGetNetwork(): Boolean
+
     protected abstract suspend fun getNetworkInput(): Input
-    protected abstract suspend fun insertPersistenceInput(input: Input)
+
+    protected abstract suspend fun insertPersistenceInput(
+        input: Input,
+    )
+
     protected abstract fun getOutput(): Flow<Output>
 
     operator fun invoke(): Flow<NBResult<Output>> = flow<NBResult<Output>> {
@@ -33,7 +37,7 @@ abstract class ResultMediator<Input : Any, Output : Any> : KoinComponent {
         emitAll(
             getOutput().map { output ->
                 NBResult.Success(output)
-            }
+            },
         )
     }
         .onStart { emit(NBResult.Loading) }
@@ -42,5 +46,4 @@ abstract class ResultMediator<Input : Any, Output : Any> : KoinComponent {
             emit(NBResult.Error)
         }
         .flowOn(dispatchers.io)
-
 }

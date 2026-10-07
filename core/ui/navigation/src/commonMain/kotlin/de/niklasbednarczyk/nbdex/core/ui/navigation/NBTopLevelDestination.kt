@@ -17,7 +17,8 @@ import org.jetbrains.compose.resources.StringResource
 enum class NBTopLevelDestination {
     POKEDEX,
     INFO,
-    MORE;
+    MORE,
+    ;
 
     val titleStringResource: StringResource
         get() = when (this) {

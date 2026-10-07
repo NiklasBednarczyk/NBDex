@@ -9,7 +9,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCoreGeneratio
 
 @Dao
 interface CoreGenerationNameDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -17,11 +16,12 @@ interface CoreGenerationNameDao {
                 SELECT 1 
                 FROM ${NBTableName.GENERATION_NAME}
             );
-        """
+        """,
     )
     suspend fun hasGenerationNames(): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertGenerationNames(generationNames: List<PersistenceCoreGenerationName>)
-
+    suspend fun insertGenerationNames(
+        generationNames: List<PersistenceCoreGenerationName>,
+    )
 }

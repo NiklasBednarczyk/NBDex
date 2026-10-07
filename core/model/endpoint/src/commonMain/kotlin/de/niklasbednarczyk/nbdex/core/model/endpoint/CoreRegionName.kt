@@ -10,9 +10,7 @@ data class CoreRegionName(
     val name: String,
     val regionId: CoreRegionId?,
 ) {
-
     companion object {
-
         fun example(
             id: CoreRegionNameId = CoreRegionNameId.example(),
             languageId: CoreLanguageId? = CoreLanguageId.example(),
@@ -26,7 +24,5 @@ data class CoreRegionName(
                 regionId = regionId,
             )
         }
-
     }
-
 }

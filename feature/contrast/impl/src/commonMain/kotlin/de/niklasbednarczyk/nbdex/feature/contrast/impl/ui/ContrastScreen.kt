@@ -32,7 +32,7 @@ fun ContrastScreen() {
     ContrastScreen(
         uiState = uiState,
         onBack = viewModel::navigateBack,
-        onContrastClicked = viewModel::updateContrast,
+        onContrastClick = viewModel::updateContrast,
     )
 }
 
@@ -40,11 +40,12 @@ fun ContrastScreen() {
 private fun ContrastScreen(
     uiState: ContrastUiState,
     onBack: () -> Unit,
-    onContrastClicked: (contrast: CoreSettingsContrast) -> Unit,
+    onContrastClick: (contrast: CoreSettingsContrast) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             NBSmallTopAppBar(
                 scrollBehavior = scrollBehavior,
@@ -55,11 +56,12 @@ private fun ContrastScreen(
     ) { innerPadding ->
         when (uiState) {
             ContrastUiState.Initial -> {}
+
             is ContrastUiState.Success -> {
                 NBSegmentedListSingleSelection(
                     items = uiState.contrasts,
                     selectedItem = uiState.selectedContrast,
-                    onClick = onContrastClicked,
+                    onClick = onContrastClick,
                     getKey = { contrast -> contrast },
                     getContentText = { contrast -> stringResource(contrast.stringResource) },
                     additionalContentPadding = innerPadding,
@@ -84,14 +86,14 @@ private fun Preview(
                 selectedContrast = selectedContrast,
             ),
             onBack = {},
-            onContrastClicked = { contrast -> selectedContrast = contrast },
+            onContrastClick = { contrast -> selectedContrast = contrast },
         )
     }
 }
 
 @Preview
 @Composable
-private fun PreviewInitial(
+private fun InitialPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
@@ -100,14 +102,14 @@ private fun PreviewInitial(
         ContrastScreen(
             uiState = ContrastUiState.Initial,
             onBack = {},
-            onContrastClicked = {},
+            onContrastClick = {},
         )
     }
 }
 
 @Preview
 @Composable
-private fun PreviewInitialMultiplePanes(
+private fun InitialMultiplePanesPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
@@ -117,7 +119,7 @@ private fun PreviewInitialMultiplePanes(
         ContrastScreen(
             uiState = ContrastUiState.Initial,
             onBack = {},
-            onContrastClicked = {},
+            onContrastClick = {},
         )
     }
 }

@@ -7,8 +7,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
 
-abstract class NBViewModel : ViewModel() {
-
+open class NBViewModel : ViewModel() {
     protected fun <T> Flow<T>.nbStateIn(
         initialValue: T,
     ): StateFlow<T> = stateIn(
@@ -16,5 +15,4 @@ abstract class NBViewModel : ViewModel() {
         started = SharingStarted.Lazily,
         initialValue = initialValue,
     )
-
 }

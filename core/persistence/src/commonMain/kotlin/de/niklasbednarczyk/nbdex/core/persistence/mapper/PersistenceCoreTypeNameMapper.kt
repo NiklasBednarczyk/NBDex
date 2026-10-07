@@ -6,8 +6,9 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCoreTypeName
 
 object PersistenceCoreTypeNameMapper :
     NBPersistenceCoreInputMapper<CoreTypeName, PersistenceCoreTypeName, CoreLanguageId> {
-
-    override fun modelToPersistence(model: CoreTypeName): PersistenceCoreTypeName {
+    override fun modelToPersistence(
+        model: CoreTypeName,
+    ): PersistenceCoreTypeName {
         return PersistenceCoreTypeName(
             id = model.id,
             languageId = model.languageId,
@@ -16,7 +17,9 @@ object PersistenceCoreTypeNameMapper :
         )
     }
 
-    override fun persistenceToModel(persistence: PersistenceCoreTypeName): CoreTypeName {
+    override fun persistenceToModel(
+        persistence: PersistenceCoreTypeName,
+    ): CoreTypeName {
         return CoreTypeName(
             id = persistence.id,
             languageId = persistence.languageId,
@@ -25,8 +28,9 @@ object PersistenceCoreTypeNameMapper :
         )
     }
 
-    override fun persistenceToInput(persistence: PersistenceCoreTypeName): CoreLanguageId? {
+    override fun persistenceToInput(
+        persistence: PersistenceCoreTypeName,
+    ): CoreLanguageId? {
         return persistence.languageId
     }
-
 }

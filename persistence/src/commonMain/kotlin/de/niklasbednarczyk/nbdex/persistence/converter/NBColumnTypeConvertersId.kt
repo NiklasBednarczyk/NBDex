@@ -7,7 +7,6 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreGenerationNameId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreGrowthRateId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreMoveDamageClassId
-import de.niklasbednarczyk.nbdex.core.model.id.NBId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexDescriptionId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexNameId
@@ -29,147 +28,202 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreTypeNameId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionGroupId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionNameId
+import de.niklasbednarczyk.nbdex.core.model.id.NBId
 
 internal class NBColumnTypeConvertersId {
-
     @ColumnTypeConverter
-    fun intToCoreEvolutionChainId(value: Int): CoreEvolutionChainId {
+    fun intToCoreEvolutionChainId(
+        value: Int,
+    ): CoreEvolutionChainId {
         return CoreEvolutionChainId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreGenerationId(value: Int): CoreGenerationId {
+    fun intToCoreGenerationId(
+        value: Int,
+    ): CoreGenerationId {
         return CoreGenerationId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreGenerationNameId(value: Int): CoreGenerationNameId {
+    fun intToCoreGenerationNameId(
+        value: Int,
+    ): CoreGenerationNameId {
         return CoreGenerationNameId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreGrowthRateId(value: Int): CoreGrowthRateId {
+    fun intToCoreGrowthRateId(
+        value: Int,
+    ): CoreGrowthRateId {
         return CoreGrowthRateId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreLanguageId(value: Int): CoreLanguageId {
+    fun intToCoreLanguageId(
+        value: Int,
+    ): CoreLanguageId {
         return CoreLanguageId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreMoveDamageClassId(value: Int): CoreMoveDamageClassId {
+    fun intToCoreMoveDamageClassId(
+        value: Int,
+    ): CoreMoveDamageClassId {
         return CoreMoveDamageClassId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokedexId(value: Int): CorePokedexId {
+    fun intToCorePokedexId(
+        value: Int,
+    ): CorePokedexId {
         return CorePokedexId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokedexDescriptionId(value: Int): CorePokedexDescriptionId {
+    fun intToCorePokedexDescriptionId(
+        value: Int,
+    ): CorePokedexDescriptionId {
         return CorePokedexDescriptionId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokedexNameId(value: Int): CorePokedexNameId {
+    fun intToCorePokedexNameId(
+        value: Int,
+    ): CorePokedexNameId {
         return CorePokedexNameId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokedexVersionGroupId(value: Int): CorePokedexVersionGroupId {
+    fun intToCorePokedexVersionGroupId(
+        value: Int,
+    ): CorePokedexVersionGroupId {
         return CorePokedexVersionGroupId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokemonColorId(value: Int): CorePokemonColorId {
+    fun intToCorePokemonColorId(
+        value: Int,
+    ): CorePokemonColorId {
         return CorePokemonColorId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokemonDexNumberId(value: Int): CorePokemonDexNumberId {
+    fun intToCorePokemonDexNumberId(
+        value: Int,
+    ): CorePokemonDexNumberId {
         return CorePokemonDexNumberId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokemonFormId(value: Int): CorePokemonFormId {
+    fun intToCorePokemonFormId(
+        value: Int,
+    ): CorePokemonFormId {
         return CorePokemonFormId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokemonFormNameId(value: Int): CorePokemonFormNameId {
+    fun intToCorePokemonFormNameId(
+        value: Int,
+    ): CorePokemonFormNameId {
         return CorePokemonFormNameId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokemonHabitatId(value: Int): CorePokemonHabitatId {
+    fun intToCorePokemonHabitatId(
+        value: Int,
+    ): CorePokemonHabitatId {
         return CorePokemonHabitatId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokemonId(value: Int): CorePokemonId {
+    fun intToCorePokemonId(
+        value: Int,
+    ): CorePokemonId {
         return CorePokemonId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokemonShapeId(value: Int): CorePokemonShapeId {
+    fun intToCorePokemonShapeId(
+        value: Int,
+    ): CorePokemonShapeId {
         return CorePokemonShapeId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokemonSpeciesId(value: Int): CorePokemonSpeciesId {
+    fun intToCorePokemonSpeciesId(
+        value: Int,
+    ): CorePokemonSpeciesId {
         return CorePokemonSpeciesId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokemonSpeciesNameId(value: Int): CorePokemonSpeciesNameId {
+    fun intToCorePokemonSpeciesNameId(
+        value: Int,
+    ): CorePokemonSpeciesNameId {
         return CorePokemonSpeciesNameId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCorePokemonTypeId(value: Int): CorePokemonTypeId {
+    fun intToCorePokemonTypeId(
+        value: Int,
+    ): CorePokemonTypeId {
         return CorePokemonTypeId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreRegionId(value: Int): CoreRegionId {
+    fun intToCoreRegionId(
+        value: Int,
+    ): CoreRegionId {
         return CoreRegionId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreRegionNameId(value: Int): CoreRegionNameId {
+    fun intToCoreRegionNameId(
+        value: Int,
+    ): CoreRegionNameId {
         return CoreRegionNameId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreTypeId(value: Int): CoreTypeId {
+    fun intToCoreTypeId(
+        value: Int,
+    ): CoreTypeId {
         return CoreTypeId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreTypeNameId(value: Int): CoreTypeNameId {
+    fun intToCoreTypeNameId(
+        value: Int,
+    ): CoreTypeNameId {
         return CoreTypeNameId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreVersionId(value: Int): CoreVersionId {
+    fun intToCoreVersionId(
+        value: Int,
+    ): CoreVersionId {
         return CoreVersionId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreVersionGroupId(value: Int): CoreVersionGroupId {
+    fun intToCoreVersionGroupId(
+        value: Int,
+    ): CoreVersionGroupId {
         return CoreVersionGroupId.from(value)
     }
 
     @ColumnTypeConverter
-    fun intToCoreVersionNameId(value: Int): CoreVersionNameId {
+    fun intToCoreVersionNameId(
+        value: Int,
+    ): CoreVersionNameId {
         return CoreVersionNameId.from(value)
     }
 
     @ColumnTypeConverter
-    fun idToInt(id: NBId): Int {
+    fun idToInt(
+        id: NBId,
+    ): Int {
         return id.value
     }
-
 }

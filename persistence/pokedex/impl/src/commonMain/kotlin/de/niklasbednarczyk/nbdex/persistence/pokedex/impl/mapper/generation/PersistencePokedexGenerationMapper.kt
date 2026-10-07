@@ -9,7 +9,6 @@ import de.niklasbednarczyk.nbdex.persistence.pokedex.impl.model.generation.Persi
 
 internal object PersistencePokedexGenerationMapper :
     NBPersistenceFeatureMapper<PokedexGeneration, PersistencePokedexGeneration, CoreLanguageId> {
-
     override fun persistenceToModel(
         persistence: PersistencePokedexGeneration,
         input: CoreLanguageId,
@@ -24,5 +23,4 @@ internal object PersistencePokedexGenerationMapper :
             ),
         )
     }
-
 }

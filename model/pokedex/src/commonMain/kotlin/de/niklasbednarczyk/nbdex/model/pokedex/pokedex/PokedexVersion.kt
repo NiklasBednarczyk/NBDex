@@ -8,9 +8,7 @@ data class PokedexVersion(
     val version: CoreVersion,
     override val versionName: CoreVersionName,
 ) : CoreDisplayModelVersionGroupVersion {
-
     companion object {
-
         fun example(
             version: CoreVersion = CoreVersion.example(),
             versionName: CoreVersionName = CoreVersionName.example(),
@@ -20,7 +18,5 @@ data class PokedexVersion(
                 versionName = versionName,
             )
         }
-
     }
-
 }

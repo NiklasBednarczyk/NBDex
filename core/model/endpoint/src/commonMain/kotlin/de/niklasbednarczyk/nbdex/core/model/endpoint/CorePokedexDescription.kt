@@ -10,9 +10,7 @@ data class CorePokedexDescription(
     val languageId: CoreLanguageId?,
     val pokedexId: CorePokedexId?,
 ) {
-
     companion object {
-
         fun example(
             id: CorePokedexDescriptionId = CorePokedexDescriptionId.example(),
             description: String = "PokedexDescription Description",
@@ -26,7 +24,5 @@ data class CorePokedexDescription(
                 pokedexId = pokedexId,
             )
         }
-
     }
-
 }

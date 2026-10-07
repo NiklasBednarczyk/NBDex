@@ -10,9 +10,7 @@ data class CoreTypeName(
     val name: String,
     val typeId: CoreTypeId?,
 ) {
-
     companion object {
-
         fun example(
             id: CoreTypeNameId = CoreTypeNameId.example(),
             languageId: CoreLanguageId? = CoreLanguageId.example(),
@@ -26,7 +24,5 @@ data class CoreTypeName(
                 typeId = typeId,
             )
         }
-
     }
-
 }

@@ -8,7 +8,6 @@ import de.niklasbednarczyk.nbdex.persistence.pokedex.impl.model.pokedex.Persiste
 
 internal object PersistencePokedexVersionGroupMapper :
     NBPersistenceFeatureMapper<PokedexVersionGroup, PersistencePokedexVersionGroup, CoreLanguageId> {
-
     override fun persistenceToModel(
         persistence: PersistencePokedexVersionGroup,
         input: CoreLanguageId,
@@ -22,8 +21,7 @@ internal object PersistencePokedexVersionGroupMapper :
                     persistenceList = persistence.versions,
                     input = input,
                 )
-                .sortedBy { version -> version.version.id }
+                .sortedBy { version -> version.version.id },
         )
     }
-
 }

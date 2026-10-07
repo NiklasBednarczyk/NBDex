@@ -6,8 +6,7 @@ import de.niklasbednarczyk.nbdex.core.network.mapper.NBNetworkMapper
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-abstract class NBNetworkDataSourceImpl : KoinComponent {
-
+open class NBNetworkDataSourceImpl : KoinComponent {
     private val apolloClient: ApolloClient by inject()
 
     protected suspend fun <Model : Any, QueryData : Query.Data> executeQuery(
@@ -20,5 +19,4 @@ abstract class NBNetworkDataSourceImpl : KoinComponent {
             .dataOrThrow()
         return mapper.networkToModel(queryData)
     }
-
 }

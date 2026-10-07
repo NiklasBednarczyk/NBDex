@@ -16,7 +16,7 @@ val featureMoreModule = module {
     navigation<MoreNavKey>(
         metadata = ListDetailSceneStrategy.listPane(
             sceneKey = NBTopLevelDestination.MORE.sceneKey,
-            detailPlaceholder = { NBDetailPlaceholderContent() }
+            detailPlaceholder = { NBDetailPlaceholderContent() },
         ),
     ) {
         MoreScreen()

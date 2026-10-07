@@ -10,11 +10,12 @@ import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class DependencyRoom3CompilerConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         plugins {
             apply(libs.getPluginId("nbdex-dependency-ksp"))
-            apply(libs.getPluginId("androidx-room3"))
+            apply(libs.getPluginId("plugin-androidx-room3"))
         }
 
         extensions.configure<KotlinMultiplatformExtension> {

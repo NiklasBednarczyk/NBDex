@@ -6,21 +6,26 @@ import kotlin.jvm.JvmInline
 @Serializable
 @JvmInline
 value class CoreVersionNameId private constructor(override val value: Int) : NBId {
-
     companion object {
-
-        fun example(value: Int = NBId.EXAMPLE_VALUE): CoreVersionNameId {
+        fun example(
+            value: Int = NBId.EXAMPLE_VALUE,
+        ): CoreVersionNameId {
             return CoreVersionNameId(value)
         }
 
-        fun from(value: Int): CoreVersionNameId {
+        fun from(
+            value: Int,
+        ): CoreVersionNameId {
             return CoreVersionNameId(value)
         }
 
-        fun from(value: Int?): CoreVersionNameId? {
-            return NBId.fromNullable(value, ::from)
+        fun from(
+            value: Int?,
+        ): CoreVersionNameId? {
+            return NBId.fromNullable(
+                value = value,
+                block = ::from,
+            )
         }
-
     }
-
 }

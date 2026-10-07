@@ -11,7 +11,6 @@ data class PokedexPokemonForm(
     val versionGroup: CoreVersionGroup?,
     val pokemon: PokedexPokemon?,
 ) {
-
     val displayName: String
         get() {
             val name = if (pokemon?.pokemon?.isDefault == true) {
@@ -25,9 +24,7 @@ data class PokedexPokemonForm(
     val pokemonSprite: CorePokemonSprite?
         get() = CorePokemonSprite.from(pokemon?.pokemon?.id)
 
-
     companion object {
-
         fun example(
             pokemonForm: CorePokemonForm = CorePokemonForm.example(),
             pokemonFormName: CorePokemonFormName? = CorePokemonFormName.example(),
@@ -41,7 +38,5 @@ data class PokedexPokemonForm(
                 pokemon = pokemon,
             )
         }
-
     }
-
 }

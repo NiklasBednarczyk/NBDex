@@ -65,7 +65,7 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.NBLoadingCo
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.NBMultiSelection
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.NBSingleSelectionGroupNullable
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.NBSingleSelectionWithNull
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.selectionIsDropdownMenu
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.isSelectionDropdownMenu
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.NBTextSingleLine
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.icon
@@ -84,6 +84,13 @@ import de.niklasbednarczyk.nbdex.model.pokedex.pokemonform.PokedexPokemonSpecies
 import de.niklasbednarczyk.nbdex.model.pokedex.pokemonform.PokedexPokemonType
 import de.niklasbednarczyk.nbdex.model.pokedex.preferences.PokedexPreferencesCategory
 import de.niklasbednarczyk.nbdex.model.pokedex.type.PokedexType
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.ImmutableSet
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.persistentMapOf
+import kotlinx.collections.immutable.persistentSetOf
+import kotlinx.collections.immutable.toImmutableList
 import nbdex.core.ui.resource.generated.resources.Res
 import nbdex.core.ui.resource.generated.resources.content_description_sprite_pokemon_official_artwork
 import nbdex.core.ui.resource.generated.resources.pokedex_pokemon_forms_empty
@@ -107,30 +114,31 @@ fun PokedexScreen() {
 
     PokedexScreen(
         uiState = uiState,
-        onReloadClicked = viewModel::reload,
-        onFilterChanged = viewModel::updateSelectedFilter,
-        onPokedexClicked = viewModel::updateSelectedPokedex,
-        onGenerationClicked = viewModel::updateSelectedGeneration,
-        onTypeClicked = viewModel::updateSelectedType,
-        onCategoryClicked = viewModel::updateSelectedCategory,
-        onPokemonFormClicked = viewModel::navigateToPokemonForm,
+        onReloadClick = viewModel::reload,
+        onFilterChang = viewModel::updateSelectedFilter,
+        onPokedexClick = viewModel::updateSelectedPokedex,
+        onGenerationClick = viewModel::updateSelectedGeneration,
+        onTypeClick = viewModel::updateSelectedType,
+        onCategoryClick = viewModel::updateSelectedCategory,
+        onPokemonFormClick = viewModel::navigateToPokemonForm,
     )
 }
 
 @Composable
 private fun PokedexScreen(
     uiState: PokedexUiState,
-    onReloadClicked: () -> Unit,
-    onFilterChanged: (filter: PokedexFilter?) -> Unit,
-    onPokedexClicked: (pokedex: PokedexPokedex) -> Unit,
-    onGenerationClicked: (generation: PokedexGeneration?) -> Unit,
-    onTypeClicked: (type: PokedexType?) -> Unit,
-    onCategoryClicked: (category: PokedexPreferencesCategory) -> Unit,
-    onPokemonFormClicked: (pokemonForm: PokedexPokemonForm) -> Unit,
+    onReloadClick: () -> Unit,
+    onFilterChang: (filter: PokedexFilter?) -> Unit,
+    onPokedexClick: (pokedex: PokedexPokedex) -> Unit,
+    onGenerationClick: (generation: PokedexGeneration?) -> Unit,
+    onTypeClick: (type: PokedexType?) -> Unit,
+    onCategoryClick: (category: PokedexPreferencesCategory) -> Unit,
+    onPokemonFormClick: (pokemonForm: PokedexPokemonForm) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             NBCenteredTopAppBar(
                 scrollBehavior = scrollBehavior,
@@ -150,7 +158,7 @@ private fun PokedexScreen(
                 when (state) {
                     PokedexUiState.Error -> {
                         NBErrorContent(
-                            onReloadClicked = onReloadClicked,
+                            onReloadClick = onReloadClick,
                         )
                     }
 
@@ -162,22 +170,22 @@ private fun PokedexScreen(
                         SuccessContent(
                             filters = state.filters,
                             selectedFilter = state.selectedFilter,
-                            onFilterChanged = onFilterChanged,
+                            onFilterChange = onFilterChang,
                             pokedexesMap = state.pokedexesMap,
                             selectedPokedex = state.selectedPokedex,
-                            onPokedexClicked = onPokedexClicked,
+                            onPokedexClick = onPokedexClick,
                             generations = state.generations,
                             selectedGeneration = state.selectedGeneration,
-                            onGenerationClicked = onGenerationClicked,
+                            onGenerationClick = onGenerationClick,
                             types = state.types,
                             selectedType = state.selectedType,
-                            onTypeClicked = onTypeClicked,
+                            onTypeClick = onTypeClick,
                             categories = state.categories,
                             selectedCategories = state.selectedCategories,
-                            onCategoryClicked = onCategoryClicked,
+                            onCategoryClick = onCategoryClick,
                             pokemonForms = state.pokemonForms,
                             selectedPokemonFormId = state.selectedPokemonFormId,
-                            onPokemonFormClicked = onPokemonFormClicked,
+                            onPokemonFormClick = onPokemonFormClick,
                         )
                     }
                 }
@@ -188,27 +196,28 @@ private fun PokedexScreen(
 
 @Composable
 private fun SuccessContent(
-    filters: List<PokedexFilter>,
+    filters: ImmutableList<PokedexFilter>,
     selectedFilter: PokedexFilter?,
-    onFilterChanged: (filter: PokedexFilter?) -> Unit,
-    pokedexesMap: Map<PokedexRegion?, List<PokedexPokedex>>,
+    onFilterChange: (filter: PokedexFilter?) -> Unit,
+    pokedexesMap: ImmutableMap<PokedexRegion?, List<PokedexPokedex>>,
     selectedPokedex: PokedexPokedex,
-    onPokedexClicked: (pokedex: PokedexPokedex) -> Unit,
-    generations: List<PokedexGeneration>,
+    onPokedexClick: (pokedex: PokedexPokedex) -> Unit,
+    generations: ImmutableList<PokedexGeneration>,
     selectedGeneration: PokedexGeneration?,
-    onGenerationClicked: (generation: PokedexGeneration?) -> Unit,
-    types: List<PokedexType>,
+    onGenerationClick: (generation: PokedexGeneration?) -> Unit,
+    types: ImmutableList<PokedexType>,
     selectedType: PokedexType?,
-    onTypeClicked: (type: PokedexType?) -> Unit,
-    categories: List<PokedexPreferencesCategory>,
-    selectedCategories: Set<PokedexPreferencesCategory>,
-    onCategoryClicked: (category: PokedexPreferencesCategory) -> Unit,
-    pokemonForms: List<PokedexPokemonForm>,
+    onTypeClick: (type: PokedexType?) -> Unit,
+    categories: ImmutableList<PokedexPreferencesCategory>,
+    selectedCategories: ImmutableSet<PokedexPreferencesCategory>,
+    onCategoryClick: (category: PokedexPreferencesCategory) -> Unit,
+    pokemonForms: ImmutableList<PokedexPokemonForm>,
     selectedPokemonFormId: CorePokemonFormId?,
-    onPokemonFormClicked: (pokemonForm: PokedexPokemonForm) -> Unit,
+    onPokemonFormClick: (pokemonForm: PokedexPokemonForm) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
     ) {
         FilterRow(
             filters = filters,
@@ -221,11 +230,11 @@ private fun SuccessContent(
             selectedType = selectedType,
             categories = categories,
             selectedCategories = selectedCategories,
-            onFilterChanged = onFilterChanged,
-            onPokedexClicked = onPokedexClicked,
-            onGenerationClicked = onGenerationClicked,
-            onTypeClicked = onTypeClicked,
-            onCategoryClicked = onCategoryClicked,
+            onFilterChange = onFilterChange,
+            onPokedexClick = onPokedexClick,
+            onGenerationClick = onGenerationClick,
+            onTypeClick = onTypeClick,
+            onCategoryClick = onCategoryClick,
         )
         if (pokemonForms.isEmpty()) {
             NBInfoContent(
@@ -246,7 +255,7 @@ private fun SuccessContent(
                     PokemonForm(
                         pokemonForm = pokemonForm,
                         selected = selectedPokemonFormId == pokemonForm.pokemonForm.id,
-                        onClick = { onPokemonFormClicked(pokemonForm) },
+                        onClick = { onPokemonFormClick(pokemonForm) },
                     )
                 }
             }
@@ -256,24 +265,25 @@ private fun SuccessContent(
 
 @Composable
 private fun FilterRow(
-    filters: List<PokedexFilter>,
+    filters: ImmutableList<PokedexFilter>,
     selectedFilter: PokedexFilter?,
-    pokedexesMap: Map<PokedexRegion?, List<PokedexPokedex>>,
+    pokedexesMap: ImmutableMap<PokedexRegion?, List<PokedexPokedex>>,
     selectedPokedex: PokedexPokedex,
-    generations: List<PokedexGeneration>,
+    generations: ImmutableList<PokedexGeneration>,
     selectedGeneration: PokedexGeneration?,
-    types: List<PokedexType>,
+    types: ImmutableList<PokedexType>,
     selectedType: PokedexType?,
-    categories: List<PokedexPreferencesCategory>,
-    selectedCategories: Set<PokedexPreferencesCategory>,
-    onFilterChanged: (filter: PokedexFilter?) -> Unit,
-    onPokedexClicked: (pokedex: PokedexPokedex) -> Unit,
-    onGenerationClicked: (generation: PokedexGeneration?) -> Unit,
-    onTypeClicked: (type: PokedexType?) -> Unit,
-    onCategoryClicked: (category: PokedexPreferencesCategory) -> Unit,
+    categories: ImmutableList<PokedexPreferencesCategory>,
+    selectedCategories: ImmutableSet<PokedexPreferencesCategory>,
+    onFilterChange: (filter: PokedexFilter?) -> Unit,
+    onPokedexClick: (pokedex: PokedexPokedex) -> Unit,
+    onGenerationClick: (generation: PokedexGeneration?) -> Unit,
+    onTypeClick: (type: PokedexType?) -> Unit,
+    onCategoryClick: (category: PokedexPreferencesCategory) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     LazyRow(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         contentPadding = PaddingValues(
             horizontal = NBTheme.dimensions.padding.medium,
         ),
@@ -281,32 +291,32 @@ private fun FilterRow(
     ) {
         items(
             items = filters,
-            key = { filter -> filter }
+            key = { filter -> filter },
         ) { filter ->
             val expanded = selectedFilter == filter
-            val onExpandedChanged: (Boolean) -> Unit = { newExpanded ->
+            val onExpandedChange: (Boolean) -> Unit = { newExpanded ->
                 val newFilter = if (newExpanded) filter else null
-                onFilterChanged(newFilter)
+                onFilterChange(newFilter)
             }
 
             when (filter) {
                 PokedexFilter.CATEGORY -> {
                     NBMultiSelection(
                         expanded = expanded,
-                        onExpandedChanged = onExpandedChanged,
+                        onExpandedChange = onExpandedChange,
                         title = stringResource(Res.string.pokedex_preferences_categories_title),
                         items = categories,
                         selectedItems = selectedCategories,
                         getKey = { category -> category },
                         getContentText = { category -> stringResource(category.stringResource) },
-                        onClick = onCategoryClicked,
+                        onClick = onCategoryClick,
                     )
                 }
 
                 PokedexFilter.GENERATION -> {
                     NBSingleSelectionWithNull(
                         expanded = expanded,
-                        onExpandedChanged = onExpandedChanged,
+                        onExpandedChange = onExpandedChange,
                         title = stringResource(Res.string.pokedex_preferences_generation_title),
                         items = generations,
                         selectedItem = selectedGeneration,
@@ -315,14 +325,14 @@ private fun FilterRow(
                             generation?.generationName?.name
                                 ?: stringResource(Res.string.pokedex_preferences_generation_value_null)
                         },
-                        onClick = onGenerationClicked,
+                        onClick = onGenerationClick,
                     )
                 }
 
                 PokedexFilter.POKEDEX -> {
                     NBSingleSelectionGroupNullable(
                         expanded = selectedFilter == filter,
-                        onExpandedChanged = onExpandedChanged,
+                        onExpandedChange = onExpandedChange,
                         title = stringResource(Res.string.pokedex_preferences_pokedex_title),
                         map = pokedexesMap,
                         selectedItem = selectedPokedex,
@@ -341,23 +351,22 @@ private fun FilterRow(
                             if (versionGroups.isNotEmpty()) {
                                 CoreDisplayViewVersionGroups(
                                     versionGroups = versionGroups,
-                                    showAbbreviations = selectionIsDropdownMenu,
+                                    showAbbreviations = isSelectionDropdownMenu,
                                 )
                             } else if (description.isNotBlank()) {
                                 Text(
                                     text = description,
                                 )
                             }
-
                         },
-                        onClick = onPokedexClicked,
+                        onClick = onPokedexClick,
                     )
                 }
 
                 PokedexFilter.TYPE -> {
                     NBSingleSelectionWithNull(
                         expanded = selectedFilter == filter,
-                        onExpandedChanged = onExpandedChanged,
+                        onExpandedChange = onExpandedChange,
                         title = stringResource(Res.string.pokedex_preferences_type_title),
                         items = types,
                         selectedItem = selectedType,
@@ -366,8 +375,8 @@ private fun FilterRow(
                             type?.typeName?.name
                                 ?: stringResource(Res.string.pokedex_preferences_type_value_null)
                         },
-                        onClick = onTypeClicked,
-                        getTrailingIcon = { type -> type?.displayType?.icon }
+                        onClick = onTypeClick,
+                        getTrailingIcon = { type -> type?.displayType?.icon },
                     )
                 }
             }
@@ -380,6 +389,7 @@ private fun PokemonForm(
     pokemonForm: PokedexPokemonForm,
     selected: Boolean,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val showHighlight = selected && !NBTheme.isSinglePane
     val containerColor = if (showHighlight) {
@@ -394,7 +404,7 @@ private fun PokemonForm(
     }
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .clip(NBTheme.shapes.medium)
             .background(containerColor)
             .clickable(onClick = onClick)
@@ -444,7 +454,7 @@ private fun Preview(
     NBPreview(
         previewInfo = previewInfo,
     ) {
-        val pokedexesMap = mapOf<PokedexRegion?, List<PokedexPokedex>>(
+        val pokedexesMap = persistentMapOf<PokedexRegion?, List<PokedexPokedex>>(
             null to listOf(
                 PokedexPokedex.example(
                     pokedex = CorePokedex.example(
@@ -452,19 +462,19 @@ private fun Preview(
                     ),
                     pokedexName = CorePokedexName.example(
                         name = "National",
-                    )
+                    ),
                 ),
-            )
+            ),
         )
 
-        val generations = listOf(
+        val generations = persistentListOf(
             PokedexGeneration.example(
                 generation = CoreGeneration.example(
                     id = CoreGenerationId.example(1),
                 ),
                 generationName = CoreGenerationName.example(
                     name = "Generation I",
-                )
+                ),
             ),
             PokedexGeneration.example(
                 generation = CoreGeneration.example(
@@ -472,7 +482,7 @@ private fun Preview(
                 ),
                 generationName = CoreGenerationName.example(
                     name = "Generation II",
-                )
+                ),
             ),
             PokedexGeneration.example(
                 generation = CoreGeneration.example(
@@ -480,18 +490,18 @@ private fun Preview(
                 ),
                 generationName = CoreGenerationName.example(
                     name = "Generation III",
-                )
+                ),
             ),
         )
 
-        val types = listOf(
+        val types = persistentListOf(
             PokedexType.example(
                 type = CoreType.example(
                     id = CoreTypeId.example(12),
                 ),
                 typeName = CoreTypeName.example(
                     name = "Grass",
-                )
+                ),
             ),
             PokedexType.example(
                 type = CoreType.example(
@@ -499,7 +509,7 @@ private fun Preview(
                 ),
                 typeName = CoreTypeName.example(
                     name = "Poison",
-                )
+                ),
             ),
             PokedexType.example(
                 type = CoreType.example(
@@ -507,11 +517,11 @@ private fun Preview(
                 ),
                 typeName = CoreTypeName.example(
                     name = "Water",
-                )
+                ),
             ),
         )
 
-        val pokemonForms = listOf(
+        val pokemonForms = persistentListOf(
             PokedexPokemonForm.example(
                 pokemonForm = CorePokemonForm.example(
                     id = CorePokemonFormId.example(1),
@@ -531,7 +541,7 @@ private fun Preview(
                             pokedexNumber = CorePokedexNumber.example(1),
                         ),
                     ),
-                    pokemonTypes = listOf(
+                    pokemonTypes = persistentListOf(
                         PokedexPokemonType.example(
                             pokemonType = CorePokemonType.example(
                                 typeId = CoreTypeId.example(12),
@@ -572,7 +582,7 @@ private fun Preview(
                             pokedexNumber = CorePokedexNumber.example(2),
                         ),
                     ),
-                    pokemonTypes = listOf(
+                    pokemonTypes = persistentListOf(
                         PokedexPokemonType.example(
                             pokemonType = CorePokemonType.example(
                                 typeId = CoreTypeId.example(12),
@@ -613,7 +623,7 @@ private fun Preview(
                             pokedexNumber = CorePokedexNumber.example(3),
                         ),
                     ),
-                    pokemonTypes = listOf(
+                    pokemonTypes = persistentListOf(
                         PokedexPokemonType.example(
                             pokemonType = CorePokemonType.example(
                                 typeId = CoreTypeId.example(12),
@@ -654,7 +664,7 @@ private fun Preview(
                             pokedexNumber = CorePokedexNumber.example(152),
                         ),
                     ),
-                    pokemonTypes = listOf(
+                    pokemonTypes = persistentListOf(
                         PokedexPokemonType.example(
                             pokemonType = CorePokemonType.example(
                                 typeId = CoreTypeId.example(12),
@@ -686,7 +696,7 @@ private fun Preview(
                             pokedexNumber = CorePokedexNumber.example(153),
                         ),
                     ),
-                    pokemonTypes = listOf(
+                    pokemonTypes = persistentListOf(
                         PokedexPokemonType.example(
                             pokemonType = CorePokemonType.example(
                                 typeId = CoreTypeId.example(12),
@@ -718,7 +728,7 @@ private fun Preview(
                             pokedexNumber = CorePokedexNumber.example(154),
                         ),
                     ),
-                    pokemonTypes = listOf(
+                    pokemonTypes = persistentListOf(
                         PokedexPokemonType.example(
                             pokemonType = CorePokemonType.example(
                                 typeId = CoreTypeId.example(12),
@@ -741,8 +751,18 @@ private fun Preview(
         var selectedGeneration: PokedexGeneration? by remember { mutableStateOf(null) }
         var selectedType: PokedexType? by remember { mutableStateOf(null) }
         val selectedPokemonForms = pokemonForms
-            .filter { pokemonForm -> selectedGeneration == null || pokemonForm.versionGroup?.generationId == selectedGeneration?.generation?.id }
-            .filter { pokemonForm -> selectedType == null || pokemonForm.pokemon?.pokemonTypes?.any { pokemonType -> pokemonType.pokemonType.typeId == selectedType?.type?.id } == true }
+            .asSequence()
+            .filter { pokemonForm ->
+                selectedGeneration == null ||
+                    pokemonForm.versionGroup?.generationId == selectedGeneration?.generation?.id
+            }
+            .filter { pokemonForm ->
+                selectedType == null ||
+                    pokemonForm.pokemon?.pokemonTypes?.any { pokemonType ->
+                        pokemonType.pokemonType.typeId == selectedType?.type?.id
+                    } == true
+            }
+            .toImmutableList()
 
         PokedexScreen(
             uiState = PokedexUiState.Success(
@@ -753,24 +773,24 @@ private fun Preview(
                 selectedGeneration = selectedGeneration,
                 types = types,
                 selectedType = selectedType,
-                selectedCategories = setOf(),
+                selectedCategories = persistentSetOf(),
                 pokemonForms = selectedPokemonForms,
                 selectedPokemonFormId = null,
             ),
-            onReloadClicked = {},
-            onFilterChanged = { filter -> selectedFilter = filter },
-            onPokedexClicked = {},
-            onGenerationClicked = { generation -> selectedGeneration = generation },
-            onTypeClicked = { type -> selectedType = type },
-            onCategoryClicked = {},
-            onPokemonFormClicked = {},
+            onReloadClick = {},
+            onFilterChang = { filter -> selectedFilter = filter },
+            onPokedexClick = {},
+            onGenerationClick = { generation -> selectedGeneration = generation },
+            onTypeClick = { type -> selectedType = type },
+            onCategoryClick = {},
+            onPokemonFormClick = {},
         )
     }
 }
 
 @Composable
 @Preview
-private fun PreviewError(
+private fun ErrorPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
@@ -778,20 +798,20 @@ private fun PreviewError(
     ) {
         PokedexScreen(
             uiState = PokedexUiState.Error,
-            onReloadClicked = {},
-            onFilterChanged = {},
-            onPokedexClicked = {},
-            onGenerationClicked = {},
-            onTypeClicked = {},
-            onCategoryClicked = {},
-            onPokemonFormClicked = {},
+            onReloadClick = {},
+            onFilterChang = {},
+            onPokedexClick = {},
+            onGenerationClick = {},
+            onTypeClick = {},
+            onCategoryClick = {},
+            onPokemonFormClick = {},
         )
     }
 }
 
 @Composable
 @Preview
-private fun PreviewLoading(
+private fun LoadingPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
@@ -799,13 +819,13 @@ private fun PreviewLoading(
     ) {
         PokedexScreen(
             uiState = PokedexUiState.Loading,
-            onReloadClicked = {},
-            onFilterChanged = {},
-            onPokedexClicked = {},
-            onGenerationClicked = {},
-            onTypeClicked = {},
-            onCategoryClicked = {},
-            onPokemonFormClicked = {},
+            onReloadClick = {},
+            onFilterChang = {},
+            onPokedexClick = {},
+            onGenerationClick = {},
+            onTypeClick = {},
+            onCategoryClick = {},
+            onPokemonFormClick = {},
         )
     }
 }

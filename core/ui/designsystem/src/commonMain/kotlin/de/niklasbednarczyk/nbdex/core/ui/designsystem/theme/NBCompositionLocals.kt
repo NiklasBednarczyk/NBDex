@@ -25,7 +25,7 @@ internal fun ProvideNBCompositionLocals(
     isDarkTheme: Boolean,
     contrast: CoreSettingsContrast,
     isSinglePane: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val dimensions = NBDimensions()
 
@@ -45,6 +45,8 @@ internal fun ProvideNBCompositionLocals(
     )
 }
 
-private fun noLocalProvidedFor(name: String): Nothing {
+private fun noLocalProvidedFor(
+    name: String,
+): Nothing {
     error("CompositionLocal $name not present")
 }

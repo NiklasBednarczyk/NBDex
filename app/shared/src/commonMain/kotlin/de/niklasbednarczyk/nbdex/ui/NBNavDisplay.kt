@@ -8,8 +8,10 @@ import androidx.compose.material3.adaptive.layout.PaneScaffoldDirective
 import androidx.compose.material3.adaptive.layout.rememberPaneExpansionState
 import androidx.compose.material3.adaptive.navigation3.rememberListDetailSceneStrategy
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.navigation3.ui.NavDisplay
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsPaneExpansionAnchor
@@ -26,7 +28,8 @@ fun NBNavDisplay(
     entryProvider: EntryProvider<NBNavKey>,
     paneScaffoldDirective: PaneScaffoldDirective,
     paneExpansionAnchor: CoreSettingsPaneExpansionAnchor?,
-    onPaneExpansionAnchorChanged: (paneExpansionAnchor: PaneExpansionAnchor?) -> Unit,
+    onPaneExpansionAnchorChange: (paneExpansionAnchor: PaneExpansionAnchor?) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val paneExpansionState = rememberPaneExpansionState(
         anchors = paneExpansionAnchors,
@@ -36,9 +39,10 @@ fun NBNavDisplay(
         ),
     )
 
+    val latestOnPaneExpansionAnchorChange by rememberUpdatedState(onPaneExpansionAnchorChange)
     val currentAnchor = paneExpansionState.currentAnchor
-    LaunchedEffect(currentAnchor) {
-        onPaneExpansionAnchorChanged(currentAnchor)
+    SideEffect(currentAnchor) {
+        latestOnPaneExpansionAnchorChange(currentAnchor)
     }
 
     val listDetailStrategy = rememberListDetailSceneStrategy<NBNavKey>(
@@ -54,10 +58,11 @@ fun NBNavDisplay(
                 ),
                 interactionSource = interactionSource,
             )
-        }
+        },
     )
 
     NavDisplay(
+        modifier = modifier,
         entries = navigator.state.toEntries(entryProvider),
         onBack = navigator::onBack,
         sceneStrategies = listOf(listDetailStrategy),

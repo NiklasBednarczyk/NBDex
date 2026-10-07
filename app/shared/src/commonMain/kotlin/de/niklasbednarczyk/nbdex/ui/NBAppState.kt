@@ -5,7 +5,6 @@ import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsPaneExpansionAn
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsTheme
 
 sealed interface NBAppState {
-
     data object Initial : NBAppState
 
     data class Success(
@@ -13,5 +12,4 @@ sealed interface NBAppState {
         val theme: CoreSettingsTheme,
         val contrast: CoreSettingsContrast,
     ) : NBAppState
-
 }

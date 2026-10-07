@@ -10,7 +10,6 @@
 |   Web (js)   |       Gradle       |                  Run: `jsBrowserDevelopmentRun`<br/>Gradle project: `NBDex:app:webApp`                  |
 | Web (wasmJs) |       Gradle       |                Run: `wasmJsBrowserDevelopmentRun`<br/>Gradle project: `NBDex:app:webApp`                |
 
-
 ## Modularization
 
 |     Layer     |                 Description                 |                                 Depends on                                 |                                                               Important dependencies                                                                |

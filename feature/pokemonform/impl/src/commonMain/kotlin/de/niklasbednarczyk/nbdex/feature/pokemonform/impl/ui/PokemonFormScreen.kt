@@ -32,10 +32,11 @@ fun PokemonFormScreen(
 private fun PokemonFormScreen(
     id: CorePokemonFormId?,
     onBack: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             NBSmallTopAppBar(
                 scrollBehavior = scrollBehavior,

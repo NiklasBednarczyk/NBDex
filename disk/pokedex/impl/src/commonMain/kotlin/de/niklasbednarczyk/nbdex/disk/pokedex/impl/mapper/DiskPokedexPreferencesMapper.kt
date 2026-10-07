@@ -9,16 +9,18 @@ import de.niklasbednarczyk.nbdex.model.pokedex.preferences.PokedexPreferences
 
 internal object DiskPokedexPreferencesMapper :
     NBDiskMessageMapper<PokedexPreferences, DiskPokedexPreferences> {
-
-    override fun diskToModel(disk: DiskPokedexPreferences): PokedexPreferences {
+    override fun diskToModel(
+        disk: DiskPokedexPreferences,
+    ): PokedexPreferences {
         return PokedexPreferences(
             pokedexId = CorePokedexId.from(disk.pokedexId) ?: CorePokedexId.default,
             generationId = CoreGenerationId.from(disk.generationId),
             typeId = CoreTypeId.from(disk.typeId),
-            categories = DiskPokedexPreferencesCategoryMapper.diskToModelNullable(
-                disk = disk.category,
-            ) ?: emptySet(),
+            categories = DiskPokedexPreferencesCategoryMapper
+                .diskToModelNullable(
+                    disk = disk.category,
+                )
+                .orEmpty(),
         )
     }
-
 }

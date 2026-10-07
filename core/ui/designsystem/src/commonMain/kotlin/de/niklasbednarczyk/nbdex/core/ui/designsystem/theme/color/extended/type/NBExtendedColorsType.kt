@@ -6,31 +6,50 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.color.extended.NBExt
 
 @Immutable
 data class NBExtendedColorsType(
+    /** Source color #91A119 from https://bulbapedia.bulbagarden.net/wiki/Template:Bug_color */
     val bug: NBExtendedColor,
+    /** Source color #624D4E from https://bulbapedia.bulbagarden.net/wiki/Template:Dark_color */
     val dark: NBExtendedColor,
+    /** Source color #5060E1 from https://bulbapedia.bulbagarden.net/wiki/Template:Dragon_color */
     val dragon: NBExtendedColor,
+    /** Source color #FAC000 from https://bulbapedia.bulbagarden.net/wiki/Template:Electric_color */
     val electric: NBExtendedColor,
+    /** Source color #EF70EF from https://bulbapedia.bulbagarden.net/wiki/Template:Fairy_color */
     val fairy: NBExtendedColor,
+    /** Source color #FF8000 from https://bulbapedia.bulbagarden.net/wiki/Template:Fighting_color */
     val fighting: NBExtendedColor,
+    /** Source color #E62829 from https://bulbapedia.bulbagarden.net/wiki/Template:Fire_color */
     val fire: NBExtendedColor,
+    /** Source color #81B9EF from https://bulbapedia.bulbagarden.net/wiki/Template:Flying_color */
     val flying: NBExtendedColor,
+    /** Source color #704170 from https://bulbapedia.bulbagarden.net/wiki/Template:Ghost_color */
     val ghost: NBExtendedColor,
+    /** Source color #3FA129 from https://bulbapedia.bulbagarden.net/wiki/Template:Grass_color */
     val grass: NBExtendedColor,
+    /** Source color #915121 from https://bulbapedia.bulbagarden.net/wiki/Template:Ground_color */
     val ground: NBExtendedColor,
+    /** Source color #3DCEF3 from https://bulbapedia.bulbagarden.net/wiki/Template:Ice_color */
     val ice: NBExtendedColor,
+    /** Source color #9FA19F from https://bulbapedia.bulbagarden.net/wiki/Template:Normal_color */
     val normal: NBExtendedColor,
+    /** Source color #9141CB from https://bulbapedia.bulbagarden.net/wiki/Template:Poison_color */
     val poison: NBExtendedColor,
+    /** Source color #EF4179 from https://bulbapedia.bulbagarden.net/wiki/Template:Psychic_color */
     val psychic: NBExtendedColor,
+    /** Source color #AFA981 from https://bulbapedia.bulbagarden.net/wiki/Template:Rock_color */
     val rock: NBExtendedColor,
+    /** Source color #604E82 from https://bulbapedia.bulbagarden.net/wiki/Template:XD_color */
     val shadow: NBExtendedColor,
+    /** Source color #60A1B8 from https://bulbapedia.bulbagarden.net/wiki/Template:Steel_color */
     val steel: NBExtendedColor,
+    /** Source color #40B5A5 from https://bulbapedia.bulbagarden.net/wiki/Template:Stellar_color */
     val stellar: NBExtendedColor,
+    /** Source color #68A090 from https://bulbapedia.bulbagarden.net/wiki/Template:Unknown_color */
     val unknown: NBExtendedColor,
+    /** Source color #2980EF from https://bulbapedia.bulbagarden.net/wiki/Template:Water_color */
     val water: NBExtendedColor,
 ) {
-
     companion object {
-
         private val extendedColorsTypeLightStandardContrast = NBExtendedColorsType(
             bug = NBExtendedColor(
                 color = typeBugLightStandardContrast,
@@ -571,7 +590,5 @@ data class NBExtendedColorsType(
                 }
             }
         }
-
     }
-
 }

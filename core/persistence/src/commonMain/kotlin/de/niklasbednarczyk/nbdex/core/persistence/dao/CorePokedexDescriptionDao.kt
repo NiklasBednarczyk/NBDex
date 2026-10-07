@@ -9,7 +9,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokedexDe
 
 @Dao
 interface CorePokedexDescriptionDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -17,11 +16,12 @@ interface CorePokedexDescriptionDao {
                 SELECT 1 
                 FROM ${NBTableName.POKEDEX_DESCRIPTION}
             );
-        """
+        """,
     )
     suspend fun hasPokedexDescriptions(): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertPokedexDescriptions(pokedexDescriptions: List<PersistenceCorePokedexDescription>)
-
+    suspend fun insertPokedexDescriptions(
+        pokedexDescriptions: List<PersistenceCorePokedexDescription>,
+    )
 }

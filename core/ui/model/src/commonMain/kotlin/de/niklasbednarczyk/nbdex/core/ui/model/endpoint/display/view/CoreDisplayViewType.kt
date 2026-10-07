@@ -28,14 +28,17 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.NBTextSingleLine
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.extendedColor
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.icon
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 
 @Composable
 fun CoreDisplayViewTypes(
-    types: List<CoreDisplayModelType>?,
+    types: ImmutableList<CoreDisplayModelType>?,
+    modifier: Modifier = Modifier,
 ) {
     Row(
         horizontalArrangement = Arrangement.spacedBy(NBTheme.dimensions.padding.small),
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
     ) {
         types?.forEach { type ->
             CoreDisplayViewType(
@@ -98,32 +101,32 @@ private fun CoreDisplayViewType(
 
 @Preview
 @Composable
-private fun PreviewList(
+private fun ListPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
         previewInfo = previewInfo,
     ) {
         CoreDisplayViewTypes(
-            types = listOf(
+            types = persistentListOf(
                 CoreDisplayModelType.example(
                     typeName = CoreTypeName.example(
                         name = "Type",
-                    )
+                    ),
                 ),
             ),
         )
         CoreDisplayViewTypes(
-            types = listOf(
+            types = persistentListOf(
                 CoreDisplayModelType.example(
                     typeName = CoreTypeName.example(
                         name = "Type 1",
-                    )
+                    ),
                 ),
                 CoreDisplayModelType.example(
                     typeName = CoreTypeName.example(
                         name = "Type 2",
-                    )
+                    ),
                 ),
             ),
         )
@@ -132,7 +135,7 @@ private fun PreviewList(
 
 @Preview
 @Composable
-private fun PreviewItem(
+private fun ItemPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
@@ -142,7 +145,7 @@ private fun PreviewItem(
             type = CoreDisplayModelType.example(
                 typeName = CoreTypeName.example(
                     name = "Type",
-                )
+                ),
             ),
         )
         CoreDisplayTypeType.entries.forEach { displayType ->

@@ -7,15 +7,18 @@ import okio.BufferedSink
 import okio.BufferedSource
 
 interface NBSerializer<Disk : Message<*, *>> : OkioSerializer<Disk> {
-
     val adapter: ProtoAdapter<Disk>
 
-    override suspend fun readFrom(source: BufferedSource): Disk {
+    override suspend fun readFrom(
+        source: BufferedSource,
+    ): Disk {
         return adapter.decode(source)
     }
 
-    override suspend fun writeTo(t: Disk, sink: BufferedSink) {
+    override suspend fun writeTo(
+        t: Disk,
+        sink: BufferedSink,
+    ) {
         sink.write(t.encode())
     }
-
 }

@@ -9,7 +9,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCoreVersionGr
 
 @Dao
 interface CoreVersionGroupDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -17,11 +16,12 @@ interface CoreVersionGroupDao {
                 SELECT 1 
                 FROM ${NBTableName.VERSION_GROUP}
             );
-        """
+        """,
     )
     suspend fun hasVersionGroups(): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertVersionGroups(versionGroups: List<PersistenceCoreVersionGroup>)
-
+    suspend fun insertVersionGroups(
+        versionGroups: List<PersistenceCoreVersionGroup>,
+    )
 }

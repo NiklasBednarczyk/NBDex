@@ -8,5 +8,4 @@ internal actual fun createSQLiteWasmWorker(): WebWorkerSQLiteDriver {
 }
 
 @OptIn(ExperimentalWasmJsInterop::class)
-private fun jsWorker(): Worker =
-    js("""new Worker(new URL("sqlite-wasm-worker/worker.js", import.meta.url))""")
+private fun jsWorker(): Worker = js("""new Worker(new URL("sqlite-wasm-worker/worker.js", import.meta.url))""")

@@ -72,7 +72,7 @@ val CoreDisplayTypeType.icon: ImageVector?
         CoreDisplayTypeType.DRAGON -> NBIcons.Type.Dragon
         CoreDisplayTypeType.DARK -> NBIcons.Type.Dark
         CoreDisplayTypeType.FAIRY -> NBIcons.Type.Fairy
-        CoreDisplayTypeType.STELLAR,
-        CoreDisplayTypeType.UNKNOWN,
+        CoreDisplayTypeType.STELLAR -> null
+        CoreDisplayTypeType.UNKNOWN -> null
         CoreDisplayTypeType.SHADOW -> null
     }

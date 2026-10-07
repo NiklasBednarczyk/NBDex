@@ -5,13 +5,13 @@ import org.jetbrains.compose.ComposeExtension
 import org.jetbrains.compose.resources.ResourcesExtension
 
 class DependencyComposeResourceConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         extensions.configure<ComposeExtension> {
             configure<ResourcesExtension> {
                 generateResClass = always
             }
         }
     }
-
 }

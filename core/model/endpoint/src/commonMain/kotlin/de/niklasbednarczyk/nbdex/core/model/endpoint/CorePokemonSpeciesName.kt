@@ -11,9 +11,7 @@ data class CorePokemonSpeciesName(
     val name: String,
     val pokemonSpeciesId: CorePokemonSpeciesId?,
 ) {
-
     companion object {
-
         fun example(
             id: CorePokemonSpeciesNameId = CorePokemonSpeciesNameId.example(),
             genus: String = "PokemonSpeciesName Genus",
@@ -29,7 +27,5 @@ data class CorePokemonSpeciesName(
                 pokemonSpeciesId = pokemonSpeciesId,
             )
         }
-
     }
-
 }

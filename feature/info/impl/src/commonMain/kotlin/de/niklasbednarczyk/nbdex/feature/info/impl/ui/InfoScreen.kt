@@ -18,10 +18,12 @@ import nbdex.core.ui.resource.generated.resources.info_title
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun InfoScreen() {
+fun InfoScreen(
+    modifier: Modifier = Modifier,
+) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             NBCenteredTopAppBar(
                 scrollBehavior = scrollBehavior,

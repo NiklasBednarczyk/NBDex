@@ -10,7 +10,6 @@ import org.koin.core.component.inject
 import org.koin.core.qualifier.named
 
 abstract class NBDiskDataSourceImpl<Disk : Message<*, *>> : KoinComponent {
-
     protected abstract val dataStoreName: String
 
     protected val dataStore: DataStore<Disk> by inject(named(dataStoreName))
@@ -22,5 +21,4 @@ abstract class NBDiskDataSourceImpl<Disk : Message<*, *>> : KoinComponent {
             .data
             .map(mapper::diskToModel)
     }
-
 }

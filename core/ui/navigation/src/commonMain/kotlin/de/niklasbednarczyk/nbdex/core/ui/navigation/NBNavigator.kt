@@ -3,8 +3,9 @@ package de.niklasbednarczyk.nbdex.core.ui.navigation
 class NBNavigator(
     val state: NBNavigationState,
 ) {
-
-    fun navigate(key: NBNavKey) {
+    fun navigate(
+        key: NBNavKey,
+    ) {
         when (key) {
             state.currentTopLevelKey -> clearSubStack()
             in state.topLevelKeys -> goToTopLevel(key)
@@ -20,14 +21,18 @@ class NBNavigator(
         }
     }
 
-    private fun goToKey(key: NBNavKey) {
+    private fun goToKey(
+        key: NBNavKey,
+    ) {
         state.currentSubStack.apply {
             removeAll { navKey -> navKey::class == key::class }
             add(key)
         }
     }
 
-    private fun goToTopLevel(key: NBNavKey) {
+    private fun goToTopLevel(
+        key: NBNavKey,
+    ) {
         state.topLevelStack.apply {
             if (key == state.startKey) {
                 clear()
@@ -40,7 +45,13 @@ class NBNavigator(
 
     private fun clearSubStack() {
         state.currentSubStack.run {
-            if (size > 1) subList(1, size).clear()
+            if (size > 1) {
+                subList(
+                    fromIndex = 1,
+                    toIndex = size,
+                )
+                    .clear()
+            }
         }
     }
 }

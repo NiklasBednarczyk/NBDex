@@ -8,10 +8,11 @@ import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class DependencySerializationConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         plugins {
-            apply(libs.getPluginId("kotlin-plugin-serialization"))
+            apply(libs.getPluginId("plugin-kotlin-plugin-serialization"))
         }
 
         extensions.configure<KotlinMultiplatformExtension> {

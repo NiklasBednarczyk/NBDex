@@ -5,7 +5,6 @@ import de.niklasbednarczyk.nbdex.di.initKoin
 import org.koin.android.ext.koin.androidContext
 
 class NBApplication : Application() {
-
     override fun onCreate() {
         super.onCreate()
 
@@ -13,5 +12,4 @@ class NBApplication : Application() {
             androidContext(this@NBApplication)
         }
     }
-
 }

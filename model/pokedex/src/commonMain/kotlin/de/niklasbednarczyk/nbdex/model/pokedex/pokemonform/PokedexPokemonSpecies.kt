@@ -9,9 +9,7 @@ data class PokedexPokemonSpecies(
     val pokemonDexNumber: CorePokemonDexNumber,
     val pokemonSpeciesName: CorePokemonSpeciesName,
 ) {
-
     companion object {
-
         fun example(
             pokemonSpecies: CorePokemonSpecies = CorePokemonSpecies.example(),
             pokemonDexNumber: CorePokemonDexNumber = CorePokemonDexNumber.example(),
@@ -23,7 +21,5 @@ data class PokedexPokemonSpecies(
                 pokemonSpeciesName = pokemonSpeciesName,
             )
         }
-
     }
-
 }

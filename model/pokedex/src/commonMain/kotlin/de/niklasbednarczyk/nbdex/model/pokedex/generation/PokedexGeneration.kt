@@ -7,9 +7,7 @@ data class PokedexGeneration(
     val generation: CoreGeneration,
     val generationName: CoreGenerationName,
 ) {
-
     companion object {
-
         fun example(
             generation: CoreGeneration = CoreGeneration.example(),
             generationName: CoreGenerationName = CoreGenerationName.example(),
@@ -19,7 +17,5 @@ data class PokedexGeneration(
                 generationName = generationName,
             )
         }
-
     }
-
 }

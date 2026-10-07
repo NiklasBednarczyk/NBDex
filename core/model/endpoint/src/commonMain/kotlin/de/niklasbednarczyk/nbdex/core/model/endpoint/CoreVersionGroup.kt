@@ -9,9 +9,7 @@ data class CoreVersionGroup(
     val name: String,
     val order: Int?,
 ) {
-
     companion object {
-
         fun example(
             id: CoreVersionGroupId = CoreVersionGroupId.example(),
             generationId: CoreGenerationId? = CoreGenerationId.example(),
@@ -25,7 +23,5 @@ data class CoreVersionGroup(
                 order = order,
             )
         }
-
     }
-
 }

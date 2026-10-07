@@ -15,7 +15,6 @@ class NBAppViewModel(
     val navigator: NBNavigator,
     private val settingsRepository: SettingsRepository,
 ) : NBViewModel() {
-
     val uiState: StateFlow<NBAppState> = settingsRepository
         .getSettings()
         .map { settings ->
@@ -28,7 +27,7 @@ class NBAppViewModel(
         .nbStateIn(NBAppState.Initial)
 
     fun updatePaneExpansionAnchor(
-        paneExpansionAnchor: PaneExpansionAnchor?
+        paneExpansionAnchor: PaneExpansionAnchor?,
     ) {
         viewModelScope.launch {
             CoreSettingsPaneExpansionAnchor
@@ -41,5 +40,4 @@ class NBAppViewModel(
                 }
         }
     }
-
 }

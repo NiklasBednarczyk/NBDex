@@ -9,9 +9,7 @@ data class CorePokedexVersionGroup(
     val pokedexId: CorePokedexId?,
     val versionGroupId: CoreVersionGroupId?,
 ) {
-
     companion object {
-
         fun example(
             id: CorePokedexVersionGroupId = CorePokedexVersionGroupId.example(),
             pokedexId: CorePokedexId? = CorePokedexId.example(),
@@ -23,7 +21,5 @@ data class CorePokedexVersionGroup(
                 versionGroupId = versionGroupId,
             )
         }
-
     }
-
 }

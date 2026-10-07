@@ -12,8 +12,8 @@ val coreNetworkModule = module {
         val logger = NBLogger(NBApolloClient.LOGGER_NAME)
 
         val httpInterceptor = LoggingInterceptor(
-            log = { message -> logger.i { message } },
-            level = LoggingInterceptor.Level.BODY
+            log = { message -> logger.info { message } },
+            level = LoggingInterceptor.Level.BASIC,
         )
 
         ApolloClient.Builder()

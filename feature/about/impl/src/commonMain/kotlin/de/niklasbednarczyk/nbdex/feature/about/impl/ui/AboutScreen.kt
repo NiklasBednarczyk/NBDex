@@ -57,10 +57,11 @@ fun AboutScreen() {
 private fun AboutScreen(
     uiState: AboutUiState,
     onBack: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             NBSmallTopAppBar(
                 scrollBehavior = scrollBehavior,
@@ -115,9 +116,10 @@ private fun AboutScreen(
 @Composable
 private fun Card(
     card: AboutContent.Card,
+    modifier: Modifier = Modifier,
 ) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .clip(NBTheme.shapes.medium)
             .background(listItemDefaultContainerColor)
             .padding(NBTheme.dimensions.padding.large)
@@ -136,6 +138,7 @@ private fun ListItem(
     listItem: AboutListItem,
     index: Int,
     count: Int,
+    modifier: Modifier = Modifier,
 ) {
     val contentText = stringResource(listItem.contentStringResource)
     val supportingContentText = when (val supportingContent = listItem.supportingContent) {
@@ -148,6 +151,7 @@ private fun ListItem(
     when (val type = listItem.type) {
         AboutListItemType.Basic -> {
             NBSegmentedListItemBasic(
+                modifier = modifier,
                 index = index,
                 count = count,
                 contentText = contentText,
@@ -165,6 +169,7 @@ private fun ListItem(
         is AboutListItemType.Link -> {
             val uriHandler = LocalUriHandler.current
             NBSegmentedListItemSingleAction(
+                modifier = modifier,
                 onClick = { uriHandler.openUri(type.url) },
                 index = index,
                 count = count,
@@ -200,7 +205,7 @@ private fun Preview(
 
 @Preview
 @Composable
-private fun PreviewMultiplePanes(
+private fun MultiplePanesPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(

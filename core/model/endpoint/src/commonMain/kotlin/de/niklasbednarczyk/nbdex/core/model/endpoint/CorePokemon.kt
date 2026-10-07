@@ -13,9 +13,7 @@ data class CorePokemon(
     val pokemonSpeciesId: CorePokemonSpeciesId?,
     val weight: Int?,
 ) {
-
     companion object {
-
         fun example(
             id: CorePokemonId = CorePokemonId.example(),
             baseExperience: Int? = -1,
@@ -37,7 +35,5 @@ data class CorePokemon(
                 weight = weight,
             )
         }
-
     }
-
 }

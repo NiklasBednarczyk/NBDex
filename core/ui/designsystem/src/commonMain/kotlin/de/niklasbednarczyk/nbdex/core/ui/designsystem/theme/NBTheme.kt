@@ -14,28 +14,33 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.color.scheme.getColo
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.dimension.NBDimensions
 
 object NBTheme {
-
     val colorScheme: ColorScheme
-        @Composable @ReadOnlyComposable get() = MaterialTheme.colorScheme
+        @Composable @ReadOnlyComposable
+        get() = MaterialTheme.colorScheme
 
     val typography: Typography
-        @Composable @ReadOnlyComposable get() = MaterialTheme.typography
+        @Composable @ReadOnlyComposable
+        get() = MaterialTheme.typography
 
     val shapes: Shapes
-        @Composable @ReadOnlyComposable get() = MaterialTheme.shapes
+        @Composable @ReadOnlyComposable
+        get() = MaterialTheme.shapes
 
     val dimensions: NBDimensions
-        @Composable @ReadOnlyComposable get() = LocalNBDimensions.current
+        @Composable @ReadOnlyComposable
+        get() = LocalNBDimensions.current
 
     val extendedColors: NBExtendedColors
-        @Composable @ReadOnlyComposable get() = LocalNBExtendedColors.current
+        @Composable @ReadOnlyComposable
+        get() = LocalNBExtendedColors.current
 
     val isDarkTheme: Boolean
-        @Composable @ReadOnlyComposable get() = LocalNBIsDarkTheme.current
+        @Composable @ReadOnlyComposable
+        get() = LocalNBIsDarkTheme.current
 
     val isSinglePane: Boolean
-        @Composable @ReadOnlyComposable get() = LocalNBIsSinglePane.current
-
+        @Composable @ReadOnlyComposable
+        get() = LocalNBIsSinglePane.current
 }
 
 @Composable

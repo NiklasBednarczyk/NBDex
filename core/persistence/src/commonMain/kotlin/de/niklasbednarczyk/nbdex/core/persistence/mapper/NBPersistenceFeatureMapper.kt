@@ -1,7 +1,6 @@
 package de.niklasbednarczyk.nbdex.core.persistence.mapper
 
 interface NBPersistenceFeatureMapper<Model : Any, Persistence : Any, Input : Any> {
-
     fun persistenceToModel(
         persistence: Persistence,
         input: Input,
@@ -11,9 +10,7 @@ interface NBPersistenceFeatureMapper<Model : Any, Persistence : Any, Input : Any
         persistence: Persistence?,
         input: Input,
     ): Model? {
-        return if (persistence == null) {
-            null
-        } else {
+        return persistence?.let {
             persistenceToModel(
                 persistence = persistence,
                 input = input,
@@ -32,5 +29,4 @@ interface NBPersistenceFeatureMapper<Model : Any, Persistence : Any, Input : Any
             )
         }
     }
-
 }

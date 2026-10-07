@@ -29,22 +29,32 @@ private const val DEFAULT_PANE_PREFERRED_WIDTH_XL = 412
 
 val CoreSettingsPaneExpansionAnchor.paneExpansionAnchor: PaneExpansionAnchor
     get() = when (this) {
-        CoreSettingsPaneExpansionAnchor.FULL_LIST -> PaneExpansionAnchor
-            .Proportion(1f)
+        CoreSettingsPaneExpansionAnchor.FULL_LIST -> {
+            PaneExpansionAnchor
+                .Proportion(1f)
+        }
 
-        CoreSettingsPaneExpansionAnchor.FULL_DETAIL -> PaneExpansionAnchor
-            .Proportion(0f)
+        CoreSettingsPaneExpansionAnchor.FULL_DETAIL -> {
+            PaneExpansionAnchor
+                .Proportion(0f)
+        }
 
-        CoreSettingsPaneExpansionAnchor.HALF_LIST_HALF_DETAIL -> PaneExpansionAnchor
-            .Proportion(0.5f)
+        CoreSettingsPaneExpansionAnchor.HALF_LIST_HALF_DETAIL -> {
+            PaneExpansionAnchor
+                .Proportion(0.5f)
+        }
 
-        CoreSettingsPaneExpansionAnchor.DEFAULT_PANE_PREFERRED_WIDTH -> PaneExpansionAnchor
-            .Offset
-            .fromStart(DEFAULT_PANE_PREFERRED_WIDTH.dp)
+        CoreSettingsPaneExpansionAnchor.DEFAULT_PANE_PREFERRED_WIDTH -> {
+            PaneExpansionAnchor
+                .Offset
+                .fromStart(DEFAULT_PANE_PREFERRED_WIDTH.dp)
+        }
 
-        CoreSettingsPaneExpansionAnchor.DEFAULT_PANE_PREFERRED_WIDTH_XL -> PaneExpansionAnchor
-            .Offset
-            .fromStart(DEFAULT_PANE_PREFERRED_WIDTH_XL.dp)
+        CoreSettingsPaneExpansionAnchor.DEFAULT_PANE_PREFERRED_WIDTH_XL -> {
+            PaneExpansionAnchor
+                .Offset
+                .fromStart(DEFAULT_PANE_PREFERRED_WIDTH_XL.dp)
+        }
     }
 
 val paneExpansionAnchors: List<PaneExpansionAnchor> = CoreSettingsPaneExpansionAnchor

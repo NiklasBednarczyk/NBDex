@@ -10,9 +10,7 @@ data class CorePokemonType(
     val slot: Int,
     val typeId: CoreTypeId?,
 ) {
-
     companion object {
-
         fun example(
             id: CorePokemonTypeId = CorePokemonTypeId.example(),
             pokemonId: CorePokemonId? = CorePokemonId.example(),
@@ -26,7 +24,5 @@ data class CorePokemonType(
                 typeId = typeId,
             )
         }
-
     }
-
 }

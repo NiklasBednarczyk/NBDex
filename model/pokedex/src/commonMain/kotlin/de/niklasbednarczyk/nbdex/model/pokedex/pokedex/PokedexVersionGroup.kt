@@ -7,9 +7,7 @@ data class PokedexVersionGroup(
     override val versionGroup: CoreVersionGroup,
     override val versions: List<PokedexVersion>,
 ) : CoreDisplayModelVersionGroup {
-
     companion object {
-
         fun example(
             versionGroup: CoreVersionGroup = CoreVersionGroup.example(),
             versions: List<PokedexVersion> = listOf(PokedexVersion.example()),
@@ -19,7 +17,5 @@ data class PokedexVersionGroup(
                 versions = versions,
             )
         }
-
     }
-
 }

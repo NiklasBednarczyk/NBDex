@@ -7,6 +7,7 @@ import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffo
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffoldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.NBTextSingleLine
 import de.niklasbednarczyk.nbdex.core.ui.navigation.NBNavigator
 import de.niklasbednarczyk.nbdex.core.ui.navigation.NBTopLevelDestination
@@ -17,13 +18,15 @@ import org.jetbrains.compose.resources.stringResource
 fun NBNavigationSuiteScaffold(
     navigator: NBNavigator,
     windowAdaptiveInfo: WindowAdaptiveInfo,
-    content: @Composable () -> Unit
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
 ) {
     val navigationSuiteType = remember(windowAdaptiveInfo) {
         NavigationSuiteScaffoldDefaults.navigationSuiteType(windowAdaptiveInfo)
     }
 
     NavigationSuiteScaffold(
+        modifier = modifier,
         navigationItems = {
             NBTopLevelDestination.entries.forEach { topLevelDestination ->
                 val navKey = topLevelDestination.navKey
@@ -42,7 +45,6 @@ fun NBNavigationSuiteScaffold(
                             contentDescription = null,
                         )
                     },
-
                     label = {
                         NBTextSingleLine(
                             text = stringResource(topLevelDestination.titleStringResource),

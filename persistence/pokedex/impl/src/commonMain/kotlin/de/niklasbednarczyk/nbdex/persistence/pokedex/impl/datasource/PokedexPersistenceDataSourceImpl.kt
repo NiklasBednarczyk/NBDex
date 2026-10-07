@@ -64,9 +64,7 @@ import kotlinx.coroutines.flow.map
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
-    PokedexPersistenceDataSource, KoinComponent {
-
+internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(), PokedexPersistenceDataSource, KoinComponent {
     // Core
     private val coreGenerationDao: CoreGenerationDao by inject()
     private val coreGenerationNameDao: CoreGenerationNameDao by inject()
@@ -95,30 +93,29 @@ internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
     private val pokedexPokemonFormDao: PokedexPokemonFormDao by inject()
     private val pokedexTypeDao: PokedexTypeDao by inject()
 
-
     override suspend fun hasEndpoints(
         languageId: CoreLanguageId,
     ): Boolean {
-        return coreGenerationDao.hasGenerations()
-                && coreGenerationNameDao.hasGenerationNames()
-                && corePokedexDao.hasPokedexes()
-                && corePokedexDescriptionDao.hasPokedexDescriptions()
-                && corePokedexNameDao.hasPokedexNames()
-                && corePokedexVersionGroupDao.hasPokedexVersionGroups()
-                && corePokemonDao.hasPokemon()
-                && corePokemonDexNumberDao.hasPokemonDexNumbers()
-                && corePokemonFormDao.hasPokemonForms()
-                && corePokemonFormNameDao.hasPokemonFormNames()
-                && corePokemonSpeciesDao.hasPokemonSpecies()
-                && corePokemonSpeciesNameDao.hasPokemonSpeciesNames()
-                && corePokemonTypeDao.hasPokemonTypes()
-                && coreRegionDao.hasRegions()
-                && coreRegionNameDao.hasRegionNames()
-                && coreTypeDao.hasTypes()
-                && coreTypeNameDao.hasTypeNames()
-                && coreVersionDao.hasVersions()
-                && coreVersionGroupDao.hasVersionGroups()
-                && coreVersionNameDao.hasVersionNames()
+        return coreGenerationDao.hasGenerations() &&
+            coreGenerationNameDao.hasGenerationNames() &&
+            corePokedexDao.hasPokedexes() &&
+            corePokedexDescriptionDao.hasPokedexDescriptions() &&
+            corePokedexNameDao.hasPokedexNames() &&
+            corePokedexVersionGroupDao.hasPokedexVersionGroups() &&
+            corePokemonDao.hasPokemon() &&
+            corePokemonDexNumberDao.hasPokemonDexNumbers() &&
+            corePokemonFormDao.hasPokemonForms() &&
+            corePokemonFormNameDao.hasPokemonFormNames() &&
+            corePokemonSpeciesDao.hasPokemonSpecies() &&
+            corePokemonSpeciesNameDao.hasPokemonSpeciesNames() &&
+            corePokemonTypeDao.hasPokemonTypes() &&
+            coreRegionDao.hasRegions() &&
+            coreRegionNameDao.hasRegionNames() &&
+            coreTypeDao.hasTypes() &&
+            coreTypeNameDao.hasTypeNames() &&
+            coreVersionDao.hasVersions() &&
+            coreVersionGroupDao.hasVersionGroups() &&
+            coreVersionNameDao.hasVersionNames()
     }
 
     override fun getGenerations(
@@ -133,6 +130,7 @@ internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
                             generationId = generation.generation.id,
                         )
                     }
+                    .asSequence()
                     .map { generation ->
                         PersistencePokedexGenerationMapper.persistenceToModel(
                             persistence = generation,
@@ -140,6 +138,7 @@ internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
                         )
                     }
                     .sortedBy { generation -> generation.generation.id }
+                    .toList()
             }
     }
 
@@ -155,6 +154,7 @@ internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
                             pokedexId = pokedex.pokedex.id,
                         )
                     }
+                    .asSequence()
                     .map { pokedex ->
                         PersistencePokedexPokedexMapper.persistenceToModel(
                             persistence = pokedex,
@@ -165,7 +165,7 @@ internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
                         compareBy(
                             { pokedex -> pokedex.pokedex.regionId },
                             { pokedex -> pokedex.pokedex.id },
-                        )
+                        ),
                     )
                     .groupBy { pokedex -> pokedex.region }
             }
@@ -179,6 +179,7 @@ internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
             .getPokedexForms()
             .map { pokemonForms ->
                 pokemonForms
+                    .asSequence()
                     .filter { pokemonForm ->
                         val isDefault = pokemonForm.pokemonForm.isDefault
 
@@ -187,12 +188,12 @@ internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
 
                         val isGeneration = preferences.generationId?.let { generationId ->
                             pokemonForm.versionGroup?.generationId == generationId
-                        } ?: true
+                        } != false
 
                         val isType = preferences.typeId?.let { typeId ->
                             pokemonForm.pokemon?.pokemonTypes
                                 ?.any { pokemonType -> pokemonType.pokemonType.typeId == typeId } == true
-                        } ?: true
+                        } != false
 
                         val isCategories = preferences.categories.all { category ->
                             when (category) {
@@ -210,15 +211,16 @@ internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
                     .map { pokemonForm ->
                         PersistencePokedexPokemonFormMapper.persistenceToModel(
                             persistence = pokemonForm,
-                            input = Pair(languageId, preferences.pokedexId)
+                            input = Pair(languageId, preferences.pokedexId),
                         )
                     }
                     .sortedWith(
                         compareBy(
                             { pokemonForm -> pokemonForm.pokemon?.pokemonSpecies?.pokemonDexNumber?.pokedexNumber },
                             { pokemonForm -> pokemonForm.pokemon?.pokemon?.id },
-                        )
+                        ),
                     )
+                    .toList()
             }
     }
 
@@ -234,6 +236,7 @@ internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
                             typeId = type.type.id,
                         )
                     }
+                    .asSequence()
                     .map { type ->
                         PersistencePokedexTypeMapper.persistenceToModel(
                             persistence = type,
@@ -241,6 +244,7 @@ internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
                         )
                     }
                     .sortedBy { type -> type.typeName.name }
+                    .toList()
             }
     }
 
@@ -348,5 +352,4 @@ internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(),
             insert = coreVersionNameDao::insertVersionNames,
         )
     }
-
 }

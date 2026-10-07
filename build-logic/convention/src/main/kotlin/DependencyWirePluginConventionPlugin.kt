@@ -7,10 +7,11 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 
 class DependencyWirePluginConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         plugins {
-            apply(libs.getPluginId("wire"))
+            apply(libs.getPluginId("plugin-wire"))
         }
 
         extensions.configure<WireExtension> {
@@ -20,5 +21,4 @@ class DependencyWirePluginConventionPlugin : Plugin<Project> {
             }
         }
     }
-
 }

@@ -7,8 +7,9 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreRegionNameId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCoreRegionName
 
 object NetworkCoreRegionNameMapper : NBNetworkMapper<CoreRegionName, NetworkCoreRegionName> {
-
-    override fun networkToModel(network: NetworkCoreRegionName): CoreRegionName {
+    override fun networkToModel(
+        network: NetworkCoreRegionName,
+    ): CoreRegionName {
         return CoreRegionName(
             id = CoreRegionNameId.from(network.id),
             languageId = CoreLanguageId.from(network.languageId),
@@ -16,5 +17,4 @@ object NetworkCoreRegionNameMapper : NBNetworkMapper<CoreRegionName, NetworkCore
             regionId = CoreRegionId.from(network.regionId),
         )
     }
-
 }

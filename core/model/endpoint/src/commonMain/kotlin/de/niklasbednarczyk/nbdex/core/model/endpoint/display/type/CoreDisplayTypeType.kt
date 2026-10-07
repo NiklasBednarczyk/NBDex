@@ -23,7 +23,8 @@ enum class CoreDisplayTypeType : NBDisplayType<CoreTypeId> {
     FAIRY,
     STELLAR,
     UNKNOWN,
-    SHADOW;
+    SHADOW,
+    ;
 
     override val id: CoreTypeId
         get() {
@@ -47,18 +48,17 @@ enum class CoreDisplayTypeType : NBDisplayType<CoreTypeId> {
                 DARK -> 17
                 FAIRY -> 18
                 STELLAR -> 19
-                UNKNOWN -> 10001
-                SHADOW -> 10002
+                UNKNOWN -> 10_001
+                SHADOW -> 10_002
             }
             return CoreTypeId.from(idValue)
         }
 
     companion object {
-
-        internal fun from(id: CoreTypeId?): CoreDisplayTypeType? {
+        internal fun from(
+            id: CoreTypeId?,
+        ): CoreDisplayTypeType? {
             return entries.firstOrNull { displayType -> displayType.id == id }
         }
-
     }
-
 }

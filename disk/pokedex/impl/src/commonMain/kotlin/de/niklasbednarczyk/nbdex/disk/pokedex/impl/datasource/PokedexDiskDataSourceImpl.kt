@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.Flow
 internal class PokedexDiskDataSourceImpl :
     NBDiskDataSourceImpl<DiskPokedexPreferences>(),
     PokedexDiskDataSource {
-
     override val dataStoreName: String
         get() = NBDataStoreName.POKEDEX_PREFERENCES
 
@@ -64,40 +63,39 @@ internal class PokedexDiskDataSourceImpl :
                 PokedexPreferencesCategory.DEFAULT -> preferences.copy(
                     category = preferencesCategory.copy(
                         isDefault = preferencesCategory.isDefault == false,
-                    )
+                    ),
                 )
 
                 PokedexPreferencesCategory.BABY -> preferences.copy(
                     category = preferencesCategory.copy(
                         isBaby = preferencesCategory.isBaby == false,
-                    )
+                    ),
                 )
 
                 PokedexPreferencesCategory.BATTLE_ONLY -> preferences.copy(
                     category = preferencesCategory.copy(
                         isBattleOnly = preferencesCategory.isBattleOnly == false,
-                    )
+                    ),
                 )
 
                 PokedexPreferencesCategory.LEGENDARY -> preferences.copy(
                     category = preferencesCategory.copy(
                         isLegendary = preferencesCategory.isLegendary == false,
-                    )
+                    ),
                 )
 
                 PokedexPreferencesCategory.MEGA -> preferences.copy(
                     category = preferencesCategory.copy(
                         isMega = preferencesCategory.isMega == false,
-                    )
+                    ),
                 )
 
                 PokedexPreferencesCategory.MYTHICAL -> preferences.copy(
                     category = preferencesCategory.copy(
                         isMythical = preferencesCategory.isMythical == false,
-                    )
+                    ),
                 )
             }
         }
     }
-
 }

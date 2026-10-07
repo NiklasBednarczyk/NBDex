@@ -10,9 +10,7 @@ data class CorePokedexName(
     val name: String,
     val pokedexId: CorePokedexId?,
 ) {
-
     companion object {
-
         fun example(
             id: CorePokedexNameId = CorePokedexNameId.example(),
             languageId: CoreLanguageId? = CoreLanguageId.example(),
@@ -26,8 +24,5 @@ data class CorePokedexName(
                 pokedexId = pokedexId,
             )
         }
-
     }
-
 }
-

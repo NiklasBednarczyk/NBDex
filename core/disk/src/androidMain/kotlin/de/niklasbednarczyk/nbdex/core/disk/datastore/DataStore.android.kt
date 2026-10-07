@@ -22,6 +22,6 @@ internal actual fun <Disk : Message<*, *>> createStorage(
         producePath = {
             val dataStoreFile = context.filesDir.resolve(dataStoreFileName)
             dataStoreFile.absolutePath.toPath()
-        }
+        },
     )
 }

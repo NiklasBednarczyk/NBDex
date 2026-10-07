@@ -3,7 +3,6 @@ package de.niklasbednarczyk.nbdex.core.model.endpoint.sprites
 import de.niklasbednarczyk.nbdex.core.model.id.NBId
 
 internal interface NBSprite<Id : NBId> {
-
     val id: Id
 
     val basePath: String
@@ -15,10 +14,7 @@ internal interface NBSprite<Id : NBId> {
     }
 
     companion object {
-
         private const val BASE_URL =
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites"
-
     }
-
 }

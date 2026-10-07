@@ -55,7 +55,8 @@ enum class CoreDisplayTypeVersion : NBDisplayType<CoreVersionId> {
     THE_ISLE_OF_ARMOR_SHIELD,
     THE_CROWN_TUNDRA_SHIELD,
     THE_TEAL_MASK_VIOLET,
-    THE_INDIGO_DISK_VIOLET;
+    THE_INDIGO_DISK_VIOLET,
+    ;
 
     override val id: CoreVersionId
         get() {
@@ -118,11 +119,10 @@ enum class CoreDisplayTypeVersion : NBDisplayType<CoreVersionId> {
         }
 
     companion object {
-
-        internal fun from(id: CoreVersionId?): CoreDisplayTypeVersion? {
+        internal fun from(
+            id: CoreVersionId?,
+        ): CoreDisplayTypeVersion? {
             return entries.firstOrNull { displayType -> displayType.id == id }
         }
-
     }
-
 }

@@ -23,7 +23,7 @@ val NBIcons.Material.ArrowBack: ImageVector
             defaultWidth = 24.dp,
             defaultHeight = 24.dp,
             viewportWidth = 960f,
-            viewportHeight = 960f
+            viewportHeight = 960f,
         ).apply {
             path(fill = SolidColor(Color(0xFFBA1A1A))) {
                 moveToRelative(313f, 520f)

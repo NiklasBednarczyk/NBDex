@@ -26,7 +26,7 @@ fun NBApp() {
     NBApp(
         uiState = uiState,
         navigator = navigator,
-        onPaneExpansionAnchorChanged = viewModel::updatePaneExpansionAnchor,
+        onPaneExpansionAnchorChange = viewModel::updatePaneExpansionAnchor,
     )
 }
 
@@ -34,7 +34,8 @@ fun NBApp() {
 private fun NBApp(
     uiState: NBAppState,
     navigator: NBNavigator,
-    onPaneExpansionAnchorChanged: (paneExpansionAnchor: PaneExpansionAnchor?) -> Unit,
+    onPaneExpansionAnchorChange: (paneExpansionAnchor: PaneExpansionAnchor?) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val entryProvider = koinEntryProvider<NBNavKey>()
 
@@ -44,10 +45,11 @@ private fun NBApp(
         calculatePaneScaffoldDirective(windowAdaptiveInfo)
     }
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
     ) {
         when (uiState) {
             NBAppState.Initial -> {}
+
             is NBAppState.Success -> {
                 val isDarkTheme = rememberIsDarkTheme(uiState.theme)
                 NBTheme(
@@ -64,7 +66,7 @@ private fun NBApp(
                             entryProvider = entryProvider,
                             paneScaffoldDirective = paneScaffoldDirective,
                             paneExpansionAnchor = uiState.paneExpansionAnchor,
-                            onPaneExpansionAnchorChanged = onPaneExpansionAnchorChanged,
+                            onPaneExpansionAnchorChange = onPaneExpansionAnchorChange,
                         )
                     }
                 }

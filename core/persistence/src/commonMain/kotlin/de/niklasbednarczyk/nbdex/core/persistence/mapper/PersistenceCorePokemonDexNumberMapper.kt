@@ -6,8 +6,9 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemonDe
 
 object PersistenceCorePokemonDexNumberMapper :
     NBPersistenceCoreInputMapper<CorePokemonDexNumber, PersistenceCorePokemonDexNumber, CorePokedexId> {
-
-    override fun modelToPersistence(model: CorePokemonDexNumber): PersistenceCorePokemonDexNumber {
+    override fun modelToPersistence(
+        model: CorePokemonDexNumber,
+    ): PersistenceCorePokemonDexNumber {
         return PersistenceCorePokemonDexNumber(
             id = model.id,
             pokedexId = model.pokedexId,
@@ -16,7 +17,9 @@ object PersistenceCorePokemonDexNumberMapper :
         )
     }
 
-    override fun persistenceToModel(persistence: PersistenceCorePokemonDexNumber): CorePokemonDexNumber {
+    override fun persistenceToModel(
+        persistence: PersistenceCorePokemonDexNumber,
+    ): CorePokemonDexNumber {
         return CorePokemonDexNumber(
             id = persistence.id,
             pokedexId = persistence.pokedexId,
@@ -25,8 +28,9 @@ object PersistenceCorePokemonDexNumberMapper :
         )
     }
 
-    override fun persistenceToInput(persistence: PersistenceCorePokemonDexNumber): CorePokedexId? {
+    override fun persistenceToInput(
+        persistence: PersistenceCorePokemonDexNumber,
+    ): CorePokedexId? {
         return persistence.pokedexId
     }
-
 }

@@ -1,5 +1,6 @@
 package de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.app
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsTheme

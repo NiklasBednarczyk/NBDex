@@ -6,6 +6,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.button.NBIconButton
@@ -53,10 +54,12 @@ private fun NBTopAppBar(
     titleText: String,
     onBack: (() -> Unit)?,
     titleHorizontalAlignment: Alignment.Horizontal,
+    modifier: Modifier = Modifier,
 ) {
     val topAppBarColors = TopAppBarDefaults.topAppBarColors()
 
     TopAppBar(
+        modifier = modifier,
         title = {
             NBTextSingleLine(
                 text = titleText,
@@ -104,7 +107,7 @@ private fun Preview(
 
 @Preview
 @Composable
-private fun PreviewMultiplePanes(
+private fun MultiplePanesPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()

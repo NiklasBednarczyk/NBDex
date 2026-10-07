@@ -5,7 +5,6 @@ import de.niklasbednarczyk.nbdex.core.common.util.string.nbCapitalize
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsContrast
 
 class NBPreviewInfoPreviewParameterProvider : PreviewParameterProvider<NBPreviewInfo> {
-
     private val previewInfoList = listOf(
         NBPreviewInfo(
             isDarkTheme = false,
@@ -35,7 +34,9 @@ class NBPreviewInfoPreviewParameterProvider : PreviewParameterProvider<NBPreview
 
     override val values: Sequence<NBPreviewInfo> = previewInfoList.asSequence()
 
-    override fun getDisplayName(index: Int): String? {
+    override fun getDisplayName(
+        index: Int,
+    ): String? {
         val previewInfo = previewInfoList.getOrNull(index) ?: return null
 
         val indexString = (index + 1).toString()
@@ -44,5 +45,4 @@ class NBPreviewInfoPreviewParameterProvider : PreviewParameterProvider<NBPreview
 
         return "$indexString: $themeString - $contrastString"
     }
-
 }

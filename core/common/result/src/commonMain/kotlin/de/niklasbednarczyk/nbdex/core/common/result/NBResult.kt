@@ -8,5 +8,4 @@ sealed interface NBResult<out T> {
     data object Error : NBResult<Nothing>
 
     data object Loading : NBResult<Nothing>
-
 }

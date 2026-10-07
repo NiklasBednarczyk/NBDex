@@ -35,9 +35,10 @@ fun NBAsyncImage(
         when (state) {
             null,
             AsyncImagePainter.State.Empty,
-            is AsyncImagePainter.State.Loading -> {
-                Box(modifier = modifier)
-            }
+            is AsyncImagePainter.State.Loading,
+                -> {
+                    Box(modifier = modifier)
+                }
 
             is AsyncImagePainter.State.Error -> {
                 Icon(

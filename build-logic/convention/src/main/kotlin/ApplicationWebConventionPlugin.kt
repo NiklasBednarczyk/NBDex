@@ -9,13 +9,16 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class ApplicationWebConventionPlugin : Plugin<Project> {
-
     @OptIn(ExperimentalWasmDsl::class)
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         plugins {
-            apply(libs.getPluginId("kotlin-multiplatform"))
-            apply(libs.getPluginId("compose"))
-            apply(libs.getPluginId("kotlin-plugin-compose"))
+            apply(libs.getPluginId("plugin-kotlin-multiplatform"))
+            apply(libs.getPluginId("plugin-compose"))
+            apply(libs.getPluginId("plugin-kotlin-plugin-compose"))
+            apply(libs.getPluginId("nbdex-dependency-detekt"))
+            apply(libs.getPluginId("nbdex-dependency-spotless"))
         }
 
         extensions.configure<KotlinMultiplatformExtension> {

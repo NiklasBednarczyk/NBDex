@@ -11,10 +11,15 @@ import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 class ApplicationAndroidConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         plugins {
-            apply(libs.getPluginId("android-application"))
+            apply(libs.getPluginId("plugin-android-application"))
+            apply(libs.getPluginId("plugin-compose"))
+            apply(libs.getPluginId("plugin-kotlin-plugin-compose"))
+            apply(libs.getPluginId("nbdex-dependency-detekt"))
+            apply(libs.getPluginId("nbdex-dependency-spotless"))
         }
 
         extensions.configure<ApplicationExtension> {
@@ -52,5 +57,4 @@ class ApplicationAndroidConventionPlugin : Plugin<Project> {
             }
         }
     }
-
 }

@@ -3,7 +3,6 @@ package de.niklasbednarczyk.nbdex.core.model.endpoint.display.type
 import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionGroupId
 
 sealed interface CoreDisplayTypeVersionGroup : NBDisplayType<CoreVersionGroupId> {
-
     sealed interface Basic : CoreDisplayTypeVersionGroup
 
     sealed interface SameVersions : CoreDisplayTypeVersionGroup
@@ -169,7 +168,6 @@ sealed interface CoreDisplayTypeVersionGroup : NBDisplayType<CoreVersionGroupId>
     }
 
     companion object {
-
         private val entries: Set<CoreDisplayTypeVersionGroup> = setOf(
             RedBlue,
             Yellow,
@@ -205,10 +203,10 @@ sealed interface CoreDisplayTypeVersionGroup : NBDisplayType<CoreVersionGroupId>
             Champions,
         )
 
-        internal fun from(id: CoreVersionGroupId?): CoreDisplayTypeVersionGroup? {
+        internal fun from(
+            id: CoreVersionGroupId?,
+        ): CoreDisplayTypeVersionGroup? {
             return entries.firstOrNull { displayType -> displayType.id == id }
         }
-
     }
-
 }

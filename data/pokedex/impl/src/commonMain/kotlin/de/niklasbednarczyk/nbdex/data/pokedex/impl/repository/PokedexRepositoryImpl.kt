@@ -13,6 +13,8 @@ import de.niklasbednarczyk.nbdex.model.pokedex.endpoints.PokedexEndpoints
 import de.niklasbednarczyk.nbdex.model.pokedex.preferences.PokedexPreferencesCategory
 import de.niklasbednarczyk.nbdex.network.pokedex.api.datasource.PokedexNetworkDataSource
 import de.niklasbednarczyk.nbdex.persistence.pokedex.api.datasource.PokedexPersistenceDataSource
+import kotlinx.collections.immutable.toImmutableList
+import kotlinx.collections.immutable.toImmutableMap
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
@@ -23,7 +25,6 @@ internal class PokedexRepositoryImpl(
     private val networkDataSource: PokedexNetworkDataSource,
     private val persistenceDataSource: PokedexPersistenceDataSource,
 ) : PokedexRepository {
-
     override fun getResult(
         languageId: CoreLanguageId,
     ): Flow<NBResult<PokedexData>> {
@@ -43,7 +44,9 @@ internal class PokedexRepositoryImpl(
                 )
             }
 
-            override suspend fun insertPersistenceInput(input: PokedexEndpoints) {
+            override suspend fun insertPersistenceInput(
+                input: PokedexEndpoints,
+            ) {
                 persistenceDataSource.insertEndpoints(
                     endpoints = input,
                 )
@@ -60,7 +63,7 @@ internal class PokedexRepositoryImpl(
                     diskDataSource.getPreferences(),
                     persistenceDataSource.getTypes(
                         languageId = languageId,
-                    )
+                    ),
                 ) { generations, pokedexesMap, preferences, types ->
                     Triple(generations, pokedexesMap, types) to preferences
                 }
@@ -74,11 +77,11 @@ internal class PokedexRepositoryImpl(
                             )
                             .map { pokemonForms ->
                                 PokedexData(
-                                    generations = generations,
-                                    pokedexesMap = pokedexesMap,
-                                    pokemonForms = pokemonForms,
+                                    generations = generations.toImmutableList(),
+                                    pokedexesMap = pokedexesMap.toImmutableMap(),
+                                    pokemonForms = pokemonForms.toImmutableList(),
                                     preferences = preferences,
-                                    types = types,
+                                    types = types.toImmutableList(),
                                 )
                             }
                     }
@@ -117,5 +120,4 @@ internal class PokedexRepositoryImpl(
             category = category,
         )
     }
-
 }

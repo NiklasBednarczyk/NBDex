@@ -11,9 +11,7 @@ data class CorePokemonFormName(
     val pokemonFormId: CorePokemonFormId?,
     val pokemonName: String,
 ) {
-
     companion object {
-
         fun example(
             id: CorePokemonFormNameId = CorePokemonFormNameId.example(),
             languageId: CoreLanguageId? = CoreLanguageId.example(),
@@ -29,7 +27,5 @@ data class CorePokemonFormName(
                 pokemonName = pokemonName,
             )
         }
-
     }
-
 }

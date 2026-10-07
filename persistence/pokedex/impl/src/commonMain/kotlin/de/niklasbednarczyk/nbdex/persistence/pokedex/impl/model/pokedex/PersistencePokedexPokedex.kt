@@ -37,7 +37,7 @@ data class PersistencePokedexPokedex(
             value = PersistenceCorePokedexVersionGroup::class,
             parentColumns = ["pokedexId"],
             entityColumns = ["versionGroupId"],
-        )
+        ),
     )
     val versionGroups: List<PersistencePokedexVersionGroup>,
 )

@@ -10,9 +10,7 @@ data class CoreType(
     val moveDamageClassId: CoreMoveDamageClassId?,
     val name: String,
 ) {
-
     companion object {
-
         fun example(
             id: CoreTypeId = CoreTypeId.example(),
             generationId: CoreGenerationId? = CoreGenerationId.example(),
@@ -26,7 +24,5 @@ data class CoreType(
                 name = name,
             )
         }
-
     }
-
 }

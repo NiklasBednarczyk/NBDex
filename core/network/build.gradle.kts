@@ -38,6 +38,9 @@ apollo {
 
         // Disable generating all types
         alwaysGenerateTypesMatching.set(emptyList())
+
+        // Ignored because Apollo does not recognize multi-module use of Fragment, see https://github.com/apollographql/apollo-kotlin/issues/6880
+        issueSeverity("UnusedFragment", "ignore")
     }
 }
 

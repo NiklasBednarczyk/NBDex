@@ -7,7 +7,6 @@ import nbdex.core.ui.resource.generated.resources.Res
 import nbdex.core.ui.resource.generated.resources.about_card_disclaimer_text
 
 data object AboutUiState {
-
     val sectionsWithContent: Map<AboutSection, AboutContent>
         get() = mapOf(
             AboutSection.APP_INFO to AboutContent.SegmentedList(
@@ -28,5 +27,4 @@ data object AboutUiState {
                 textStringResource = Res.string.about_card_disclaimer_text,
             ),
         )
-
 }

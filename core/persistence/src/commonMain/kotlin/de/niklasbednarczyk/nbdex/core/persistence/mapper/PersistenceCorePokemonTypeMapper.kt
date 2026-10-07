@@ -4,8 +4,9 @@ import de.niklasbednarczyk.nbdex.core.model.endpoint.CorePokemonType
 import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemonType
 
 object PersistenceCorePokemonTypeMapper : NBPersistenceCoreMapper<CorePokemonType, PersistenceCorePokemonType> {
-
-    override fun modelToPersistence(model: CorePokemonType): PersistenceCorePokemonType {
+    override fun modelToPersistence(
+        model: CorePokemonType,
+    ): PersistenceCorePokemonType {
         return PersistenceCorePokemonType(
             id = model.id,
             pokemonId = model.pokemonId,
@@ -14,7 +15,9 @@ object PersistenceCorePokemonTypeMapper : NBPersistenceCoreMapper<CorePokemonTyp
         )
     }
 
-    override fun persistenceToModel(persistence: PersistenceCorePokemonType): CorePokemonType {
+    override fun persistenceToModel(
+        persistence: PersistenceCorePokemonType,
+    ): CorePokemonType {
         return CorePokemonType(
             id = persistence.id,
             pokemonId = persistence.pokemonId,
@@ -22,5 +25,4 @@ object PersistenceCorePokemonTypeMapper : NBPersistenceCoreMapper<CorePokemonTyp
             typeId = persistence.typeId,
         )
     }
-
 }

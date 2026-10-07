@@ -1,7 +1,5 @@
 plugins {
     alias(libs.plugins.nbdex.application.android)
-    alias(libs.plugins.kotlin.plugin.compose)
-    alias(libs.plugins.compose)
 }
 
 kotlin {
@@ -16,4 +14,3 @@ kotlin {
         implementation(libs.koin.compose.viewmodel)
     }
 }
-
