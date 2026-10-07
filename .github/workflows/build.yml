@@ -11,9 +11,20 @@ env:
   GRADLE_OPTS: -Dorg.gradle.jvmargs=-Xmx4096M -Dorg.gradle.daemon=false -Dorg.gradle.parallel=true
     -Dorg.gradle.caching=true
 jobs:
+  code-quality-spotless:
+    name: Check code quality with spotless
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+    - name: Gradle setup
+      uses: ./.github/actions/gradle-setup
+    - name: Check spotless
+      run: ./gradlew spotlessCheck
   test:
     name: Run Tests
     runs-on: ubuntu-latest
+    needs: code-quality-spotless
     steps:
     - name: Checkout
       uses: actions/checkout@v5
@@ -87,7 +98,7 @@ jobs:
         xcodebuild build \
         -project app/iosApp/iosApp.xcodeproj \
         -configuration Debug \
-        -scheme iosApp \
+        -scheme app [ios] \
         -sdk iphonesimulator \
         -arch arm64 \
         -derivedDataPath ./build \
