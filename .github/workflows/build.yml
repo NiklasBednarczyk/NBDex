@@ -12,7 +12,7 @@ env:
     -Dorg.gradle.caching=true
 jobs:
   code-quality-spotless:
-    name: Check code quality with spotless
+    name: Code quality spotless
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -22,7 +22,7 @@ jobs:
     - name: Check spotless
       run: ./gradlew spotlessCheck
   test:
-    name: Run Tests
+    name: Test
     runs-on: ubuntu-latest
     needs: code-quality-spotless
     steps:
@@ -98,7 +98,7 @@ jobs:
         xcodebuild build \
         -project app/iosApp/iosApp.xcodeproj \
         -configuration Debug \
-        -scheme app [ios] \
+        -scheme "app [ios]" \
         -sdk iphonesimulator \
         -arch arm64 \
         -derivedDataPath ./build \
