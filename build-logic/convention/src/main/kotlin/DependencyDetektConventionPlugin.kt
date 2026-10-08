@@ -6,6 +6,7 @@ import dev.detekt.gradle.Detekt
 import dev.detekt.gradle.extensions.DetektExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.withType
@@ -25,6 +26,7 @@ class DependencyDetektConventionPlugin : Plugin<Project> {
         }
 
         tasks.withType<Detekt>().configureEach {
+            basePath = rootProject.projectDir.absolutePath
             exclude { element ->
                 element.file.path.contains("/build/generated/")
             }
