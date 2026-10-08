@@ -11,6 +11,16 @@ env:
   GRADLE_OPTS: -Dorg.gradle.jvmargs=-Xmx4096M -Dorg.gradle.daemon=false -Dorg.gradle.parallel=true
     -Dorg.gradle.caching=true
 jobs:
+  code-quality-detekt:
+    name: Code quality detektMainDesktop
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v5
+    - name: Gradle setup
+      uses: ./.github/actions/gradle-setup
+    - name: Detekt MainDesktop
+      run: ./gradlew detektMainDesktop --continue
   code-quality-spotless:
     name: Code quality spotless
     runs-on: ubuntu-latest
