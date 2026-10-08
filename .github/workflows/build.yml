@@ -22,6 +22,7 @@ jobs:
     - name: Check detekt Main Desktop
       run: ./gradlew detektMainDesktop --continue
     - name: Merge detekt reports
+      if: always()
       run: ./gradlew detektReportMerge
     - name: Upload detekt report
       uses: github/codeql-action/upload-sarif@v4
