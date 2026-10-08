@@ -21,6 +21,11 @@ jobs:
       uses: ./.github/actions/gradle-setup
     - name: Check detekt Main Desktop
       run: ./gradlew detektMainDesktop --continue
+    - name: Upload detekt report
+      uses: github/codeql-action/upload-sarif@v2
+      if: always()
+      with:
+        sarif_file: build/reports/detekt/detekt.sarif
   code-quality-spotless:
     name: Code quality spotless
     runs-on: ubuntu-latest
