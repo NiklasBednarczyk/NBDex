@@ -12,14 +12,14 @@ env:
     -Dorg.gradle.caching=true
 jobs:
   code-quality-detekt-main-desktop:
-    name: Code quality detektMainDesktop
+    name: Code quality detekt Main Desktop
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v5
     - name: Gradle setup
       uses: ./.github/actions/gradle-setup
-    - name: Detekt MainDesktop
+    - name: Check detekt Main Desktop
       run: ./gradlew detektMainDesktop --continue
   code-quality-spotless:
     name: Code quality spotless
