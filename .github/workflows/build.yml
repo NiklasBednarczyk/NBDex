@@ -13,7 +13,7 @@ env:
 jobs:
   code-quality-detekt-main-desktop:
     name: Code quality detekt Main Desktop
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v5
@@ -23,7 +23,7 @@ jobs:
       run: ./gradlew detektMainDesktop --continue
     - name: Merge detekt reports
       if: always()
-      run: ./gradlew detektReportMerge --continue
+      run: ./gradlew detektReportMerge
     - name: Upload detekt report
       uses: github/codeql-action/upload-sarif@v4
       if: always()
