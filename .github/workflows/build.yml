@@ -11,7 +11,7 @@ env:
   GRADLE_OPTS: -Dorg.gradle.jvmargs=-Xmx4096M -Dorg.gradle.daemon=false -Dorg.gradle.parallel=true
     -Dorg.gradle.caching=true
 jobs:
-  code-quality-detekt:
+  code-quality-detekt-main-desktop:
     name: Code quality detektMainDesktop
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +34,9 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    needs: code-quality-spotless
+    needs:
+    - code-quality-detekt-main-desktop
+    - code-quality-spotless
     steps:
     - name: Checkout
       uses: actions/checkout@v5
