@@ -58,7 +58,7 @@ complexity:
   LongMethod:
     active: false
   LongParameterList:
-    active: false
+    active: true
   MethodOverloading:
     active: true
   NamedArguments:
