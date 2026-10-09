@@ -64,7 +64,6 @@ complexity:
   NamedArguments:
     active: true
     excludes:
-    - '**/commonTest/**'
     - '**/core/ui/resource/icon/**'
     allowedArguments: 1
     ignoreMethods:
@@ -73,6 +72,7 @@ complexity:
     - kotlin.Triple.<init>
     - kotlin.comparisons.compareValuesBy
     - kotlin.comparisons.maxOf
+    - kotlin.test.assertEquals
     - kotlinx.coroutines.flow.combine
   NestedBlockDepth:
     active: true
