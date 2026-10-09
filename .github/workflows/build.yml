@@ -116,7 +116,7 @@ jobs:
         xcodebuild build \
         -project app/iosApp/iosApp.xcodeproj \
         -configuration Debug \
-        -scheme "app [ios]" \
+        -scheme app.iosApp \
         -sdk iphonesimulator \
         -arch arm64 \
         -derivedDataPath ./build \
