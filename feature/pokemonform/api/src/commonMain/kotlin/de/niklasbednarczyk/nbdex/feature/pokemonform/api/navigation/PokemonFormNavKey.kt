@@ -16,6 +16,6 @@ fun NBNavigator.navigateToPokemonForm(
     navigate(
         PokemonFormNavKey(
             id = id,
-        )
+        ),
     )
 }

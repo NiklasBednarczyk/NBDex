@@ -11,10 +11,9 @@ import de.niklasbednarczyk.nbdex.persistence.pokedex.impl.model.pokemonform.Pers
 
 internal object PersistencePokedexPokemonSpeciesMapper :
     NBPersistenceFeatureMapper<PokedexPokemonSpecies, PersistencePokedexPokemonSpecies, Pair<CoreLanguageId, CorePokedexId>> {
-
     override fun persistenceToModel(
         persistence: PersistencePokedexPokemonSpecies,
-        input: Pair<CoreLanguageId, CorePokedexId>
+        input: Pair<CoreLanguageId, CorePokedexId>,
     ): PokedexPokemonSpecies {
         val (languageId, pokedexId) = input
         return PokedexPokemonSpecies(
@@ -31,5 +30,4 @@ internal object PersistencePokedexPokemonSpeciesMapper :
             ),
         )
     }
-
 }

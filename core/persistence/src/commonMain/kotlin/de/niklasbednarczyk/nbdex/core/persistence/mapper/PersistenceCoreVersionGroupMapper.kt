@@ -4,8 +4,9 @@ import de.niklasbednarczyk.nbdex.core.model.endpoint.CoreVersionGroup
 import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCoreVersionGroup
 
 object PersistenceCoreVersionGroupMapper : NBPersistenceCoreMapper<CoreVersionGroup, PersistenceCoreVersionGroup> {
-
-    override fun modelToPersistence(model: CoreVersionGroup): PersistenceCoreVersionGroup {
+    override fun modelToPersistence(
+        model: CoreVersionGroup,
+    ): PersistenceCoreVersionGroup {
         return PersistenceCoreVersionGroup(
             id = model.id,
             generationId = model.generationId,
@@ -14,7 +15,9 @@ object PersistenceCoreVersionGroupMapper : NBPersistenceCoreMapper<CoreVersionGr
         )
     }
 
-    override fun persistenceToModel(persistence: PersistenceCoreVersionGroup): CoreVersionGroup {
+    override fun persistenceToModel(
+        persistence: PersistenceCoreVersionGroup,
+    ): CoreVersionGroup {
         return CoreVersionGroup(
             id = persistence.id,
             generationId = persistence.generationId,
@@ -22,5 +25,4 @@ object PersistenceCoreVersionGroupMapper : NBPersistenceCoreMapper<CoreVersionGr
             order = persistence.order,
         )
     }
-
 }

@@ -9,7 +9,8 @@ import org.jetbrains.compose.resources.StringResource
 enum class AboutSection {
     APP_INFO,
     CREDITS,
-    DISCLAIMER;
+    DISCLAIMER,
+    ;
 
     val titleStringResource: StringResource
         get() = when (this) {
@@ -17,5 +18,4 @@ enum class AboutSection {
             CREDITS -> Res.string.about_section_credits
             DISCLAIMER -> Res.string.about_section_disclaimer
         }
-
 }

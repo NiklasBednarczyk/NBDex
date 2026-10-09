@@ -12,11 +12,13 @@ import org.jetbrains.compose.resources.ResourcesExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class DependencyComposeCoreConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         plugins {
-            apply(libs.getPluginId("compose"))
-            apply(libs.getPluginId("kotlin-plugin-compose"))
+            apply(libs.getPluginId("plugin-compose"))
+            apply(libs.getPluginId("plugin-kotlin-plugin-compose"))
+            apply(libs.getPluginId("nbdex-dependency-immutable"))
         }
 
         val compose = extensions.getByType<ComposeExtension>().dependencies
@@ -62,5 +64,4 @@ class DependencyComposeCoreConventionPlugin : Plugin<Project> {
             }
         }
     }
-
 }

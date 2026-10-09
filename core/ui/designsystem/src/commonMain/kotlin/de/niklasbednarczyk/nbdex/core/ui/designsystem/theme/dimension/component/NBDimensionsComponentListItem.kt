@@ -12,7 +12,6 @@ data class NBDimensionsComponentListItem(
      * md.comp.list.list-item.leading-icon.expressive.size
      * */
     val leadingIconSize: Dp = 20.dp,
-
     /**
      * 56dp
      *
@@ -21,7 +20,6 @@ data class NBDimensionsComponentListItem(
      * md.comp.list.list-item.leading-image.height
      * */
     val leadingImageSize: Dp = 56.dp,
-
     /**
      * 20dp
      *

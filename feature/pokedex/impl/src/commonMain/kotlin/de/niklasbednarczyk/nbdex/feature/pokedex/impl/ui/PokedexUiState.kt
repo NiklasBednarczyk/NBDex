@@ -9,39 +9,41 @@ import de.niklasbednarczyk.nbdex.model.pokedex.pokedex.PokedexRegion
 import de.niklasbednarczyk.nbdex.model.pokedex.pokemonform.PokedexPokemonForm
 import de.niklasbednarczyk.nbdex.model.pokedex.preferences.PokedexPreferencesCategory
 import de.niklasbednarczyk.nbdex.model.pokedex.type.PokedexType
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.ImmutableSet
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 
 internal sealed interface PokedexUiState {
-
     data object Error : PokedexUiState
 
     data object Loading : PokedexUiState
 
     data class Success(
         val selectedFilter: PokedexFilter?,
-        val pokedexesMap: Map<PokedexRegion?, List<PokedexPokedex>>,
+        val pokedexesMap: ImmutableMap<PokedexRegion?, List<PokedexPokedex>>,
         val selectedPokedex: PokedexPokedex,
-        val generations: List<PokedexGeneration>,
+        val generations: ImmutableList<PokedexGeneration>,
         val selectedGeneration: PokedexGeneration?,
-        val types: List<PokedexType>,
+        val types: ImmutableList<PokedexType>,
         val selectedType: PokedexType?,
-        val selectedCategories: Set<PokedexPreferencesCategory>,
-        val pokemonForms: List<PokedexPokemonForm>,
+        val selectedCategories: ImmutableSet<PokedexPreferencesCategory>,
+        val pokemonForms: ImmutableList<PokedexPokemonForm>,
         val selectedPokemonFormId: CorePokemonFormId?,
     ) : PokedexUiState {
-
-        val filters: List<PokedexFilter>
-            get() = listOf(
+        val filters: ImmutableList<PokedexFilter>
+            get() = persistentListOf(
                 PokedexFilter.POKEDEX,
                 PokedexFilter.GENERATION,
                 PokedexFilter.TYPE,
                 PokedexFilter.CATEGORY,
             )
 
-        val categories: List<PokedexPreferencesCategory>
+        val categories: ImmutableList<PokedexPreferencesCategory>
             get() = PokedexPreferencesCategory
                 .entries
                 .sortedBy { category -> category.order }
-
+                .toImmutableList()
     }
-
 }

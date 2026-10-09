@@ -34,7 +34,6 @@ val CoreDisplayTypeVersionGroup.SameVersions.stringResourceAbbreviation: StringR
         CoreDisplayTypeVersionGroup.TheTealMask -> Res.string.common_endpoint_version_abbreviation_the_teal_mask
     }
 
-
 val CoreDisplayTypeVersionGroup.SameVersions.stringResourceText: StringResource
     @Composable @ReadOnlyComposable
     get() = when (this) {

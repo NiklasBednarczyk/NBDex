@@ -17,5 +17,5 @@ data class NBDimensionsPadding(
     val screenPaddingValues: PaddingValues = PaddingValues(
         horizontal = 16.dp,
         vertical = 8.dp,
-    )
+    ),
 )

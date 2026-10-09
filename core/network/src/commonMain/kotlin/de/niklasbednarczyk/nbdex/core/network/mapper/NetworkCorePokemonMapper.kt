@@ -6,8 +6,9 @@ import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonSpeciesId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCorePokemon
 
 object NetworkCorePokemonMapper : NBNetworkMapper<CorePokemon, NetworkCorePokemon> {
-
-    override fun networkToModel(network: NetworkCorePokemon): CorePokemon {
+    override fun networkToModel(
+        network: NetworkCorePokemon,
+    ): CorePokemon {
         return CorePokemon(
             id = CorePokemonId.from(network.id),
             baseExperience = network.baseExperience,
@@ -19,5 +20,4 @@ object NetworkCorePokemonMapper : NBNetworkMapper<CorePokemon, NetworkCorePokemo
             weight = network.weight,
         )
     }
-
 }

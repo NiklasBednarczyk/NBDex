@@ -1,12 +1,11 @@
 package de.niklasbednarczyk.nbdex.core.model.endpoint.sprites
 
-import de.niklasbednarczyk.nbdex.core.model.id.NBId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonId
+import de.niklasbednarczyk.nbdex.core.model.id.NBId
 import kotlin.jvm.JvmInline
 
 @JvmInline
 value class CorePokemonSprite private constructor(override val id: CorePokemonId) : NBSprite<NBId> {
-
     override val basePath: String
         get() = BASE_PATH
 
@@ -17,20 +16,20 @@ value class CorePokemonSprite private constructor(override val id: CorePokemonId
     }
 
     companion object {
-
         private const val BASE_PATH = "pokemon"
 
         private const val SPRITE_OFFICIAL_ARTWORK_PATH = "other/official-artwork"
 
-
-        fun from(id: CorePokemonId): CorePokemonSprite {
+        fun from(
+            id: CorePokemonId,
+        ): CorePokemonSprite {
             return CorePokemonSprite(id)
         }
 
-        fun from(id: CorePokemonId?): CorePokemonSprite? {
+        fun from(
+            id: CorePokemonId?,
+        ): CorePokemonSprite? {
             return id?.let(::from)
         }
-
     }
-
 }

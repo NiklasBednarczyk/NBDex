@@ -8,9 +8,7 @@ data class PokedexType(
     val type: CoreType,
     override val typeName: CoreTypeName,
 ) : CoreDisplayModelType {
-
     companion object {
-
         fun example(
             type: CoreType = CoreType.example(),
             typeName: CoreTypeName = CoreTypeName.example(),
@@ -20,7 +18,5 @@ data class PokedexType(
                 typeName = typeName,
             )
         }
-
     }
-
 }

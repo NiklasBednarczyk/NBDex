@@ -24,11 +24,11 @@ val NBIcons.Type.Normal: ImageVector
             defaultWidth = 512.dp,
             defaultHeight = 512.dp,
             viewportWidth = 512f,
-            viewportHeight = 512f
+            viewportHeight = 512f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFFBA1A1A)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(481f, 256f)
                 curveTo(481f, 380.26f, 380.26f, 481f, 256f, 481f)

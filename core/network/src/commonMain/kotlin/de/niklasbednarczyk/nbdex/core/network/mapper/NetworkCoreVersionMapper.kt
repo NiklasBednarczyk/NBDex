@@ -6,13 +6,13 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCoreVersion
 
 object NetworkCoreVersionMapper : NBNetworkMapper<CoreVersion, NetworkCoreVersion> {
-
-    override fun networkToModel(network: NetworkCoreVersion): CoreVersion {
+    override fun networkToModel(
+        network: NetworkCoreVersion,
+    ): CoreVersion {
         return CoreVersion(
             id = CoreVersionId.from(network.id),
             name = network.name,
             versionGroupId = CoreVersionGroupId.from(network.versionGroupId),
         )
     }
-
 }

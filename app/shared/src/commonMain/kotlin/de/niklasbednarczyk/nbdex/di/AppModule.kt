@@ -34,8 +34,8 @@ internal val appModule = module {
                 topLevelKeys = NBTopLevelDestination
                     .entries
                     .map { topLevelDestination -> topLevelDestination.navKey }
-                    .toSet()
-            )
+                    .toSet(),
+            ),
         )
     }
 }

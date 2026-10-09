@@ -9,9 +9,7 @@ data class CorePokedex(
     val name: String,
     val regionId: CoreRegionId?,
 ) {
-
     companion object {
-
         fun example(
             id: CorePokedexId = CorePokedexId.example(),
             isMainSeries: Boolean = false,
@@ -25,7 +23,5 @@ data class CorePokedex(
                 regionId = regionId,
             )
         }
-
     }
-
 }

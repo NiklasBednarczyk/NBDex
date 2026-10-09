@@ -10,7 +10,6 @@ import de.niklasbednarczyk.nbdex.model.pokedex.preferences.PokedexPreferencesCat
 import kotlinx.coroutines.flow.Flow
 
 interface PokedexRepository {
-
     fun getResult(
         languageId: CoreLanguageId,
     ): Flow<NBResult<PokedexData>>
@@ -30,5 +29,4 @@ interface PokedexRepository {
     suspend fun updatePreferencesCategory(
         category: PokedexPreferencesCategory,
     )
-
 }

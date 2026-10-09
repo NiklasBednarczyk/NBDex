@@ -12,7 +12,7 @@ val featureInfoModule = module {
     navigation<InfoNavKey>(
         metadata = ListDetailSceneStrategy.listPane(
             sceneKey = NBTopLevelDestination.INFO.sceneKey,
-            detailPlaceholder = { NBDetailPlaceholderContent() }
+            detailPlaceholder = { NBDetailPlaceholderContent() },
         ),
     ) {
         InfoScreen()

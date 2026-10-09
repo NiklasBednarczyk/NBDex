@@ -4,8 +4,9 @@ import de.niklasbednarczyk.nbdex.core.model.endpoint.CorePokemonForm
 import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemonForm
 
 object PersistenceCorePokemonFormMapper : NBPersistenceCoreMapper<CorePokemonForm, PersistenceCorePokemonForm> {
-
-    override fun modelToPersistence(model: CorePokemonForm): PersistenceCorePokemonForm {
+    override fun modelToPersistence(
+        model: CorePokemonForm,
+    ): PersistenceCorePokemonForm {
         return PersistenceCorePokemonForm(
             id = model.id,
             formName = model.formName,
@@ -20,7 +21,9 @@ object PersistenceCorePokemonFormMapper : NBPersistenceCoreMapper<CorePokemonFor
         )
     }
 
-    override fun persistenceToModel(persistence: PersistenceCorePokemonForm): CorePokemonForm {
+    override fun persistenceToModel(
+        persistence: PersistenceCorePokemonForm,
+    ): CorePokemonForm {
         return CorePokemonForm(
             id = persistence.id,
             formName = persistence.formName,
@@ -34,5 +37,4 @@ object PersistenceCorePokemonFormMapper : NBPersistenceCoreMapper<CorePokemonFor
             versionGroupId = persistence.versionGroupId,
         )
     }
-
 }

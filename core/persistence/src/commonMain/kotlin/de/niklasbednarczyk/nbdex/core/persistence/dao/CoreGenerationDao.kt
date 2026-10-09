@@ -9,7 +9,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCoreGeneratio
 
 @Dao
 interface CoreGenerationDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -17,11 +16,12 @@ interface CoreGenerationDao {
                 SELECT 1 
                 FROM ${NBTableName.GENERATION}
             );
-        """
+        """,
     )
     suspend fun hasGenerations(): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertGenerations(generations: List<PersistenceCoreGeneration>)
-
+    suspend fun insertGenerations(
+        generations: List<PersistenceCoreGeneration>,
+    )
 }

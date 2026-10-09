@@ -2,8 +2,9 @@ package de.niklasbednarczyk.nbdex.core.persistence.mapper
 
 interface NBPersistenceCoreInputMapper<Model : Any, Persistence : Any, Input : Any> :
     NBPersistenceCoreMapper<Model, Persistence> {
-
-    fun persistenceToInput(persistence: Persistence): Input?
+    fun persistenceToInput(
+        persistence: Persistence,
+    ): Input?
 
     fun persistenceListToModel(
         persistenceList: List<Persistence>,
@@ -24,5 +25,4 @@ interface NBPersistenceCoreInputMapper<Model : Any, Persistence : Any, Input : A
         }
         return persistenceToModelNullable(persistence)
     }
-
 }

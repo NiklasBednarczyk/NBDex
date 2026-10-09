@@ -6,8 +6,9 @@ import de.niklasbednarczyk.nbdex.model.pokedex.preferences.PokedexPreferencesCat
 
 internal object DiskPokedexPreferencesCategoryMapper :
     NBDiskMessageMapper<Set<PokedexPreferencesCategory>, DiskPokedexPreferences.Category> {
-
-    override fun diskToModel(disk: DiskPokedexPreferences.Category): Set<PokedexPreferencesCategory> {
+    override fun diskToModel(
+        disk: DiskPokedexPreferences.Category,
+    ): Set<PokedexPreferencesCategory> {
         return setOfNotNull(
             if (disk.isDefault == true) PokedexPreferencesCategory.DEFAULT else null,
             if (disk.isBaby == true) PokedexPreferencesCategory.BABY else null,
@@ -17,5 +18,4 @@ internal object DiskPokedexPreferencesCategoryMapper :
             if (disk.isMythical == true) PokedexPreferencesCategory.MYTHICAL else null,
         )
     }
-
 }

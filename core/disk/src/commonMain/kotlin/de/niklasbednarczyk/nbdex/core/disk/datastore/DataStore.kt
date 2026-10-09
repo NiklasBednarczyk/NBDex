@@ -17,7 +17,7 @@ fun <Disk : Message<*, *>> createDataStore(
             scope = scope,
             dataStoreFileName = getDataStoreFileName(dataStoreName),
             serializer = serializer,
-        )
+        ),
     )
 }
 
@@ -27,6 +27,8 @@ internal expect fun <Disk : Message<*, *>> createStorage(
     serializer: NBSerializer<Disk>,
 ): Storage<Disk>
 
-private fun getDataStoreFileName(dataStoreName: String): String {
-    return "nbdex_datastore_${dataStoreName}.pb"
+private fun getDataStoreFileName(
+    dataStoreName: String,
+): String {
+    return "nbdex_datastore_$dataStoreName.pb"
 }

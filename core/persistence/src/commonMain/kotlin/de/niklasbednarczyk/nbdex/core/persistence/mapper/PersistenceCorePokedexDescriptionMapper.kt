@@ -6,8 +6,9 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokedexDe
 
 object PersistenceCorePokedexDescriptionMapper :
     NBPersistenceCoreInputMapper<CorePokedexDescription, PersistenceCorePokedexDescription, CoreLanguageId> {
-
-    override fun modelToPersistence(model: CorePokedexDescription): PersistenceCorePokedexDescription {
+    override fun modelToPersistence(
+        model: CorePokedexDescription,
+    ): PersistenceCorePokedexDescription {
         return PersistenceCorePokedexDescription(
             id = model.id,
             description = model.description,
@@ -16,7 +17,9 @@ object PersistenceCorePokedexDescriptionMapper :
         )
     }
 
-    override fun persistenceToModel(persistence: PersistenceCorePokedexDescription): CorePokedexDescription {
+    override fun persistenceToModel(
+        persistence: PersistenceCorePokedexDescription,
+    ): CorePokedexDescription {
         return CorePokedexDescription(
             id = persistence.id,
             description = persistence.description,
@@ -25,8 +28,9 @@ object PersistenceCorePokedexDescriptionMapper :
         )
     }
 
-    override fun persistenceToInput(persistence: PersistenceCorePokedexDescription): CoreLanguageId? {
+    override fun persistenceToInput(
+        persistence: PersistenceCorePokedexDescription,
+    ): CoreLanguageId? {
         return persistence.languageId
     }
-
 }

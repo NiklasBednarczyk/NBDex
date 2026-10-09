@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.Flow
 internal class SettingsRepositoryImpl(
     private val diskDataSource: SettingsDiskDataSource,
 ) : SettingsRepository {
-
     override fun getSettings(): Flow<CoreSettings> {
         return diskDataSource.getSettings()
     }
@@ -39,5 +38,4 @@ internal class SettingsRepositoryImpl(
             contrast = contrast,
         )
     }
-
 }

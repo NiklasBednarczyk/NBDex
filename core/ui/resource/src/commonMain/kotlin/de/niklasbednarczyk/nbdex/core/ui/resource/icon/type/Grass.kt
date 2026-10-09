@@ -24,11 +24,11 @@ val NBIcons.Type.Grass: ImageVector
             defaultWidth = 512.dp,
             defaultHeight = 512.dp,
             viewportWidth = 512f,
-            viewportHeight = 512f
+            viewportHeight = 512f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFFBA1A1A)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveToRelative(97.41f, 440.65f)
                 curveToRelative(-1.76f, -1.65f, -3.5f, -3.34f, -5.21f, -5.06f)

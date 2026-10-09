@@ -26,7 +26,6 @@ import nbdex.core.ui.resource.generated.resources.about_list_item_version_conten
 import org.jetbrains.compose.resources.StringResource
 
 sealed interface AboutListItem {
-
     val leadingIcon: ImageVector
     val contentStringResource: StringResource
 
@@ -34,7 +33,6 @@ sealed interface AboutListItem {
     val type: AboutListItemType
 
     data object Bulbapedia : AboutListItem {
-
         override val leadingIcon: ImageVector
             get() = NBIcons.Material.FormatPaint
 
@@ -48,13 +46,11 @@ sealed interface AboutListItem {
 
         override val type: AboutListItemType
             get() = AboutListItemType.Link(
-                url = AboutListItemUrl.BULBAPEDIA
+                url = AboutListItemUrl.BULBAPEDIA,
             )
-
     }
 
     data object Developer : AboutListItem {
-
         override val leadingIcon: ImageVector
             get() = NBIcons.Material.Person
 
@@ -68,11 +64,9 @@ sealed interface AboutListItem {
 
         override val type: AboutListItemType
             get() = AboutListItemType.Basic
-
     }
 
     data object Duiker101 : AboutListItem {
-
         override val leadingIcon: ImageVector
             get() = NBIcons.Material.Image
 
@@ -86,13 +80,11 @@ sealed interface AboutListItem {
 
         override val type: AboutListItemType
             get() = AboutListItemType.Link(
-                url = AboutListItemUrl.DUIKER101
+                url = AboutListItemUrl.DUIKER101,
             )
-
     }
 
     data object PokeApi : AboutListItem {
-
         override val leadingIcon: ImageVector
             get() = NBIcons.Material.Api
 
@@ -106,13 +98,11 @@ sealed interface AboutListItem {
 
         override val type: AboutListItemType
             get() = AboutListItemType.Link(
-                url = AboutListItemUrl.POKE_API
+                url = AboutListItemUrl.POKE_API,
             )
-
     }
 
     data object SourceCode : AboutListItem {
-
         override val leadingIcon: ImageVector
             get() = NBIcons.Material.Code
 
@@ -124,13 +114,11 @@ sealed interface AboutListItem {
 
         override val type: AboutListItemType
             get() = AboutListItemType.Link(
-                url = AboutListItemUrl.SOURCE_CODE
+                url = AboutListItemUrl.SOURCE_CODE,
             )
-
     }
 
     data object Version : AboutListItem {
-
         override val leadingIcon: ImageVector
             get() = NBIcons.Material.Commit
 
@@ -144,12 +132,5 @@ sealed interface AboutListItem {
 
         override val type: AboutListItemType
             get() = AboutListItemType.Basic
-
     }
-
 }
-
-
-
-
-

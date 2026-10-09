@@ -6,8 +6,9 @@ import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class DependencyLoggingConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         extensions.configure<KotlinMultiplatformExtension> {
             sourceSets.apply {
                 commonMain.dependencies {
@@ -18,5 +19,4 @@ class DependencyLoggingConventionPlugin : Plugin<Project> {
             }
         }
     }
-
 }

@@ -33,7 +33,7 @@ fun ThemeScreen() {
     ThemeScreen(
         uiState = uiState,
         onBack = viewModel::navigateBack,
-        onThemeClicked = viewModel::updateTheme,
+        onThemeClick = viewModel::updateTheme,
     )
 }
 
@@ -41,11 +41,12 @@ fun ThemeScreen() {
 private fun ThemeScreen(
     uiState: ThemeUiState,
     onBack: () -> Unit,
-    onThemeClicked: (theme: CoreSettingsTheme) -> Unit,
+    onThemeClick: (theme: CoreSettingsTheme) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             NBSmallTopAppBar(
                 scrollBehavior = scrollBehavior,
@@ -56,11 +57,12 @@ private fun ThemeScreen(
     ) { innerPadding ->
         when (uiState) {
             ThemeUiState.Initial -> {}
+
             is ThemeUiState.Success -> {
                 NBSegmentedListSingleSelection(
                     items = uiState.themes,
                     selectedItem = uiState.selectedTheme,
-                    onClick = onThemeClicked,
+                    onClick = onThemeClick,
                     getKey = { theme -> theme },
                     getContentText = { theme -> stringResource(theme.stringResource) },
                     additionalContentPadding = innerPadding,
@@ -85,15 +87,14 @@ private fun Preview(
                 selectedTheme = selectedTheme,
             ),
             onBack = {},
-            onThemeClicked = { theme -> selectedTheme = theme },
+            onThemeClick = { theme -> selectedTheme = theme },
         )
     }
 }
 
-
 @Preview
 @Composable
-private fun PreviewInitial(
+private fun InitialPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
@@ -102,14 +103,14 @@ private fun PreviewInitial(
         ThemeScreen(
             uiState = ThemeUiState.Initial,
             onBack = {},
-            onThemeClicked = {},
+            onThemeClick = {},
         )
     }
 }
 
 @Preview
 @Composable
-private fun PreviewInitialMultiplePanes(
+private fun InitialMultiplePanesPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
@@ -119,7 +120,7 @@ private fun PreviewInitialMultiplePanes(
         ThemeScreen(
             uiState = ThemeUiState.Initial,
             onBack = {},
-            onThemeClicked = {},
+            onThemeClick = {},
         )
     }
 }

@@ -18,7 +18,6 @@ class NBNavigationState(
     internal val startKey: NBNavKey,
     internal val topLevelKeys: Set<NBNavKey>,
 ) {
-
     val topLevelStack: SnapshotStateList<NBNavKey> = mutableStateListOf(startKey)
     internal val subStacks = topLevelKeys.associateWith { navKey -> mutableStateListOf(navKey) }
 
@@ -31,7 +30,6 @@ class NBNavigationState(
     internal val currentKey: NBNavKey by derivedStateOf { currentSubStack.last() }
 
     val currentKeyFlow: Flow<NBNavKey> = snapshotFlow { currentKey }
-
 }
 
 @Composable
@@ -51,6 +49,6 @@ fun NBNavigationState.toEntries(
     }
 
     return topLevelStack
-        .flatMap { decoratedEntries[it] ?: emptyList() }
+        .flatMap { decoratedEntries[it].orEmpty() }
         .toMutableStateList()
 }

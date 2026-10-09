@@ -7,8 +7,9 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionGroupId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCorePokemonForm
 
 object NetworkCorePokemonFormMapper : NBNetworkMapper<CorePokemonForm, NetworkCorePokemonForm> {
-
-    override fun networkToModel(network: NetworkCorePokemonForm): CorePokemonForm {
+    override fun networkToModel(
+        network: NetworkCorePokemonForm,
+    ): CorePokemonForm {
         return CorePokemonForm(
             id = CorePokemonFormId.from(network.id),
             formName = network.formName,
@@ -22,5 +23,4 @@ object NetworkCorePokemonFormMapper : NBNetworkMapper<CorePokemonForm, NetworkCo
             versionGroupId = CoreVersionGroupId.from(network.versionGroupId),
         )
     }
-
 }

@@ -72,7 +72,7 @@ import de.niklasbednarczyk.nbdex.persistence.pokedex.impl.dao.PokedexTypeDao
         PersistenceCoreTypeName::class,
         PersistenceCoreVersion::class,
         PersistenceCoreVersionGroup::class,
-        PersistenceCoreVersionName::class
+        PersistenceCoreVersionName::class,
     ],
     version = 1,
 )
@@ -82,33 +82,53 @@ import de.niklasbednarczyk.nbdex.persistence.pokedex.impl.dao.PokedexTypeDao
 )
 @ConstructedBy(NBDatabaseConstructor::class)
 abstract class NBDatabase : RoomDatabase() {
-
     //  Core
     abstract fun coreGenerationDao(): CoreGenerationDao
+
     abstract fun coreGenerationNameDao(): CoreGenerationNameDao
+
     abstract fun corePokedexDao(): CorePokedexDao
+
     abstract fun corePokedexDescriptionDao(): CorePokedexDescriptionDao
+
     abstract fun corePokedexNameDao(): CorePokedexNameDao
+
     abstract fun corePokedexVersionGroupDao(): CorePokedexVersionGroupDao
+
     abstract fun corePokemonDao(): CorePokemonDao
+
     abstract fun corePokemonDexNumberDao(): CorePokemonDexNumberDao
+
     abstract fun corePokemonFormDao(): CorePokemonFormDao
+
     abstract fun corePokemonFormNameDao(): CorePokemonFormNameDao
+
     abstract fun corePokemonSpeciesDao(): CorePokemonSpeciesDao
+
     abstract fun corePokemonSpeciesNameDao(): CorePokemonSpeciesNameDao
+
     abstract fun corePokemonTypeDao(): CorePokemonTypeDao
+
     abstract fun coreRegionDao(): CoreRegionDao
+
     abstract fun coreRegionNameDao(): CoreRegionNameDao
+
     abstract fun coreTypeDao(): CoreTypeDao
+
     abstract fun coreTypeNameDao(): CoreTypeNameDao
+
     abstract fun coreVersionDao(): CoreVersionDao
+
     abstract fun coreVersionGroupDao(): CoreVersionGroupDao
+
     abstract fun coreVersionNameDao(): CoreVersionNameDao
 
     // Pokedex
     abstract fun pokedexGenerationDao(): PokedexGenerationDao
-    abstract fun pokedexPokedexDao(): PokedexPokedexDao
-    abstract fun pokedexPokemonFormDao(): PokedexPokemonFormDao
-    abstract fun pokedexTypeDao(): PokedexTypeDao
 
+    abstract fun pokedexPokedexDao(): PokedexPokedexDao
+
+    abstract fun pokedexPokemonFormDao(): PokedexPokemonFormDao
+
+    abstract fun pokedexTypeDao(): PokedexTypeDao
 }

@@ -6,57 +6,102 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.color.extended.NBExt
 
 @Immutable
 data class NBExtendedColorsVersion(
+    /** Source color #26649C from https://bulbapedia.bulbagarden.net/wiki/Template:Alpha_Sapphire_color */
     val alphaSapphire: NBExtendedColor,
+    /** Source color #444444 from https://bulbapedia.bulbagarden.net/wiki/Template:Black_color */
     val black: NBExtendedColor,
+    /** Source color #303E51 from https://bulbapedia.bulbagarden.net/wiki/Template:Black_2_color */
     val black2: NBExtendedColor,
+    /** Source color #2E50D8 from https://bulbapedia.bulbagarden.net/wiki/Template:Blue_color */
     val blue: NBExtendedColor,
+    /** Source color #44BAE5 from https://bulbapedia.bulbagarden.net/wiki/Template:Brilliant_Diamond_color */
     val brilliantDiamond: NBExtendedColor,
+    /** Source color #8477FB from https://bulbapedia.bulbagarden.net/wiki/Template:Champions_color */
     val champions: NBExtendedColor,
+    /** Source color #B6CAE4 from https://bulbapedia.bulbagarden.net/wiki/Template:Colo_color */
     val colosseum: NBExtendedColor,
+    /** Source color #4FD9FF from https://bulbapedia.bulbagarden.net/wiki/Template:Crystal_color */
     val crystal: NBExtendedColor,
+    /** Source color #90BEED from https://bulbapedia.bulbagarden.net/wiki/Template:Diamond_color */
     val diamond: NBExtendedColor,
+    /** Source color #009652 from https://bulbapedia.bulbagarden.net/wiki/Template:Emerald_color */
     val emerald: NBExtendedColor,
+    /** Source color #F15C01 from https://bulbapedia.bulbagarden.net/wiki/Template:FireRed_color */
     val fireRed: NBExtendedColor,
+    /** Source color #DAA520 from https://bulbapedia.bulbagarden.net/wiki/Template:Gold_color */
     val gold: NBExtendedColor,
+    /** Source color #24A724 from https://bulbapedia.bulbagarden.net/wiki/Template:Green_color */
     val green: NBExtendedColor,
+    /** Source color #E8B502 from https://bulbapedia.bulbagarden.net/wiki/Template:HeartGold_color */
     val heartGold: NBExtendedColor,
+    /** Source color #9FDC00 from https://bulbapedia.bulbagarden.net/wiki/Template:LeafGreen_color */
     val leafGreen: NBExtendedColor,
+    /** Source color #36597B from https://bulbapedia.bulbagarden.net/wiki/Template:Legends_Arceus_color */
     val legendsArceus: NBExtendedColor,
+    /** Source color #31CA56 from https://bulbapedia.bulbagarden.net/wiki/Template:Legends_Z-A_color */
     val legendsZa: NBExtendedColor,
+    /** Source color #D4924B from https://bulbapedia.bulbagarden.net/wiki/Template:Let%27s_Go_Eevee_color */
     val letsGoEevee: NBExtendedColor,
+    /** Source color #F5DA26 from https://bulbapedia.bulbagarden.net/wiki/Template:Let%27s_Go_Pikachu_color */
     val letsGoPikachu: NBExtendedColor,
+    /** Source color #C57DDC from https://bulbapedia.bulbagarden.net/wiki/Template:Mega_Dimension_color */
     val megaDimension: NBExtendedColor,
+    /** Source color #5599CA from https://bulbapedia.bulbagarden.net/wiki/Template:Moon_color */
     val moon: NBExtendedColor,
+    /** Source color #AB2813 from https://bulbapedia.bulbagarden.net/wiki/Template:Omega_Ruby_color */
     val omegaRuby: NBExtendedColor,
+    /** Source color #DD7CB1 from https://bulbapedia.bulbagarden.net/wiki/Template:Pearl_color */
     val pearl: NBExtendedColor,
+    /** Source color #A0A08D from https://bulbapedia.bulbagarden.net/wiki/Template:Platinum_color */
     val platinum: NBExtendedColor,
+    /** Source color #DA3914 from https://bulbapedia.bulbagarden.net/wiki/Template:Red_color */
     val red: NBExtendedColor,
+    /** Source color #CD2236 from https://bulbapedia.bulbagarden.net/wiki/Template:Ruby_color */
     val ruby: NBExtendedColor,
+    /** Source color #3D51A7 from https://bulbapedia.bulbagarden.net/wiki/Template:Sapphire_color */
     val sapphire: NBExtendedColor,
+    /** Source color #F34134 from https://bulbapedia.bulbagarden.net/wiki/Template:Scarlet_color */
     val scarlet: NBExtendedColor,
+    /** Source color #BF004F from https://bulbapedia.bulbagarden.net/wiki/Template:Shield_color */
     val shield: NBExtendedColor,
+    /** Source color #DA7D99 from https://bulbapedia.bulbagarden.net/wiki/Template:Shining_Pearl_color */
     val shiningPearl: NBExtendedColor,
+    /** Source color #C0C0C0 from https://bulbapedia.bulbagarden.net/wiki/Template:Silver_color */
     val silver: NBExtendedColor,
+    /** Source color #AAB9CF from https://bulbapedia.bulbagarden.net/wiki/Template:SoulSilver_color */
     val soulSilver: NBExtendedColor,
+    /** Source color #F1912B from https://bulbapedia.bulbagarden.net/wiki/Template:Sun_color */
     val sun: NBExtendedColor,
+    /** Source color #00A1E9 from https://bulbapedia.bulbagarden.net/wiki/Template:Sword_color */
     val sword: NBExtendedColor,
+    /** Source color #15AE68 from https://bulbapedia.bulbagarden.net/wiki/Template:Crown_Tundra_color */
     val theCrownTundra: NBExtendedColor,
+    /** Source color #004878 from https://bulbapedia.bulbagarden.net/wiki/Template:Indigo_Disk_color */
     val theIndigoDisk: NBExtendedColor,
+    /** Source color #FCD00B from https://bulbapedia.bulbagarden.net/wiki/Template:Isle_of_Armor_color */
     val theIsleOfArmor: NBExtendedColor,
+    /** Source color #00A398 from https://bulbapedia.bulbagarden.net/wiki/Template:Teal_Mask_color */
     val theTealMask: NBExtendedColor,
+    /** Source color #226DB5 from https://bulbapedia.bulbagarden.net/wiki/Template:Ultra_Moon_color */
     val ultraMoon: NBExtendedColor,
+    /** Source color #E95B2B from https://bulbapedia.bulbagarden.net/wiki/Template:Ultra_Sun_color */
     val ultraSun: NBExtendedColor,
+    /** Source color #8334B7 from https://bulbapedia.bulbagarden.net/wiki/Template:Violet_color */
     val violet: NBExtendedColor,
+    /** Source color #E1E1E1 from https://bulbapedia.bulbagarden.net/wiki/Template:White_color */
     val white: NBExtendedColor,
+    /** Source color #EBC5C3 from https://bulbapedia.bulbagarden.net/wiki/Template:White_2_color */
     val white2: NBExtendedColor,
+    /** Source color #025DA6 from https://bulbapedia.bulbagarden.net/wiki/Template:X_color */
     val x: NBExtendedColor,
+    /** Source color #604E82 from https://bulbapedia.bulbagarden.net/wiki/Template:XD_color */
     val xd: NBExtendedColor,
+    /** Source color #EA1A3E from https://bulbapedia.bulbagarden.net/wiki/Template:Y_color */
     val y: NBExtendedColor,
+    /** Source color #FFD733 from https://bulbapedia.bulbagarden.net/wiki/Template:Yellow_color */
     val yellow: NBExtendedColor,
 ) {
-
     companion object {
-
         private val extendedColorsVersionLightStandardContrast = NBExtendedColorsVersion(
             alphaSapphire = NBExtendedColor(
                 color = versionAlphaSapphireLightStandardContrast,
@@ -1221,7 +1266,5 @@ data class NBExtendedColorsVersion(
                 }
             }
         }
-
     }
-
 }

@@ -8,7 +8,6 @@ import de.niklasbednarczyk.nbdex.model.pokedex.preferences.PokedexPreferencesCat
 import kotlinx.coroutines.flow.Flow
 
 interface PokedexDiskDataSource {
-
     fun getPreferences(): Flow<PokedexPreferences>
 
     suspend fun updateGenerationId(
@@ -26,5 +25,4 @@ interface PokedexDiskDataSource {
     suspend fun updateCategory(
         category: PokedexPreferencesCategory,
     )
-
 }

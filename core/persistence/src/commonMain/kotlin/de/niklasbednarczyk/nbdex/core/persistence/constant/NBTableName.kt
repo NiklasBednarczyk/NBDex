@@ -1,7 +1,6 @@
 package de.niklasbednarczyk.nbdex.core.persistence.constant
 
 object NBTableName {
-
     const val GENERATION = "Generation"
     const val GENERATION_NAME = "GenerationName"
     const val POKEDEX = "Pokedex"
@@ -22,5 +21,4 @@ object NBTableName {
     const val VERSION = "Version"
     const val VERSION_GROUP = "VersionGroup"
     const val VERSION_NAME = "VersionName"
-
 }

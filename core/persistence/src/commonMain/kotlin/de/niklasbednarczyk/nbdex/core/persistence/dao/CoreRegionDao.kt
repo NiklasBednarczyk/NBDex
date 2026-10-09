@@ -9,7 +9,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCoreRegion
 
 @Dao
 interface CoreRegionDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -17,11 +16,12 @@ interface CoreRegionDao {
                 SELECT 1 
                 FROM ${NBTableName.REGION}
             );
-        """
+        """,
     )
     suspend fun hasRegions(): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertRegions(regions: List<PersistenceCoreRegion>)
-
+    suspend fun insertRegions(
+        regions: List<PersistenceCoreRegion>,
+    )
 }

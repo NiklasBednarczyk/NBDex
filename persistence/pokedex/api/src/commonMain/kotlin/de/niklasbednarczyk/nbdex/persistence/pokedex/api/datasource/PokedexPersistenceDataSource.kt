@@ -11,7 +11,6 @@ import de.niklasbednarczyk.nbdex.model.pokedex.type.PokedexType
 import kotlinx.coroutines.flow.Flow
 
 interface PokedexPersistenceDataSource {
-
     suspend fun hasEndpoints(
         languageId: CoreLanguageId,
     ): Boolean
@@ -36,5 +35,4 @@ interface PokedexPersistenceDataSource {
     suspend fun insertEndpoints(
         endpoints: PokedexEndpoints,
     )
-
 }

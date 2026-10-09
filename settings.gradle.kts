@@ -29,6 +29,9 @@ dependencyResolutionManagement {
     }
 }
 
+// Allows spotless to format .gitignore, see https://github.com/diffplug/spotless/issues/1146
+org.apache.tools.ant.DirectoryScanner.removeDefaultExclude("**/.gitignore")
+
 include(":app:androidApp")
 include(":app:desktopApp")
 include(":app:shared")

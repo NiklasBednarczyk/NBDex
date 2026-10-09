@@ -10,7 +10,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemonTy
 
 @Dao
 interface CorePokemonTypeDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -18,7 +17,7 @@ interface CorePokemonTypeDao {
                 SELECT 1 
                 FROM ${NBTableName.POKEMON_TYPE}
             );
-        """
+        """,
     )
     suspend fun hasPokemonTypes(): Boolean
 
@@ -30,11 +29,14 @@ interface CorePokemonTypeDao {
                 FROM ${NBTableName.POKEMON_TYPE}
                 WHERE typeId = :typeId
             );
-        """
+        """,
     )
-    suspend fun hasPokemonTypesWithTypeId(typeId: CoreTypeId): Boolean
+    suspend fun hasPokemonTypesWithTypeId(
+        typeId: CoreTypeId,
+    ): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertPokemonTypes(pokemonTypes: List<PersistenceCorePokemonType>)
-
+    suspend fun insertPokemonTypes(
+        pokemonTypes: List<PersistenceCorePokemonType>,
+    )
 }

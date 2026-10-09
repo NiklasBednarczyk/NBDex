@@ -21,16 +21,9 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfo
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfoPreviewParameterProvider
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.NBCenteredTopAppBar
 import de.niklasbednarczyk.nbdex.core.ui.model.settings.ext.stringResource
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.Contrast
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.Info
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.LightMode
 import de.niklasbednarczyk.nbdex.feature.more.impl.ui.model.MoreDestination
 import nbdex.core.ui.resource.generated.resources.Res
-import nbdex.core.ui.resource.generated.resources.about_title
-import nbdex.core.ui.resource.generated.resources.contrast_title
 import nbdex.core.ui.resource.generated.resources.more_title
-import nbdex.core.ui.resource.generated.resources.theme_title
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -41,22 +34,23 @@ fun MoreScreen() {
 
     MoreScreen(
         uiState = uiState,
-        onAboutClicked = viewModel::navigateToAbout,
-        onContrastClicked = viewModel::navigateToContrast,
-        onThemeClicked = viewModel::navigateToTheme,
+        onAboutClick = viewModel::navigateToAbout,
+        onContrastClick = viewModel::navigateToContrast,
+        onThemeClick = viewModel::navigateToTheme,
     )
 }
 
 @Composable
 private fun MoreScreen(
     uiState: MoreUiState,
-    onAboutClicked: () -> Unit,
-    onContrastClicked: () -> Unit,
-    onThemeClicked: () -> Unit,
+    onAboutClick: () -> Unit,
+    onContrastClick: () -> Unit,
+    onThemeClick: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             NBCenteredTopAppBar(
                 scrollBehavior = scrollBehavior,
@@ -66,6 +60,7 @@ private fun MoreScreen(
     ) { innerPadding ->
         when (uiState) {
             MoreUiState.Initial -> {}
+
             is MoreUiState.Success -> {
                 NBSegmentedListSingleActionGroup(
                     map = uiState.sectionsWithDestinations,
@@ -76,39 +71,26 @@ private fun MoreScreen(
                     getContentTypeKlassItem = { destination -> destination::class },
                     onClick = { destination ->
                         when (destination) {
-                            MoreDestination.ABOUT -> onAboutClicked()
-                            MoreDestination.CONTRAST -> onContrastClicked()
-                            MoreDestination.THEME -> onThemeClicked()
+                            MoreDestination.ABOUT -> onAboutClick()
+                            MoreDestination.CONTRAST -> onContrastClick()
+                            MoreDestination.THEME -> onThemeClick()
                         }
                     },
                     getGroupText = { section -> stringResource(section.titleStringResource) },
-                    getContentText = { destination ->
-                        val resource = when (destination) {
-                            MoreDestination.ABOUT -> Res.string.about_title
-                            MoreDestination.CONTRAST -> Res.string.contrast_title
-                            MoreDestination.THEME -> Res.string.theme_title
-                        }
-                        stringResource(resource)
-                    },
+                    getContentText = { destination -> stringResource(destination.titleStringResource) },
                     getSupportingContent = { destination ->
                         val resource = when (destination) {
                             MoreDestination.ABOUT -> null
                             MoreDestination.CONTRAST -> uiState.selectedContrast.stringResource
                             MoreDestination.THEME -> uiState.selectedTheme.stringResource
                         }
-                        resource?.let {
+                        if (resource != null) {
                             Text(
                                 text = stringResource(resource),
                             )
                         }
                     },
-                    getLeadingIcon = { destination ->
-                        when (destination) {
-                            MoreDestination.ABOUT -> NBIcons.Material.Info
-                            MoreDestination.CONTRAST -> NBIcons.Material.Contrast
-                            MoreDestination.THEME -> NBIcons.Material.LightMode
-                        }
-                    },
+                    getLeadingIcon = { destination -> destination.leadingIcon },
                     additionalContentPadding = innerPadding,
                 )
             }
@@ -132,16 +114,16 @@ private fun Preview(
                 selectedTheme = CoreSettingsTheme.DARK,
                 selectedContrast = CoreSettingsContrast.MEDIUM,
             ),
-            onAboutClicked = { selectedDestination = MoreDestination.ABOUT },
-            onContrastClicked = { selectedDestination = MoreDestination.CONTRAST },
-            onThemeClicked = { selectedDestination = MoreDestination.THEME },
+            onAboutClick = { selectedDestination = MoreDestination.ABOUT },
+            onContrastClick = { selectedDestination = MoreDestination.CONTRAST },
+            onThemeClick = { selectedDestination = MoreDestination.THEME },
         )
     }
 }
 
 @Preview
 @Composable
-private fun PreviewInitial(
+private fun InitialPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
@@ -149,9 +131,9 @@ private fun PreviewInitial(
     ) {
         MoreScreen(
             uiState = MoreUiState.Initial,
-            onAboutClicked = {},
-            onContrastClicked = {},
-            onThemeClicked = {},
+            onAboutClick = {},
+            onContrastClick = {},
+            onThemeClick = {},
         )
     }
 }

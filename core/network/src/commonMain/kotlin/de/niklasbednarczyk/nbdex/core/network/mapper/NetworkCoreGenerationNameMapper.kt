@@ -7,8 +7,9 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCoreGenerationName
 
 object NetworkCoreGenerationNameMapper : NBNetworkMapper<CoreGenerationName, NetworkCoreGenerationName> {
-
-    override fun networkToModel(network: NetworkCoreGenerationName): CoreGenerationName {
+    override fun networkToModel(
+        network: NetworkCoreGenerationName,
+    ): CoreGenerationName {
         return CoreGenerationName(
             id = CoreGenerationNameId.from(network.id),
             generationId = CoreGenerationId.from(network.generationId),
@@ -16,5 +17,4 @@ object NetworkCoreGenerationNameMapper : NBNetworkMapper<CoreGenerationName, Net
             name = network.name,
         )
     }
-
 }

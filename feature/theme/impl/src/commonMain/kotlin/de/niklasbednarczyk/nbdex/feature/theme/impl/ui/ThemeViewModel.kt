@@ -13,7 +13,6 @@ internal class ThemeViewModel(
     private val navigation: NBNavigator,
     private val settingsRepository: SettingsRepository,
 ) : NBViewModel() {
-
     val uiState: StateFlow<ThemeUiState> = settingsRepository
         .getSettings()
         .map { settings ->
@@ -36,5 +35,4 @@ internal class ThemeViewModel(
             )
         }
     }
-
 }

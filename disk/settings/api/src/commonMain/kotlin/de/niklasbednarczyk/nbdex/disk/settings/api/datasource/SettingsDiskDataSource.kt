@@ -7,7 +7,6 @@ import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsTheme
 import kotlinx.coroutines.flow.Flow
 
 interface SettingsDiskDataSource {
-
     fun getSettings(): Flow<CoreSettings>
 
     suspend fun updatePaneExpansionAnchor(
@@ -21,5 +20,4 @@ interface SettingsDiskDataSource {
     suspend fun updateContrast(
         contrast: CoreSettingsContrast,
     )
-
 }

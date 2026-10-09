@@ -18,28 +18,35 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfoPrevi
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
 
 @Composable
-fun NBLoadingContent() {
+fun NBLoadingContent(
+    modifier: Modifier = Modifier,
+) {
     BoxWithConstraints(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
         val indicatorSize = calculateIndicatorSize(minWidth)
 
         LoadingIndicator(
-            modifier = Modifier.size(indicatorSize)
+            modifier = Modifier.size(indicatorSize),
         )
     }
 }
 
 @Composable
-private fun calculateIndicatorSize(boxMinWith: Dp): Dp {
+private fun calculateIndicatorSize(
+    boxMinWith: Dp,
+): Dp {
     val indicatorMinSize = NBTheme.dimensions.component.loadingIndicator.minSize
     val indicatorMaxSize = NBTheme.dimensions.component.loadingIndicator.maxSize
     val boxMaxWidth = WindowSizeClass.WIDTH_DP_EXTRA_LARGE_LOWER_BOUND
 
     val indicatorSize = indicatorMaxSize * (boxMinWith / boxMaxWidth)
 
-    return indicatorSize.coerceIn(indicatorMinSize, indicatorMaxSize)
+    return indicatorSize.coerceIn(
+        minimumValue = indicatorMinSize,
+        maximumValue = indicatorMaxSize,
+    )
 }
 
 @Preview

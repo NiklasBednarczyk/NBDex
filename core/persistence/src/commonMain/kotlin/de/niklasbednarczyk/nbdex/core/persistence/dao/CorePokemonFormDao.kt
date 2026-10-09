@@ -9,7 +9,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemonFo
 
 @Dao
 interface CorePokemonFormDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -17,11 +16,12 @@ interface CorePokemonFormDao {
                 SELECT 1 
                 FROM ${NBTableName.POKEMON_FORM}
             );
-        """
+        """,
     )
     suspend fun hasPokemonForms(): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertPokemonForms(pokemonForms: List<PersistenceCorePokemonForm>)
-
+    suspend fun insertPokemonForms(
+        pokemonForms: List<PersistenceCorePokemonForm>,
+    )
 }

@@ -12,12 +12,15 @@ import org.jetbrains.compose.desktop.DesktopExtension
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 class ApplicationDesktopConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         plugins {
-            apply(libs.getPluginId("kotlin-jvm"))
-            apply(libs.getPluginId("compose"))
-            apply(libs.getPluginId("kotlin-plugin-compose"))
+            apply(libs.getPluginId("plugin-kotlin-jvm"))
+            apply(libs.getPluginId("plugin-compose"))
+            apply(libs.getPluginId("plugin-kotlin-plugin-compose"))
+            apply(libs.getPluginId("nbdex-dependency-detekt"))
+            apply(libs.getPluginId("nbdex-dependency-spotless"))
         }
 
         val compose = extensions.getByType<ComposeExtension>().dependencies
@@ -38,6 +41,5 @@ class ApplicationDesktopConventionPlugin : Plugin<Project> {
                 }
             }
         }
-
     }
 }

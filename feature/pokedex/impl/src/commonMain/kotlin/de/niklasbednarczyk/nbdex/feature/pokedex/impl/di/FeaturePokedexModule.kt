@@ -16,7 +16,7 @@ val featurePokedexModule = module {
     navigation<PokedexNavKey>(
         metadata = ListDetailSceneStrategy.listPane(
             sceneKey = NBTopLevelDestination.POKEDEX.sceneKey,
-            detailPlaceholder = { NBDetailPlaceholderContent() }
+            detailPlaceholder = { NBDetailPlaceholderContent() },
         ),
     ) {
         PokedexScreen()

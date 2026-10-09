@@ -26,8 +26,9 @@ import de.niklasbednarczyk.nbdex.network.pokedex.impl.apollo.NetworkPokedexEndpo
 
 internal object NetworkPokedexEndpointsMapper :
     NBNetworkMapper<PokedexEndpoints, NetworkPokedexEndpointsQuery.Data> {
-
-    override fun networkToModel(network: NetworkPokedexEndpointsQuery.Data): PokedexEndpoints {
+    override fun networkToModel(
+        network: NetworkPokedexEndpointsQuery.Data,
+    ): PokedexEndpoints {
         return PokedexEndpoints(
             generations = network.generations.map { generation ->
                 NetworkCoreGenerationMapper.networkToModel(
@@ -131,5 +132,4 @@ internal object NetworkPokedexEndpointsMapper :
             },
         )
     }
-
 }

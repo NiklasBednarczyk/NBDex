@@ -10,7 +10,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemonSp
 
 @Dao
 interface CorePokemonSpeciesDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -18,7 +17,7 @@ interface CorePokemonSpeciesDao {
                 SELECT 1 
                 FROM ${NBTableName.POKEMON_SPECIES}
             );
-        """
+        """,
     )
     suspend fun hasPokemonSpecies(): Boolean
 
@@ -30,12 +29,14 @@ interface CorePokemonSpeciesDao {
                 FROM ${NBTableName.POKEMON_SPECIES}
                 WHERE generationId = :generationId
             );
-        """
+        """,
     )
-    suspend fun hasPokemonSpeciesWithGenerationId(generationId: CoreGenerationId): Boolean
-
+    suspend fun hasPokemonSpeciesWithGenerationId(
+        generationId: CoreGenerationId,
+    ): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertPokemonSpecies(pokemonSpecies: List<PersistenceCorePokemonSpecies>)
-
+    suspend fun insertPokemonSpecies(
+        pokemonSpecies: List<PersistenceCorePokemonSpecies>,
+    )
 }

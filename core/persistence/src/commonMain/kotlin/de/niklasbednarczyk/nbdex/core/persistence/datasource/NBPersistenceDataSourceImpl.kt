@@ -2,8 +2,7 @@ package de.niklasbednarczyk.nbdex.core.persistence.datasource
 
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.NBPersistenceCoreMapper
 
-abstract class NBPersistenceDataSourceImpl {
-
+open class NBPersistenceDataSourceImpl {
     protected suspend fun <Model : Any, Persistence : Any> insertList(
         modelList: List<Model>,
         mapper: NBPersistenceCoreMapper<Model, Persistence>,
@@ -14,5 +13,4 @@ abstract class NBPersistenceDataSourceImpl {
         )
         insert(persistenceList)
     }
-
 }

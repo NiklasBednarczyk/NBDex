@@ -33,9 +33,10 @@ fun NBFilterChip(
     selected: Boolean,
     expanded: Boolean,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     FilterChip(
-        modifier = Modifier.animateContentSize(),
+        modifier = modifier.animateContentSize(),
         selected = selected,
         onClick = onClick,
         label = {
@@ -89,13 +90,13 @@ private fun Preview(
             labelText = "Selected",
             selected = true,
             expanded = expandedSelected,
-            onClick = { expandedSelected = !expandedSelected }
+            onClick = { expandedSelected = !expandedSelected },
         )
         NBFilterChip(
             labelText = "Not selected",
             selected = false,
             expanded = expandedNotSelected,
-            onClick = { expandedNotSelected = !expandedNotSelected }
+            onClick = { expandedNotSelected = !expandedNotSelected },
         )
     }
 }

@@ -6,8 +6,9 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreRegionId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCorePokedex
 
 object NetworkCorePokedexMapper : NBNetworkMapper<CorePokedex, NetworkCorePokedex> {
-
-    override fun networkToModel(network: NetworkCorePokedex): CorePokedex {
+    override fun networkToModel(
+        network: NetworkCorePokedex,
+    ): CorePokedex {
         return CorePokedex(
             id = CorePokedexId.from(network.id),
             isMainSeries = network.isMainSeries,
@@ -15,5 +16,4 @@ object NetworkCorePokedexMapper : NBNetworkMapper<CorePokedex, NetworkCorePokede
             regionId = CoreRegionId.from(network.regionId),
         )
     }
-
 }

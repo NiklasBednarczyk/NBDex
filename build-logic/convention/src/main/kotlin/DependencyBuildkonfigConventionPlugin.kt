@@ -8,15 +8,15 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 
 class DependencyBuildkonfigConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         plugins {
-            apply(libs.getPluginId("buildkonfig"))
+            apply(libs.getPluginId("plugin-buildkonfig"))
         }
 
         extensions.configure<BuildKonfigExtension> {
             packageName.set("$modulePackageName.buildkonfig")
         }
     }
-
 }

@@ -8,7 +8,6 @@ import de.niklasbednarczyk.nbdex.network.pokedex.impl.apollo.NetworkPokedexEndpo
 import de.niklasbednarczyk.nbdex.network.pokedex.impl.mapper.NetworkPokedexEndpointsMapper
 
 internal class PokedexNetworkDataSourceImpl : NBNetworkDataSourceImpl(), PokedexNetworkDataSource {
-
     override suspend fun getEndpoints(
         languageId: CoreLanguageId,
     ): PokedexEndpoints {
@@ -19,5 +18,4 @@ internal class PokedexNetworkDataSourceImpl : NBNetworkDataSourceImpl(), Pokedex
             mapper = NetworkPokedexEndpointsMapper,
         )
     }
-
 }

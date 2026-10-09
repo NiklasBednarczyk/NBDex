@@ -24,11 +24,11 @@ val NBIcons.Type.Ice: ImageVector
             defaultWidth = 512.dp,
             defaultHeight = 512.dp,
             viewportWidth = 512f,
-            viewportHeight = 512f
+            viewportHeight = 512f,
         ).apply {
             path(
                 fill = SolidColor(Color(0xFFBA1A1A)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(384.3f, 39.04f)
                 lineTo(385.88f, 177.39f)
@@ -39,7 +39,7 @@ val NBIcons.Type.Ice: ImageVector
             }
             path(
                 fill = SolidColor(Color(0xFFBA1A1A)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(505.27f, 257.05f)
                 lineTo(385.81f, 325.37f)
@@ -50,7 +50,7 @@ val NBIcons.Type.Ice: ImageVector
             }
             path(
                 fill = SolidColor(Color(0xFFBA1A1A)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(245.04f, 257.05f)
                 lineTo(125.58f, 325.37f)
@@ -61,7 +61,7 @@ val NBIcons.Type.Ice: ImageVector
             }
             path(
                 fill = SolidColor(Color(0xFFBA1A1A)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(124.24f, 38.48f)
                 lineTo(248.23f, 99.88f)
@@ -72,7 +72,7 @@ val NBIcons.Type.Ice: ImageVector
             }
             path(
                 fill = SolidColor(Color(0xFFBA1A1A)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(387.68f, 473.52f)
                 lineTo(263.69f, 412.12f)
@@ -83,7 +83,7 @@ val NBIcons.Type.Ice: ImageVector
             }
             path(
                 fill = SolidColor(Color(0xFFBA1A1A)),
-                pathFillType = PathFillType.EvenOdd
+                pathFillType = PathFillType.EvenOdd,
             ) {
                 moveTo(128.52f, 474.77f)
                 lineTo(126.95f, 336.42f)

@@ -8,9 +8,7 @@ data class CoreGeneration(
     val name: String,
     val regionId: CoreRegionId?,
 ) {
-
     companion object {
-
         fun example(
             id: CoreGenerationId = CoreGenerationId.example(),
             name: String = "Generation Name",
@@ -22,7 +20,5 @@ data class CoreGeneration(
                 regionId = regionId,
             )
         }
-
     }
-
 }

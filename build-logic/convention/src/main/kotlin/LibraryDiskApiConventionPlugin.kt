@@ -7,8 +7,9 @@ import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class LibraryDiskApiConventionPlugin : Plugin<Project> {
-
-    override fun apply(target: Project) = with(target) {
+    override fun apply(
+        target: Project,
+    ) = with(target) {
         plugins {
             apply(libs.getPluginId("nbdex-android-kotlin-multiplatform-library"))
             apply(libs.getPluginId("nbdex-dependency-coroutines"))
@@ -22,5 +23,4 @@ class LibraryDiskApiConventionPlugin : Plugin<Project> {
             }
         }
     }
-
 }

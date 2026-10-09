@@ -9,14 +9,12 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PokedexPokedexDao {
-
     @Transaction
     @Query(
         """
             SELECT *
             FROM ${NBTableName.POKEDEX}
-        """
+        """,
     )
     fun getPokedexPokedexes(): Flow<List<PersistencePokedexPokedex>>
-
 }

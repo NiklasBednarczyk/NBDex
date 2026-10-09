@@ -9,7 +9,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokedexVe
 
 @Dao
 interface CorePokedexVersionGroupDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -17,11 +16,12 @@ interface CorePokedexVersionGroupDao {
                 SELECT 1 
                 FROM ${NBTableName.POKEDEX_VERSION_GROUP}
             );
-        """
+        """,
     )
     suspend fun hasPokedexVersionGroups(): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertPokedexVersionGroups(pokedexVersionGroups: List<PersistenceCorePokedexVersionGroup>)
-
+    suspend fun insertPokedexVersionGroups(
+        pokedexVersionGroups: List<PersistenceCorePokedexVersionGroup>,
+    )
 }

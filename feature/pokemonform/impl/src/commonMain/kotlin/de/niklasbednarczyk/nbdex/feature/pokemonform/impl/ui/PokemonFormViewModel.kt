@@ -11,11 +11,9 @@ internal class PokemonFormViewModel(
     navKey: PokemonFormNavKey,
     private val navigator: NBNavigator,
 ) : NBViewModel() {
-
     val id: StateFlow<CorePokemonFormId?> = flowOf(navKey.id).nbStateIn(null)
 
     fun navigateBack() {
         navigator.onBack()
     }
-
 }

@@ -11,9 +11,7 @@ data class CorePokemonDexNumber(
     val pokedexNumber: CorePokedexNumber,
     val pokemonSpeciesId: CorePokemonSpeciesId?,
 ) {
-
     companion object {
-
         fun example(
             id: CorePokemonDexNumberId = CorePokemonDexNumberId.example(),
             pokedexId: CorePokedexId? = CorePokedexId.example(),
@@ -27,7 +25,5 @@ data class CorePokemonDexNumber(
                 pokemonSpeciesId = pokemonSpeciesId,
             )
         }
-
     }
-
 }

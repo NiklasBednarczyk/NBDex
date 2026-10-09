@@ -6,13 +6,13 @@ import de.niklasbednarczyk.nbdex.core.persistence.mapper.NBPersistenceFeatureMap
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCorePokemonMapper
 import de.niklasbednarczyk.nbdex.model.pokedex.pokemonform.PokedexPokemon
 import de.niklasbednarczyk.nbdex.persistence.pokedex.impl.model.pokemonform.PersistencePokedexPokemon
+import kotlinx.collections.immutable.toImmutableList
 
 internal object PersistencePokedexPokemonMapper :
     NBPersistenceFeatureMapper<PokedexPokemon, PersistencePokedexPokemon, Pair<CoreLanguageId, CorePokedexId>> {
-
     override fun persistenceToModel(
         persistence: PersistencePokedexPokemon,
-        input: Pair<CoreLanguageId, CorePokedexId>
+        input: Pair<CoreLanguageId, CorePokedexId>,
     ): PokedexPokemon {
         val (languageId) = input
         return PokedexPokemon(
@@ -29,7 +29,7 @@ internal object PersistencePokedexPokemonMapper :
                     input = languageId,
                 )
                 .sortedBy { pokemonType -> pokemonType.pokemonType.slot }
+                .toImmutableList(),
         )
     }
-
 }

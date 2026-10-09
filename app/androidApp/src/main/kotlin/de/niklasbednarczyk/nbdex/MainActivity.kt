@@ -16,7 +16,9 @@ import de.niklasbednarczyk.nbdex.ui.NBAppViewModel
 import org.koin.compose.viewmodel.koinViewModel
 
 class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(
+        savedInstanceState: Bundle?,
+    ) {
         super.onCreate(savedInstanceState)
 
         setContent {
@@ -35,6 +37,7 @@ class MainActivity : ComponentActivity() {
     ) {
         when (uiState) {
             NBAppState.Initial -> {}
+
             is NBAppState.Success -> {
                 val isDarkTheme = rememberIsDarkTheme(uiState.theme)
 
@@ -54,7 +57,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
 
 /**
  * The default light scrim, as defined by androidx and the platform:

@@ -8,8 +8,9 @@ import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCorePokedex
 
 object NetworkCorePokedexDescriptionMapper :
     NBNetworkMapper<CorePokedexDescription, NetworkCorePokedexDescription> {
-
-    override fun networkToModel(network: NetworkCorePokedexDescription): CorePokedexDescription {
+    override fun networkToModel(
+        network: NetworkCorePokedexDescription,
+    ): CorePokedexDescription {
         return CorePokedexDescription(
             id = CorePokedexDescriptionId.from(network.id),
             description = network.description,
@@ -17,5 +18,4 @@ object NetworkCorePokedexDescriptionMapper :
             pokedexId = CorePokedexId.from(network.pokedexId),
         )
     }
-
 }

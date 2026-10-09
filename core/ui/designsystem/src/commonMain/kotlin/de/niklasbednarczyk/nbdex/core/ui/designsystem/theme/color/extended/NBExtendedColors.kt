@@ -10,9 +10,7 @@ data class NBExtendedColors(
     val type: NBExtendedColorsType,
     val version: NBExtendedColorsVersion,
 ) {
-
     companion object {
-
         internal fun from(
             isDarkTheme: Boolean,
             contrast: CoreSettingsContrast,
@@ -28,7 +26,5 @@ data class NBExtendedColors(
                 ),
             )
         }
-
     }
-
 }

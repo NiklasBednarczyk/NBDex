@@ -6,6 +6,7 @@ import de.niklasbednarczyk.nbdex.core.model.endpoint.display.type.CoreDisplayTyp
 import de.niklasbednarczyk.nbdex.core.model.id.CoreTypeId
 
 interface CoreDisplayModelType : NBDisplayModel<CoreTypeId, CoreDisplayTypeType> {
+    val typeName: CoreTypeName
 
     override val id: CoreTypeId?
         get() = typeName.typeId
@@ -13,10 +14,7 @@ interface CoreDisplayModelType : NBDisplayModel<CoreTypeId, CoreDisplayTypeType>
     override val displayType: CoreDisplayTypeType?
         get() = CoreDisplayTypeType.from(id)
 
-    val typeName: CoreTypeName
-
     companion object {
-
         fun example(
             typeName: CoreTypeName = CoreTypeName.example(),
         ): CoreDisplayModelType {
@@ -25,7 +23,5 @@ interface CoreDisplayModelType : NBDisplayModel<CoreTypeId, CoreDisplayTypeType>
                     get() = typeName
             }
         }
-
     }
-
 }

@@ -6,8 +6,9 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemonSp
 
 object PersistenceCorePokemonSpeciesNameMapper :
     NBPersistenceCoreInputMapper<CorePokemonSpeciesName, PersistenceCorePokemonSpeciesName, CoreLanguageId> {
-
-    override fun modelToPersistence(model: CorePokemonSpeciesName): PersistenceCorePokemonSpeciesName {
+    override fun modelToPersistence(
+        model: CorePokemonSpeciesName,
+    ): PersistenceCorePokemonSpeciesName {
         return PersistenceCorePokemonSpeciesName(
             id = model.id,
             genus = model.genus,
@@ -17,7 +18,9 @@ object PersistenceCorePokemonSpeciesNameMapper :
         )
     }
 
-    override fun persistenceToModel(persistence: PersistenceCorePokemonSpeciesName): CorePokemonSpeciesName {
+    override fun persistenceToModel(
+        persistence: PersistenceCorePokemonSpeciesName,
+    ): CorePokemonSpeciesName {
         return CorePokemonSpeciesName(
             id = persistence.id,
             genus = persistence.genus,
@@ -27,8 +30,9 @@ object PersistenceCorePokemonSpeciesNameMapper :
         )
     }
 
-    override fun persistenceToInput(persistence: PersistenceCorePokemonSpeciesName): CoreLanguageId? {
+    override fun persistenceToInput(
+        persistence: PersistenceCorePokemonSpeciesName,
+    ): CoreLanguageId? {
         return persistence.languageId
     }
-
 }

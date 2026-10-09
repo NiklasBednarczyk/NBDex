@@ -14,6 +14,7 @@ import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.SegmentedListItem
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,9 +30,13 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfoPrevi
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.NBSectionTitle
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.NBTextSingleLine
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.ImmutableSet
 import kotlin.reflect.KClass
 
 val listItemDefaultContainerColor: Color
+    @ReadOnlyComposable
     @Composable
     get() = NBTheme.colorScheme.surfaceContainer
 
@@ -46,7 +51,7 @@ private val verticalArrangement: Arrangement.Vertical
 
 @Composable
 fun <Group : Any, Item : Any, KeyGroup : Any, KeyItem : Any> NBSegmentedListSingleActionGroup(
-    map: Map<Group, List<Item>>,
+    map: ImmutableMap<Group, List<Item>>,
     selectedItem: Item?,
     getKeyGroup: (Group) -> KeyGroup,
     getKeyItem: (Item) -> KeyItem,
@@ -55,6 +60,7 @@ fun <Group : Any, Item : Any, KeyGroup : Any, KeyItem : Any> NBSegmentedListSing
     onClick: (Item) -> Unit,
     getGroupText: @Composable (Group) -> String,
     getContentText: @Composable (Item) -> String,
+    modifier: Modifier = Modifier,
     getSupportingContent: @Composable ((Item) -> Unit)? = null,
     getLeadingIcon: ((Item) -> ImageVector?)? = null,
     getTrailingIcon: ((Item) -> ImageVector?)? = null,
@@ -62,6 +68,7 @@ fun <Group : Any, Item : Any, KeyGroup : Any, KeyItem : Any> NBSegmentedListSing
     containerColor: Color = listItemDefaultContainerColor,
 ) {
     LazyColumn(
+        modifier = modifier,
         contentPadding = additionalContentPadding + NBTheme.dimensions.padding.screenPaddingValues,
     ) {
         map.entries.forEach { (group, items) ->
@@ -86,7 +93,7 @@ fun <Group : Any, Item : Any, KeyGroup : Any, KeyItem : Any> NBSegmentedListSing
                         getContentTypeKlass = getContentTypeKlassItem,
                     )
                 },
-                contentType = { _, item -> getContentTypeKlassItem(item) }
+                contentType = { _, item -> getContentTypeKlassItem(item) },
             ) { index, item ->
                 NBSegmentedListItemSingleAction(
                     selected = selectedItem == item,
@@ -109,17 +116,18 @@ fun <Group : Any, Item : Any, KeyGroup : Any, KeyItem : Any> NBSegmentedListSing
 
 @Composable
 fun <Item : Any, Key : Any> NBSegmentedListSingleSelection(
-    items: List<Item>,
+    items: ImmutableList<Item>,
     selectedItem: Item,
     onClick: (Item) -> Unit,
     getKey: (Item) -> Key,
     getContentText: @Composable (Item) -> String,
+    modifier: Modifier = Modifier,
     getTrailingIcon: ((Item) -> ImageVector?)? = null,
     additionalContentPadding: PaddingValues = defaultAdditionalContentPadding,
     containerColor: Color = listItemDefaultContainerColor,
 ) {
     LazyColumn(
-        modifier = Modifier.selectableGroup(),
+        modifier = modifier.selectableGroup(),
         verticalArrangement = verticalArrangement,
         contentPadding = additionalContentPadding + NBTheme.dimensions.padding.screenPaddingValues,
     ) {
@@ -142,17 +150,18 @@ fun <Item : Any, Key : Any> NBSegmentedListSingleSelection(
 
 @Composable
 fun <Item : Any, Key : Any> NBSegmentedListSingleSelectionWithNull(
-    items: List<Item>,
+    items: ImmutableList<Item>,
     selectedItem: Item?,
     onClick: (Item?) -> Unit,
     getKey: (Item) -> Key,
     getContentText: @Composable (Item?) -> String,
+    modifier: Modifier = Modifier,
     getTrailingIcon: ((Item?) -> ImageVector?)? = null,
     additionalContentPadding: PaddingValues = defaultAdditionalContentPadding,
     containerColor: Color = listItemDefaultContainerColor,
 ) {
     LazyColumn(
-        modifier = Modifier.selectableGroup(),
+        modifier = modifier.selectableGroup(),
         verticalArrangement = verticalArrangement,
         contentPadding = additionalContentPadding + NBTheme.dimensions.padding.screenPaddingValues,
     ) {
@@ -187,7 +196,7 @@ fun <Item : Any, Key : Any> NBSegmentedListSingleSelectionWithNull(
 
 @Composable
 fun <Group : Any, Item : Any, KeyGroup : Any, KeyItem : Any> NBSegmentedListSingleSelectionGroupNullable(
-    map: Map<Group?, List<Item>>,
+    map: ImmutableMap<Group?, List<Item>>,
     selectedItem: Item,
     getKeyGroup: (Group) -> KeyGroup,
     getKeyItem: (Item) -> KeyItem,
@@ -196,12 +205,14 @@ fun <Group : Any, Item : Any, KeyGroup : Any, KeyItem : Any> NBSegmentedListSing
     onClick: (Item) -> Unit,
     getGroupText: @Composable (Group?) -> String,
     getContentText: @Composable (Item) -> String,
+    modifier: Modifier = Modifier,
     getSupportingContent: @Composable ((Item) -> Unit)? = null,
     getTrailingIcon: ((Item) -> ImageVector?)? = null,
     additionalContentPadding: PaddingValues = defaultAdditionalContentPadding,
     containerColor: Color = listItemDefaultContainerColor,
 ) {
     LazyColumn(
+        modifier = modifier,
         contentPadding = additionalContentPadding + NBTheme.dimensions.padding.screenPaddingValues,
     ) {
         map.entries.forEach { (group, items) ->
@@ -226,7 +237,7 @@ fun <Group : Any, Item : Any, KeyGroup : Any, KeyItem : Any> NBSegmentedListSing
                         getContentTypeKlass = getContentTypeKlassItem,
                     )
                 },
-                contentType = { _, item -> getContentTypeKlassItem(item) }
+                contentType = { _, item -> getContentTypeKlassItem(item) },
             ) { index, item ->
                 NBSegmentedListItemSingleSelection(
                     selected = selectedItem == item,
@@ -248,17 +259,18 @@ fun <Group : Any, Item : Any, KeyGroup : Any, KeyItem : Any> NBSegmentedListSing
 
 @Composable
 fun <Item : Any, Key : Any> NBSegmentedListMultiSelection(
-    items: List<Item>,
-    selectedItems: Set<Item>,
+    items: ImmutableList<Item>,
+    selectedItems: ImmutableSet<Item>,
     onClick: (Item) -> Unit,
     getKey: (Item) -> Key,
     getContentText: @Composable (Item) -> String,
+    modifier: Modifier = Modifier,
     getTrailingIcon: ((Item) -> ImageVector?)? = null,
     additionalContentPadding: PaddingValues = defaultAdditionalContentPadding,
     containerColor: Color = listItemDefaultContainerColor,
 ) {
     LazyColumn(
-        modifier = Modifier.selectableGroup(),
+        modifier = modifier.selectableGroup(),
         verticalArrangement = verticalArrangement,
         contentPadding = additionalContentPadding + NBTheme.dimensions.padding.screenPaddingValues,
     ) {
@@ -281,10 +293,11 @@ fun <Item : Any, Key : Any> NBSegmentedListMultiSelection(
 
 @Composable
 fun NBSegmentedListItemBasic(
-    containerColor: Color = listItemDefaultContainerColor,
     index: Int,
     count: Int,
     contentText: String,
+    modifier: Modifier = Modifier,
+    containerColor: Color = listItemDefaultContainerColor,
     supportingContent: @Composable (() -> Unit)? = null,
     leadingIcon: ImageVector? = null,
     trailingIcon: ImageVector? = null,
@@ -292,6 +305,7 @@ fun NBSegmentedListItemBasic(
     val colorsDefault = ListItemDefaults.segmentedColors()
 
     SegmentedListItem(
+        modifier = modifier,
         enabled = false,
         onClick = {},
         colors = ListItemDefaults.segmentedColors(
@@ -335,12 +349,13 @@ fun NBSegmentedListItemBasic(
 
 @Composable
 fun NBSegmentedListItemSingleAction(
-    selected: Boolean = false,
     onClick: () -> Unit,
-    containerColor: Color = listItemDefaultContainerColor,
     index: Int,
     count: Int,
     contentText: String,
+    modifier: Modifier = Modifier,
+    selected: Boolean = false,
+    containerColor: Color = listItemDefaultContainerColor,
     supportingContent: @Composable (() -> Unit)? = null,
     leadingIcon: ImageVector? = null,
     trailingIcon: ImageVector? = null,
@@ -354,6 +369,7 @@ fun NBSegmentedListItemSingleAction(
     )
 
     SegmentedListItem(
+        modifier = modifier,
         onClick = onClick,
         colors = if (selected) colorsSelected else colorsUnselected,
         shapes = ListItemDefaults.segmentedShapes(
@@ -391,14 +407,16 @@ fun NBSegmentedListItemSingleAction(
 private fun NBSegmentedListItemSingleSelection(
     selected: Boolean,
     onClick: () -> Unit,
-    containerColor: Color = listItemDefaultContainerColor,
     index: Int,
     count: Int,
     contentText: String,
+    modifier: Modifier = Modifier,
+    containerColor: Color = listItemDefaultContainerColor,
     supportingContent: @Composable (() -> Unit)? = null,
     trailingIcon: ImageVector? = null,
 ) {
     SegmentedListItem(
+        modifier = modifier,
         selected = selected,
         onClick = onClick,
         colors = ListItemDefaults.segmentedColors(
@@ -437,13 +455,15 @@ private fun NBSegmentedListItemSingleSelection(
 private fun NBSegmentedListItemMultiSelection(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
-    containerColor: Color = listItemDefaultContainerColor,
     index: Int,
     count: Int,
     contentText: String,
+    modifier: Modifier = Modifier,
+    containerColor: Color = listItemDefaultContainerColor,
     trailingIcon: ImageVector? = null,
 ) {
     SegmentedListItem(
+        modifier = modifier,
         checked = checked,
         onCheckedChange = onCheckedChange,
         colors = ListItemDefaults.segmentedColors(
@@ -479,9 +499,9 @@ private fun NBSegmentedListItemMultiSelection(
 private fun <Item : Any, Key : Any, ContentTypeKlass : KClass<*>> getCompositeKey(
     item: Item,
     getKey: (Item) -> Key,
-    getContentTypeKlass: (Item) -> ContentTypeKlass
+    getContentTypeKlass: (Item) -> ContentTypeKlass,
 ): String {
-    val contentTypeString = getContentTypeKlass(item).simpleName.toString()
+    val contentTypeString = getContentTypeKlass(item).simpleName ?: "null"
     val keyString = getKey(item).toString()
     return "$contentTypeString - $keyString"
 }
@@ -489,10 +509,10 @@ private fun <Item : Any, Key : Any, ContentTypeKlass : KClass<*>> getCompositeKe
 private fun <Item : Any, Key : Any, ContentTypeKlass : KClass<*>> getCompositeKeyNullable(
     item: Item?,
     getKey: (Item) -> Key,
-    getContentTypeKlass: (Item?) -> ContentTypeKlass
+    getContentTypeKlass: (Item?) -> ContentTypeKlass,
 ): String {
-    val contentTypeString = getContentTypeKlass(item).simpleName.toString()
-    val keyString = item?.let(getKey).toString()
+    val contentTypeString = getContentTypeKlass(item).simpleName ?: "null"
+    val keyString = item?.let(getKey)?.toString() ?: "null"
     return "$contentTypeString - $keyString"
 }
 
@@ -508,7 +528,7 @@ private fun Preview(
         NBSegmentedListItemBasic(
             index = 0,
             count = count,
-            contentText = "Basic"
+            contentText = "Basic",
         )
         NBSegmentedListItemSingleAction(
             selected = false,

@@ -10,9 +10,7 @@ data class CoreVersionName(
     val name: String,
     val versionId: CoreVersionId?,
 ) {
-
     companion object {
-
         fun example(
             id: CoreVersionNameId = CoreVersionNameId.example(),
             languageId: CoreLanguageId? = CoreLanguageId.example(),
@@ -26,7 +24,5 @@ data class CoreVersionName(
                 versionId = versionId,
             )
         }
-
     }
-
 }

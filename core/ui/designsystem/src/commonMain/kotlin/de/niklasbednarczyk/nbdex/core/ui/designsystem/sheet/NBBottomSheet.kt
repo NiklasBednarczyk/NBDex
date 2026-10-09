@@ -8,6 +8,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,6 +22,9 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.NBTextSingleLine
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.Close
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.coroutines.launch
 import nbdex.core.ui.resource.generated.resources.Res
 import nbdex.core.ui.resource.generated.resources.content_description_icon_close
@@ -28,6 +32,7 @@ import org.jetbrains.compose.resources.stringResource
 import kotlin.reflect.KClass
 
 private val bottomSheetListItemContainerColor: Color
+    @ReadOnlyComposable
     @Composable
     get() = NBTheme.colorScheme.surfaceContainerHigh
 
@@ -36,7 +41,7 @@ fun <Item : Any, Key : Any> NBBottomSheetSingleSelectionWithNull(
     expanded: Boolean,
     onDismissRequest: () -> Unit,
     title: String,
-    items: List<Item>,
+    items: ImmutableList<Item>,
     selectedItem: Item?,
     getKey: (Item) -> Key,
     onClick: (Item?) -> Unit,
@@ -68,7 +73,7 @@ fun <Group : Any, Item : Any, KeyGroup : Any, KeyItem : Any> NBBottomSheetSingle
     expanded: Boolean,
     onDismissRequest: () -> Unit,
     title: String,
-    map: Map<Group?, List<Item>>,
+    map: ImmutableMap<Group?, List<Item>>,
     selectedItem: Item,
     getKeyGroup: (Group) -> KeyGroup,
     getKeyItem: (Item) -> KeyItem,
@@ -110,8 +115,8 @@ fun <Item : Any, Key : Any> NBBottomSheetMultiSelection(
     expanded: Boolean,
     onDismissRequest: () -> Unit,
     title: String,
-    items: List<Item>,
-    selectedItems: Set<Item>,
+    items: ImmutableList<Item>,
+    selectedItems: ImmutableSet<Item>,
     getKey: (Item) -> Key,
     onClick: (Item) -> Unit,
     getContentText: @Composable (Item) -> String,

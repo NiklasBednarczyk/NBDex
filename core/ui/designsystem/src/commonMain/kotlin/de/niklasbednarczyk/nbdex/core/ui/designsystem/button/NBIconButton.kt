@@ -10,6 +10,7 @@ import androidx.compose.material3.TooltipBox
 import androidx.compose.material3.TooltipDefaults
 import androidx.compose.material3.rememberTooltipState
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -24,6 +25,7 @@ fun NBIconButton(
     icon: ImageVector,
     contentDescription: String,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
     tooltipAnchorPosition: TooltipAnchorPosition = TooltipAnchorPosition.Above,
 ) {
     TooltipBox(
@@ -32,6 +34,7 @@ fun NBIconButton(
         state = rememberTooltipState(),
     ) {
         IconButton(
+            modifier = modifier,
             onClick = onClick,
             shapes = IconButtonDefaults.shapes(),
         ) {

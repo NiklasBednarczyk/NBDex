@@ -41,9 +41,9 @@ private val iconSize = 48.dp
 
 @Composable
 fun NBInfoContent(
-    modifier: Modifier = Modifier,
     icon: ImageVector,
     text: String,
+    modifier: Modifier = Modifier,
     bottomContent: @Composable (ColumnScope.() -> Unit)? = null,
 ) {
     Column(
@@ -85,8 +85,8 @@ fun NBDetailPlaceholderContent(
 
 @Composable
 fun NBErrorContent(
+    onReloadClick: () -> Unit,
     modifier: Modifier = Modifier,
-    onReloadClicked: () -> Unit,
 ) {
     NBInfoContent(
         modifier = modifier,
@@ -94,13 +94,13 @@ fun NBErrorContent(
         text = stringResource(Res.string.common_info_error_text),
         bottomContent = {
             FilledTonalButton(
-                onClick = onReloadClicked,
+                onClick = onReloadClick,
             ) {
                 NBTextSingleLine(
                     text = stringResource(Res.string.common_info_error_button_text),
                 )
             }
-        }
+        },
     )
 }
 
@@ -117,7 +117,7 @@ fun NBNotYetImplementedContent(
 
 @Preview
 @Composable
-private fun PreviewInfo(
+private fun InfoPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
@@ -132,7 +132,7 @@ private fun PreviewInfo(
 
 @Preview
 @Composable
-private fun PreviewDetailPlaceholder(
+private fun DetailPlaceholderPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
@@ -144,21 +144,21 @@ private fun PreviewDetailPlaceholder(
 
 @Preview
 @Composable
-private fun PreviewError(
+private fun ErrorPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
         previewInfo = previewInfo,
     ) {
         NBErrorContent(
-            onReloadClicked = {},
+            onReloadClick = {},
         )
     }
 }
 
 @Preview
 @Composable
-private fun PreviewNotYetImplemented(
+private fun NotYetImplementedPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(

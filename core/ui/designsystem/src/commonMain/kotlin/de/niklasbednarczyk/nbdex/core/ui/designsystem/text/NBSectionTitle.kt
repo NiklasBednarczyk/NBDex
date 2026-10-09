@@ -13,9 +13,10 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
 @Composable
 fun NBSectionTitle(
     title: String,
+    modifier: Modifier = Modifier,
 ) {
     NBTextSingleLine(
-        modifier = Modifier.padding(
+        modifier = modifier.padding(
             vertical = NBTheme.dimensions.padding.medium,
         ),
         text = title,

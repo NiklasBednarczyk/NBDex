@@ -7,8 +7,9 @@ import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsTheme
 import de.niklasbednarczyk.nbdex.disk.settings.impl.proto.DiskSettings
 
 internal object DiskSettingsMapper : NBDiskMessageMapper<CoreSettings, DiskSettings> {
-
-    override fun diskToModel(disk: DiskSettings): CoreSettings {
+    override fun diskToModel(
+        disk: DiskSettings,
+    ): CoreSettings {
         return CoreSettings(
             paneExpansionAnchor = DiskSettingsPaneExpansionAnchorMapper.diskToModelNullable(
                 disk = disk.paneExpansionAnchor,
@@ -21,5 +22,4 @@ internal object DiskSettingsMapper : NBDiskMessageMapper<CoreSettings, DiskSetti
             ) ?: CoreSettingsContrast.STANDARD,
         )
     }
-
 }

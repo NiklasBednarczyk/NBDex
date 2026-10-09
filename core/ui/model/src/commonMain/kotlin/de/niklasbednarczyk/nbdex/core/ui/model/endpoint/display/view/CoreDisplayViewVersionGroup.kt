@@ -34,14 +34,18 @@ import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.color.extended.NBExt
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.extendedColor
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.stringResourceAbbreviation
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.stringResourceText
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun CoreDisplayViewVersionGroups(
-    versionGroups: List<CoreDisplayModelVersionGroup>,
+    versionGroups: ImmutableList<CoreDisplayModelVersionGroup>,
     showAbbreviations: Boolean,
+    modifier: Modifier = Modifier,
 ) {
     FlowRow(
+        modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(NBTheme.dimensions.padding.small),
         verticalArrangement = Arrangement.spacedBy(NBTheme.dimensions.padding.small),
     ) {
@@ -58,11 +62,12 @@ fun CoreDisplayViewVersionGroups(
 fun CoreDisplayViewVersionGroup(
     versionGroup: CoreDisplayModelVersionGroup,
     showAbbreviations: Boolean,
+    modifier: Modifier = Modifier,
 ) {
     val shape = NBTheme.shapes.small
 
     Row(
-        modifier = Modifier
+        modifier = modifier
             .clip(shape)
             .border(
                 width = NBTheme.dimensions.component.chip.containerOutlineWidth,
@@ -75,22 +80,23 @@ fun CoreDisplayViewVersionGroup(
     ) {
         when (val versionGroupDisplayType = versionGroup.displayType) {
             is CoreDisplayTypeVersionGroup.Basic,
-            null -> {
-                versionGroup.versions.forEach { version ->
-                    val versionDisplayType = version.displayType
-                    val versionName = version.versionName.name
-                    VersionText(
-                        extendedColor = versionDisplayType?.extendedColor,
-                        text = if (showAbbreviations) {
-                            versionDisplayType?.stringResourceAbbreviation?.let { stringResource ->
-                                stringResource(stringResource)
-                            } ?: versionName.filter { char -> char.isUpperCase() || char.isDigit() }
-                        } else {
-                            versionName
-                        },
-                    )
+            null,
+                -> {
+                    versionGroup.versions.forEach { version ->
+                        val versionDisplayType = version.displayType
+                        val versionName = version.versionName.name
+                        VersionText(
+                            extendedColor = versionDisplayType?.extendedColor,
+                            text = if (showAbbreviations) {
+                                versionDisplayType?.stringResourceAbbreviation?.let { stringResource ->
+                                    stringResource(stringResource)
+                                } ?: versionName.filter { char -> char.isUpperCase() || char.isDigit() }
+                            } else {
+                                versionName
+                            },
+                        )
+                    }
                 }
-            }
 
             is CoreDisplayTypeVersionGroup.SameVersions -> {
                 VersionText(
@@ -110,12 +116,13 @@ fun CoreDisplayViewVersionGroup(
 private fun RowScope.VersionText(
     extendedColor: NBExtendedColor?,
     text: String,
+    modifier: Modifier = Modifier,
 ) {
     val color = extendedColor?.color ?: NBTheme.colorScheme.background
     val onColor = extendedColor?.onColor ?: NBTheme.colorScheme.onBackground
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .background(color)
             .padding(
                 horizontal = NBTheme.dimensions.padding.medium,
@@ -136,19 +143,19 @@ private fun RowScope.VersionText(
 
 @Preview
 @Composable
-private fun PreviewVersionGroup(
+private fun VersionGroupPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(
         previewInfo = previewInfo,
     ) {
-        val versionGroups = listOf(
+        val versionGroups = persistentListOf(
             CoreDisplayModelVersionGroup.example(
                 versions = listOf(
                     CoreDisplayModelVersionGroupVersion.example(
                         versionName = CoreVersionName.example(
-                            name = "Version"
-                        )
+                            name = "Version",
+                        ),
                     ),
                 ),
             ),
@@ -156,13 +163,13 @@ private fun PreviewVersionGroup(
                 versions = listOf(
                     CoreDisplayModelVersionGroupVersion.example(
                         versionName = CoreVersionName.example(
-                            name = "Version 1"
-                        )
+                            name = "Version 1",
+                        ),
                     ),
                     CoreDisplayModelVersionGroupVersion.example(
                         versionName = CoreVersionName.example(
-                            name = "Version 2"
-                        )
+                            name = "Version 2",
+                        ),
                     ),
                 ),
             ),
@@ -181,7 +188,7 @@ private fun PreviewVersionGroup(
 
 @Preview
 @Composable
-private fun PreviewVersion(
+private fun VersionPreview(
     @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
 ) {
     NBPreview(

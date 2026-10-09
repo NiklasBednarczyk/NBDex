@@ -4,8 +4,9 @@ import de.niklasbednarczyk.nbdex.core.model.endpoint.CorePokemon
 import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemon
 
 object PersistenceCorePokemonMapper : NBPersistenceCoreMapper<CorePokemon, PersistenceCorePokemon> {
-
-    override fun modelToPersistence(model: CorePokemon): PersistenceCorePokemon {
+    override fun modelToPersistence(
+        model: CorePokemon,
+    ): PersistenceCorePokemon {
         return PersistenceCorePokemon(
             id = model.id,
             baseExperience = model.baseExperience,
@@ -18,7 +19,9 @@ object PersistenceCorePokemonMapper : NBPersistenceCoreMapper<CorePokemon, Persi
         )
     }
 
-    override fun persistenceToModel(persistence: PersistenceCorePokemon): CorePokemon {
+    override fun persistenceToModel(
+        persistence: PersistenceCorePokemon,
+    ): CorePokemon {
         return CorePokemon(
             id = persistence.id,
             baseExperience = persistence.baseExperience,
@@ -30,5 +33,4 @@ object PersistenceCorePokemonMapper : NBPersistenceCoreMapper<CorePokemon, Persi
             weight = persistence.weight,
         )
     }
-
 }

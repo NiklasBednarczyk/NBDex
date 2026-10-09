@@ -17,6 +17,7 @@ import de.niklasbednarczyk.nbdex.model.pokedex.pokedex.PokedexPokedex
 import de.niklasbednarczyk.nbdex.model.pokedex.pokemonform.PokedexPokemonForm
 import de.niklasbednarczyk.nbdex.model.pokedex.preferences.PokedexPreferencesCategory
 import de.niklasbednarczyk.nbdex.model.pokedex.type.PokedexType
+import kotlinx.collections.immutable.toImmutableSet
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -31,14 +32,13 @@ internal class PokedexViewModel(
     private val navigator: NBNavigator,
     private val pokedexRepository: PokedexRepository,
 ) : NBViewModel() {
-
     private val logger = NBLogger(this::class)
 
-    private val _selectedFilter: MutableStateFlow<PokedexFilter?> = MutableStateFlow(null)
+    private val selectedFilter: MutableStateFlow<PokedexFilter?> = MutableStateFlow(null)
 
-    private val _reload: MutableSharedFlow<Unit> = MutableSharedFlow()
+    private val reload: MutableSharedFlow<Unit> = MutableSharedFlow()
 
-    val uiState: StateFlow<PokedexUiState> = _reload
+    val uiState: StateFlow<PokedexUiState> = reload
         .onStart { emit(Unit) }
         .flatMapLatest {
             combine(
@@ -46,11 +46,17 @@ internal class PokedexViewModel(
                     languageId = CoreLanguageId.default,
                 ),
                 navigator.state.currentKeyFlow,
-                _selectedFilter,
-            ) { result, currentNavKey, selectedFilter ->
+                selectedFilter,
+            ) { result, currentNavKey, filter ->
                 when (result) {
-                    is NBResult.Error -> PokedexUiState.Error
-                    is NBResult.Loading -> PokedexUiState.Loading
+                    is NBResult.Error -> {
+                        PokedexUiState.Error
+                    }
+
+                    is NBResult.Loading -> {
+                        PokedexUiState.Loading
+                    }
+
                     is NBResult.Success<PokedexData> -> {
                         val preferences = result.data.preferences
 
@@ -73,7 +79,7 @@ internal class PokedexViewModel(
                         val selectedCategories = preferences
                             .categories
                             .sortedBy { category -> category.order }
-                            .toSet()
+                            .toImmutableSet()
 
                         val selectedPokemonFormId = if (currentNavKey is PokemonFormNavKey) {
                             currentNavKey.id
@@ -82,7 +88,7 @@ internal class PokedexViewModel(
                         }
 
                         PokedexUiState.Success(
-                            selectedFilter = selectedFilter,
+                            selectedFilter = filter,
                             pokedexesMap = pokedexesMap,
                             selectedPokedex = selectedPokedex,
                             generations = generations,
@@ -104,21 +110,21 @@ internal class PokedexViewModel(
         .nbStateIn(PokedexUiState.Loading)
 
     fun navigateToPokemonForm(
-        pokemonForm: PokedexPokemonForm
+        pokemonForm: PokedexPokemonForm,
     ) {
         navigator.navigateToPokemonForm(pokemonForm.pokemonForm.id)
     }
 
     fun reload() {
         viewModelScope.launch {
-            _reload.emit(Unit)
+            reload.emit(Unit)
         }
     }
 
     fun updateSelectedFilter(
-        filter: PokedexFilter?
+        filter: PokedexFilter?,
     ) {
-        _selectedFilter.update { filter }
+        selectedFilter.update { filter }
     }
 
     fun updateSelectedPokedex(
@@ -141,7 +147,6 @@ internal class PokedexViewModel(
         }
     }
 
-
     fun updateSelectedType(
         type: PokedexType?,
     ) {
@@ -161,5 +166,4 @@ internal class PokedexViewModel(
             )
         }
     }
-
 }

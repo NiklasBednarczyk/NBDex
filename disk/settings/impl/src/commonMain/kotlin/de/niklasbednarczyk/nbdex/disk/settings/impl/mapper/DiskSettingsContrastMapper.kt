@@ -6,8 +6,9 @@ import de.niklasbednarczyk.nbdex.disk.settings.impl.proto.DiskSettings
 
 internal object DiskSettingsContrastMapper :
     NBDiskEnumMapper<CoreSettingsContrast, DiskSettings.Contrast> {
-
-    override fun modelToDisk(model: CoreSettingsContrast): DiskSettings.Contrast {
+    override fun modelToDisk(
+        model: CoreSettingsContrast,
+    ): DiskSettings.Contrast {
         return when (model) {
             CoreSettingsContrast.STANDARD -> DiskSettings.Contrast.STANDARD
             CoreSettingsContrast.MEDIUM -> DiskSettings.Contrast.MEDIUM
@@ -15,12 +16,13 @@ internal object DiskSettingsContrastMapper :
         }
     }
 
-    override fun diskToModel(disk: DiskSettings.Contrast): CoreSettingsContrast {
+    override fun diskToModel(
+        disk: DiskSettings.Contrast,
+    ): CoreSettingsContrast {
         return when (disk) {
             DiskSettings.Contrast.STANDARD -> CoreSettingsContrast.STANDARD
             DiskSettings.Contrast.MEDIUM -> CoreSettingsContrast.MEDIUM
             DiskSettings.Contrast.HIGH -> CoreSettingsContrast.HIGH
         }
     }
-
 }

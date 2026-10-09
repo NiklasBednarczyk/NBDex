@@ -29,9 +29,7 @@ data class CorePokemonSpecies(
     val pokemonHabitatId: CorePokemonHabitatId?,
     val pokemonShapeId: CorePokemonShapeId?,
 ) {
-
     companion object {
-
         fun example(
             id: CorePokemonSpeciesId = CorePokemonSpeciesId.example(),
             baseHappiness: Int? = -1,
@@ -75,7 +73,5 @@ data class CorePokemonSpecies(
                 pokemonShapeId = pokemonShapeId,
             )
         }
-
     }
-
 }

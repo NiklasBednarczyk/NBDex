@@ -7,9 +7,7 @@ data class PokedexRegion(
     val region: CoreRegion,
     val regionName: CoreRegionName,
 ) {
-
     companion object {
-
         fun example(
             region: CoreRegion = CoreRegion.example(),
             regionName: CoreRegionName = CoreRegionName.example(),
@@ -19,7 +17,5 @@ data class PokedexRegion(
                 regionName = regionName,
             )
         }
-
     }
-
 }

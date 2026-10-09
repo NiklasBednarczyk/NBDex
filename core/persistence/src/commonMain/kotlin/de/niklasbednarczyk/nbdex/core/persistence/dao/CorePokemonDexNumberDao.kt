@@ -10,7 +10,6 @@ import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemonDe
 
 @Dao
 interface CorePokemonDexNumberDao {
-
     @Query(
         """
             SELECT EXISTS 
@@ -18,7 +17,7 @@ interface CorePokemonDexNumberDao {
                 SELECT 1 
                 FROM ${NBTableName.POKEMON_DEX_NUMBER}
             );
-        """
+        """,
     )
     suspend fun hasPokemonDexNumbers(): Boolean
 
@@ -30,12 +29,14 @@ interface CorePokemonDexNumberDao {
                 FROM ${NBTableName.POKEMON_DEX_NUMBER}
                 WHERE pokedexId = :pokedexId
             );
-        """
+        """,
     )
-    suspend fun hasPokemonDexNumbersWithPokedexId(pokedexId: CorePokedexId): Boolean
-
+    suspend fun hasPokemonDexNumbersWithPokedexId(
+        pokedexId: CorePokedexId,
+    ): Boolean
 
     @Insert(onConflict = NBDao.ON_CONFLICT)
-    suspend fun insertPokemonDexNumbers(pokemonDexNumbers: List<PersistenceCorePokemonDexNumber>)
-
+    suspend fun insertPokemonDexNumbers(
+        pokemonDexNumbers: List<PersistenceCorePokemonDexNumber>,
+    )
 }

@@ -6,11 +6,13 @@ import de.niklasbednarczyk.nbdex.model.pokedex.pokedex.PokedexRegion
 import de.niklasbednarczyk.nbdex.model.pokedex.pokemonform.PokedexPokemonForm
 import de.niklasbednarczyk.nbdex.model.pokedex.preferences.PokedexPreferences
 import de.niklasbednarczyk.nbdex.model.pokedex.type.PokedexType
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.ImmutableMap
 
 data class PokedexData(
-    val generations: List<PokedexGeneration>,
-    val pokedexesMap: Map<PokedexRegion?, List<PokedexPokedex>>,
-    val pokemonForms: List<PokedexPokemonForm>,
+    val generations: ImmutableList<PokedexGeneration>,
+    val pokedexesMap: ImmutableMap<PokedexRegion?, List<PokedexPokedex>>,
+    val pokemonForms: ImmutableList<PokedexPokemonForm>,
     val preferences: PokedexPreferences,
-    val types: List<PokedexType>,
+    val types: ImmutableList<PokedexType>,
 )
