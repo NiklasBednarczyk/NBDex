@@ -38,6 +38,7 @@ class RootConventionPlugin : Plugin<Project> {
             formatMarkdown(
                 targets = listOf(
                     "*.md",
+                    ".github/**/*.md",
                 ),
             )
             formatMisc(
