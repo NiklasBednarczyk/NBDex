@@ -31,15 +31,7 @@ class DependencyDetektConventionPlugin : Plugin<Project> {
                 element.file.path.contains("/build/generated/")
             }
             reports {
-                // TODO Decide on report type
-                // observe findings in your browser with structure and code snippets
-                html.required.set(true)
-                // checkstyle(xml) like format mainly for integrations like Jenkins
-                checkstyle.required.set(true)
-                // standardized SARIF format (https://sarifweb.azurewebsites.net/) to support integrations with GitHub Code Scanning
                 sarif.required.set(true)
-                // simple Markdown format
-                markdown.required.set(true)
             }
         }
 

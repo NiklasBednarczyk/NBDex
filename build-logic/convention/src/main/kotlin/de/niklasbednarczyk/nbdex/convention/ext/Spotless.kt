@@ -3,8 +3,6 @@ package de.niklasbednarczyk.nbdex.convention.ext
 import com.diffplug.gradle.spotless.FormatExtension
 import com.diffplug.gradle.spotless.SpotlessExtension
 
-// TODO Add detekt to build.yaml with all different type interference calls (detektMain, detektAndroid, detektTest, ...)
-
 internal fun SpotlessExtension.formatKotlin(
     targets: List<String>,
 ) {

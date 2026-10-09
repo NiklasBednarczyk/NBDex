@@ -12,16 +12,14 @@ env:
     -Dorg.gradle.caching=true
 jobs:
   code-quality-detekt-main-desktop:
-    name: Code quality detekt Main Desktop
+    name: Code quality detekt
     runs-on: macos-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v5
     - name: Gradle setup
       uses: ./.github/actions/gradle-setup
-    - name: Check detekt Main Desktop
-      run: ./gradlew detektMainDesktop --continue
-    - name: Merge detekt reports
+    - name: Run detekt and merge reports
       if: always()
       run: ./gradlew detektReportMerge --continue
     - name: Upload detekt report
