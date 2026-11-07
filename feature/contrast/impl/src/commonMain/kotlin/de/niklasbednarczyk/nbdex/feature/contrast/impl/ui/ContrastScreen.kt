@@ -13,11 +13,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsContrast
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.NBSegmentedListSingleSelection
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreview
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfo
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfoPreviewParameterProvider
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.NBSmallTopAppBar
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.DexSegmentedListSingleSelection
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreview
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfo
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfoPreviewParameterProvider
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.DexSmallTopAppBar
 import de.niklasbednarczyk.nbdex.core.ui.model.settings.ext.stringResource
 import nbdex.core.ui.resource.generated.resources.Res
 import nbdex.core.ui.resource.generated.resources.contrast_title
@@ -47,7 +47,7 @@ private fun ContrastScreen(
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            NBSmallTopAppBar(
+            DexSmallTopAppBar(
                 scrollBehavior = scrollBehavior,
                 titleText = stringResource(Res.string.contrast_title),
                 onBack = onBack,
@@ -58,7 +58,7 @@ private fun ContrastScreen(
             ContrastUiState.Initial -> {}
 
             is ContrastUiState.Success -> {
-                NBSegmentedListSingleSelection(
+                DexSegmentedListSingleSelection(
                     items = uiState.contrasts,
                     selectedItem = uiState.selectedContrast,
                     onClick = onContrastClick,
@@ -74,9 +74,9 @@ private fun ContrastScreen(
 @Preview
 @Composable
 private fun Preview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         var selectedContrast by remember { mutableStateOf(CoreSettingsContrast.MEDIUM) }
@@ -94,9 +94,9 @@ private fun Preview(
 @Preview
 @Composable
 private fun InitialPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         ContrastScreen(
@@ -110,9 +110,9 @@ private fun InitialPreview(
 @Preview
 @Composable
 private fun InitialMultiplePanesPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
         isSinglePane = false,
     ) {

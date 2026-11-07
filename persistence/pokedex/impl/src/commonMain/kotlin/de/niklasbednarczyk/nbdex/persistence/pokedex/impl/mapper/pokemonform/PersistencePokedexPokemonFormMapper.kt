@@ -2,7 +2,7 @@ package de.niklasbednarczyk.nbdex.persistence.pokedex.impl.mapper.pokemonform
 
 import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexId
-import de.niklasbednarczyk.nbdex.core.persistence.mapper.NBPersistenceFeatureMapper
+import de.niklasbednarczyk.nbdex.core.persistence.mapper.DexPersistenceFeatureMapper
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCorePokemonFormMapper
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCorePokemonFormNameMapper
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCoreVersionGroupMapper
@@ -10,7 +10,7 @@ import de.niklasbednarczyk.nbdex.model.pokedex.pokemonform.PokedexPokemonForm
 import de.niklasbednarczyk.nbdex.persistence.pokedex.impl.model.pokemonform.PersistencePokedexPokemonForm
 
 internal object PersistencePokedexPokemonFormMapper :
-    NBPersistenceFeatureMapper<PokedexPokemonForm, PersistencePokedexPokemonForm, Pair<CoreLanguageId, CorePokedexId>> {
+    DexPersistenceFeatureMapper<PokedexPokemonForm, PersistencePokedexPokemonForm, Pair<CoreLanguageId, CorePokedexId>> {
     override fun persistenceToModel(
         persistence: PersistencePokedexPokemonForm,
         input: Pair<CoreLanguageId, CorePokedexId>,

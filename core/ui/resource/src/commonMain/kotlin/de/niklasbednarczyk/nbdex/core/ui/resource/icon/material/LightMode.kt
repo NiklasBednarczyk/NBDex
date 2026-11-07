@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.LightMode: ImageVector
+val DexIcons.Material.LightMode: ImageVector
     get() {
         if (_LightMode != null) {
             return _LightMode!!
@@ -109,6 +109,6 @@ private var _LightMode: ImageVector? = null
 @Composable
 private fun LightModePreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.LightMode, contentDescription = null)
+        Image(imageVector = DexIcons.Material.LightMode, contentDescription = null)
     }
 }

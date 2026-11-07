@@ -5,7 +5,7 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreGenerationId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreRegionId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCoreGeneration
 
-object NetworkCoreGenerationMapper : NBNetworkMapper<CoreGeneration, NetworkCoreGeneration> {
+object NetworkCoreGenerationMapper : DexNetworkMapper<CoreGeneration, NetworkCoreGeneration> {
     override fun networkToModel(
         network: NetworkCoreGeneration,
     ): CoreGeneration {

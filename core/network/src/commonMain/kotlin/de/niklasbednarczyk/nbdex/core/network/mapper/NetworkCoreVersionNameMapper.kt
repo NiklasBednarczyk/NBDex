@@ -6,7 +6,7 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionNameId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCoreVersionName
 
-object NetworkCoreVersionNameMapper : NBNetworkMapper<CoreVersionName, NetworkCoreVersionName> {
+object NetworkCoreVersionNameMapper : DexNetworkMapper<CoreVersionName, NetworkCoreVersionName> {
     override fun networkToModel(
         network: NetworkCoreVersionName,
     ): CoreVersionName {

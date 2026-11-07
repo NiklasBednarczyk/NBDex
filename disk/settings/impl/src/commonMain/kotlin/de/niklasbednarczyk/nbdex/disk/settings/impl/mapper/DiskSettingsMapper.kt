@@ -1,12 +1,12 @@
 package de.niklasbednarczyk.nbdex.disk.settings.impl.mapper
 
-import de.niklasbednarczyk.nbdex.core.disk.mapper.NBDiskMessageMapper
+import de.niklasbednarczyk.nbdex.core.disk.mapper.DexDiskMessageMapper
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettings
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsContrast
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsTheme
 import de.niklasbednarczyk.nbdex.disk.settings.impl.proto.DiskSettings
 
-internal object DiskSettingsMapper : NBDiskMessageMapper<CoreSettings, DiskSettings> {
+internal object DiskSettingsMapper : DexDiskMessageMapper<CoreSettings, DiskSettings> {
     override fun diskToModel(
         disk: DiskSettings,
     ): CoreSettings {

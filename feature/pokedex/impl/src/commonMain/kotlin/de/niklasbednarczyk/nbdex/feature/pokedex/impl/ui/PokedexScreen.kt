@@ -54,24 +54,24 @@ import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonFormId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreTypeId
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.image.NBAsyncImage
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreview
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfo
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfoPreviewParameterProvider
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.NBCenteredTopAppBar
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.NBErrorContent
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.NBInfoContent
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.NBLoadingContent
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.NBMultiSelection
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.NBSingleSelectionGroupNullable
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.NBSingleSelectionWithNull
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.image.DexAsyncImage
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreview
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfo
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfoPreviewParameterProvider
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.DexCenteredTopAppBar
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.DexErrorContent
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.DexInfoContent
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.DexLoadingContent
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.DexMultiSelection
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.DexSingleSelectionGroupNullable
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.DexSingleSelectionWithNull
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.selection.isSelectionDropdownMenu
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.NBTextSingleLine
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.DexTextSingleLine
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.DexTheme
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.icon
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.view.CoreDisplayViewTypes
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.view.CoreDisplayViewVersionGroups
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.SearchOff
 import de.niklasbednarczyk.nbdex.feature.pokedex.impl.ext.stringResource
 import de.niklasbednarczyk.nbdex.feature.pokedex.impl.ui.model.PokedexFilter
@@ -140,7 +140,7 @@ private fun PokedexScreen(
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            NBCenteredTopAppBar(
+            DexCenteredTopAppBar(
                 scrollBehavior = scrollBehavior,
                 titleText = stringResource(Res.string.pokedex_title),
             )
@@ -157,13 +157,13 @@ private fun PokedexScreen(
             ) { state ->
                 when (state) {
                     PokedexUiState.Error -> {
-                        NBErrorContent(
+                        DexErrorContent(
                             onReloadClick = onReloadClick,
                         )
                     }
 
                     PokedexUiState.Loading -> {
-                        NBLoadingContent()
+                        DexLoadingContent()
                     }
 
                     is PokedexUiState.Success -> {
@@ -237,16 +237,16 @@ private fun SuccessContent(
             onCategoryClick = onCategoryClick,
         )
         if (pokemonForms.isEmpty()) {
-            NBInfoContent(
-                icon = NBIcons.Material.SearchOff,
+            DexInfoContent(
+                icon = DexIcons.Material.SearchOff,
                 text = stringResource(Res.string.pokedex_pokemon_forms_empty),
             )
         } else {
             LazyVerticalGrid(
                 columns = GridCells.Adaptive(pokemonFormMinWidth),
-                verticalArrangement = Arrangement.spacedBy(NBTheme.dimensions.padding.medium),
-                horizontalArrangement = Arrangement.spacedBy(NBTheme.dimensions.padding.medium),
-                contentPadding = NBTheme.dimensions.padding.screenPaddingValues,
+                verticalArrangement = Arrangement.spacedBy(DexTheme.dimensions.padding.medium),
+                horizontalArrangement = Arrangement.spacedBy(DexTheme.dimensions.padding.medium),
+                contentPadding = DexTheme.dimensions.padding.screenPaddingValues,
             ) {
                 items(
                     items = pokemonForms,
@@ -285,9 +285,9 @@ private fun FilterRow(
     LazyRow(
         modifier = modifier.fillMaxWidth(),
         contentPadding = PaddingValues(
-            horizontal = NBTheme.dimensions.padding.medium,
+            horizontal = DexTheme.dimensions.padding.medium,
         ),
-        horizontalArrangement = Arrangement.spacedBy(NBTheme.dimensions.padding.medium),
+        horizontalArrangement = Arrangement.spacedBy(DexTheme.dimensions.padding.medium),
     ) {
         items(
             items = filters,
@@ -301,7 +301,7 @@ private fun FilterRow(
 
             when (filter) {
                 PokedexFilter.CATEGORY -> {
-                    NBMultiSelection(
+                    DexMultiSelection(
                         expanded = expanded,
                         onExpandedChange = onExpandedChange,
                         title = stringResource(Res.string.pokedex_preferences_categories_title),
@@ -314,7 +314,7 @@ private fun FilterRow(
                 }
 
                 PokedexFilter.GENERATION -> {
-                    NBSingleSelectionWithNull(
+                    DexSingleSelectionWithNull(
                         expanded = expanded,
                         onExpandedChange = onExpandedChange,
                         title = stringResource(Res.string.pokedex_preferences_generation_title),
@@ -330,7 +330,7 @@ private fun FilterRow(
                 }
 
                 PokedexFilter.POKEDEX -> {
-                    NBSingleSelectionGroupNullable(
+                    DexSingleSelectionGroupNullable(
                         expanded = selectedFilter == filter,
                         onExpandedChange = onExpandedChange,
                         title = stringResource(Res.string.pokedex_preferences_pokedex_title),
@@ -364,7 +364,7 @@ private fun FilterRow(
                 }
 
                 PokedexFilter.TYPE -> {
-                    NBSingleSelectionWithNull(
+                    DexSingleSelectionWithNull(
                         expanded = selectedFilter == filter,
                         onExpandedChange = onExpandedChange,
                         title = stringResource(Res.string.pokedex_preferences_type_title),
@@ -391,55 +391,55 @@ private fun PokemonForm(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val showHighlight = selected && !NBTheme.isSinglePane
+    val showHighlight = selected && !DexTheme.isSinglePane
     val containerColor = if (showHighlight) {
-        NBTheme.colorScheme.secondaryContainer
+        DexTheme.colorScheme.secondaryContainer
     } else {
-        NBTheme.colorScheme.surfaceContainerLowest
+        DexTheme.colorScheme.surfaceContainerLowest
     }
     val onContainerColor = if (showHighlight) {
-        NBTheme.colorScheme.onSecondaryContainer
+        DexTheme.colorScheme.onSecondaryContainer
     } else {
-        NBTheme.colorScheme.onSurface
+        DexTheme.colorScheme.onSurface
     }
 
     Column(
         modifier = modifier
-            .clip(NBTheme.shapes.medium)
+            .clip(DexTheme.shapes.medium)
             .background(containerColor)
             .clickable(onClick = onClick)
-            .padding(NBTheme.dimensions.padding.large),
+            .padding(DexTheme.dimensions.padding.large),
     ) {
         Row(
             modifier = Modifier.height(IntrinsicSize.Max),
         ) {
-            NBAsyncImage(
+            DexAsyncImage(
                 imageUrl = pokemonForm.pokemonSprite?.getOfficialArtworkUrl(),
-                modifier = Modifier.size(NBTheme.dimensions.component.listItem.leadingImageSize),
+                modifier = Modifier.size(DexTheme.dimensions.component.listItem.leadingImageSize),
                 contentDescription = stringResource(Res.string.content_description_sprite_pokemon_official_artwork),
             )
-            Spacer(modifier = Modifier.width(NBTheme.dimensions.padding.large))
+            Spacer(modifier = Modifier.width(DexTheme.dimensions.padding.large))
             Column(
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxHeight(),
                 verticalArrangement = Arrangement.SpaceAround,
             ) {
-                NBTextSingleLine(
+                DexTextSingleLine(
                     text = pokemonForm.displayName,
-                    style = NBTheme.typography.bodyLarge,
+                    style = DexTheme.typography.bodyLarge,
                     color = onContainerColor,
                 )
-                Spacer(modifier = Modifier.height(NBTheme.dimensions.padding.small))
-                NBTextSingleLine(
+                Spacer(modifier = Modifier.height(DexTheme.dimensions.padding.small))
+                DexTextSingleLine(
                     text = pokemonForm.pokemon?.pokemonSpecies?.pokemonDexNumber?.pokedexNumber?.toString()
                         .orEmpty(),
-                    style = NBTheme.typography.bodyMedium,
+                    style = DexTheme.typography.bodyMedium,
                     color = onContainerColor,
                 )
             }
         }
-        Spacer(modifier = Modifier.height(NBTheme.dimensions.padding.medium))
+        Spacer(modifier = Modifier.height(DexTheme.dimensions.padding.medium))
         CoreDisplayViewTypes(
             types = pokemonForm.pokemon?.pokemonTypes,
         )
@@ -449,9 +449,9 @@ private fun PokemonForm(
 @Composable
 @Preview
 private fun Preview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         val pokedexesMap = persistentMapOf<PokedexRegion?, List<PokedexPokedex>>(
@@ -791,9 +791,9 @@ private fun Preview(
 @Composable
 @Preview
 private fun ErrorPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         PokedexScreen(
@@ -812,9 +812,9 @@ private fun ErrorPreview(
 @Composable
 @Preview
 private fun LoadingPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         PokedexScreen(

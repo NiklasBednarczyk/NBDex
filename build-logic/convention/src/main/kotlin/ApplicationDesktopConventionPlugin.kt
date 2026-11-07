@@ -1,4 +1,4 @@
-import de.niklasbednarczyk.nbdex.convention.constant.NBAppInfo
+import de.niklasbednarczyk.nbdex.convention.constant.DexAppInfo
 import de.niklasbednarczyk.nbdex.convention.ext.getPluginId
 import de.niklasbednarczyk.nbdex.convention.ext.libs
 import de.niklasbednarczyk.nbdex.convention.ext.plugins
@@ -31,12 +31,12 @@ class ApplicationDesktopConventionPlugin : Plugin<Project> {
         extensions.configure<ComposeExtension> {
             extensions.configure<DesktopExtension>("desktop") {
                 application {
-                    mainClass = "${NBAppInfo.PACKAGE_NAME}.MainKt"
+                    mainClass = "${DexAppInfo.PACKAGE_NAME}.MainKt"
 
                     nativeDistributions {
                         targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-                        packageName = NBAppInfo.PACKAGE_NAME
-                        packageVersion = NBAppInfo.VERSION_NAME
+                        packageName = DexAppInfo.PACKAGE_NAME
+                        packageVersion = DexAppInfo.VERSION_NAME
                     }
                 }
             }

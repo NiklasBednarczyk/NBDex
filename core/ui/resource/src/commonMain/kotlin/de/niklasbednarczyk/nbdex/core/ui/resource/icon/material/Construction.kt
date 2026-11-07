@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.Construction: ImageVector
+val DexIcons.Material.Construction: ImageVector
     get() {
         if (_Construction != null) {
             return _Construction!!
@@ -84,6 +84,6 @@ private var _Construction: ImageVector? = null
 @Composable
 private fun ConstructionPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.Construction, contentDescription = null)
+        Image(imageVector = DexIcons.Material.Construction, contentDescription = null)
     }
 }

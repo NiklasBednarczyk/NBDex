@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Rock: ImageVector
+val DexIcons.Type.Rock: ImageVector
     get() {
         if (_Rock != null) {
             return _Rock!!
@@ -78,6 +78,6 @@ private var _Rock: ImageVector? = null
 @Composable
 private fun RockPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Rock, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Rock, contentDescription = null)
     }
 }

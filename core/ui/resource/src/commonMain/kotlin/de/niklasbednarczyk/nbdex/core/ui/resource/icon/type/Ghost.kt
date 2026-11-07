@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Ghost: ImageVector
+val DexIcons.Type.Ghost: ImageVector
     get() {
         if (_Ghost != null) {
             return _Ghost!!
@@ -69,6 +69,6 @@ private var _Ghost: ImageVector? = null
 @Composable
 private fun GhostPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Ghost, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Ghost, contentDescription = null)
     }
 }

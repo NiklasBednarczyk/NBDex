@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.ListAltCheck: ImageVector
+val DexIcons.Material.ListAltCheck: ImageVector
     get() {
         if (_ListAltCheck != null) {
             return _ListAltCheck!!
@@ -103,6 +103,6 @@ private var _ListAltCheck: ImageVector? = null
 @Composable
 private fun ListAltCheckPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.ListAltCheck, contentDescription = null)
+        Image(imageVector = DexIcons.Material.ListAltCheck, contentDescription = null)
     }
 }

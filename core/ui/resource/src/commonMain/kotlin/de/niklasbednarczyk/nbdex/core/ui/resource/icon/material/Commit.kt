@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.Commit: ImageVector
+val DexIcons.Material.Commit: ImageVector
     get() {
         if (_Commit != null) {
             return _Commit!!
@@ -65,6 +65,6 @@ private var _Commit: ImageVector? = null
 @Composable
 private fun CommitPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.Commit, contentDescription = null)
+        Image(imageVector = DexIcons.Material.Commit, contentDescription = null)
     }
 }

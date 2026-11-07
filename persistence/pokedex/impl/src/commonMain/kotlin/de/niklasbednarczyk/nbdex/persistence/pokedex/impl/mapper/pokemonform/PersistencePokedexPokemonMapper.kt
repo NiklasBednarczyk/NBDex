@@ -2,14 +2,14 @@ package de.niklasbednarczyk.nbdex.persistence.pokedex.impl.mapper.pokemonform
 
 import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexId
-import de.niklasbednarczyk.nbdex.core.persistence.mapper.NBPersistenceFeatureMapper
+import de.niklasbednarczyk.nbdex.core.persistence.mapper.DexPersistenceFeatureMapper
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCorePokemonMapper
 import de.niklasbednarczyk.nbdex.model.pokedex.pokemonform.PokedexPokemon
 import de.niklasbednarczyk.nbdex.persistence.pokedex.impl.model.pokemonform.PersistencePokedexPokemon
 import kotlinx.collections.immutable.toImmutableList
 
 internal object PersistencePokedexPokemonMapper :
-    NBPersistenceFeatureMapper<PokedexPokemon, PersistencePokedexPokemon, Pair<CoreLanguageId, CorePokedexId>> {
+    DexPersistenceFeatureMapper<PokedexPokemon, PersistencePokedexPokemon, Pair<CoreLanguageId, CorePokedexId>> {
     override fun persistenceToModel(
         persistence: PersistencePokedexPokemon,
         input: Pair<CoreLanguageId, CorePokedexId>,

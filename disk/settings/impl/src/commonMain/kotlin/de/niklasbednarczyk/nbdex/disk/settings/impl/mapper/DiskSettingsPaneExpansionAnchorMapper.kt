@@ -1,11 +1,11 @@
 package de.niklasbednarczyk.nbdex.disk.settings.impl.mapper
 
-import de.niklasbednarczyk.nbdex.core.disk.mapper.NBDiskEnumMapper
+import de.niklasbednarczyk.nbdex.core.disk.mapper.DexDiskEnumMapper
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsPaneExpansionAnchor
 import de.niklasbednarczyk.nbdex.disk.settings.impl.proto.DiskSettings
 
 internal object DiskSettingsPaneExpansionAnchorMapper :
-    NBDiskEnumMapper<CoreSettingsPaneExpansionAnchor, DiskSettings.PaneExpansionAnchor> {
+    DexDiskEnumMapper<CoreSettingsPaneExpansionAnchor, DiskSettings.PaneExpansionAnchor> {
     override fun modelToDisk(
         model: CoreSettingsPaneExpansionAnchor,
     ): DiskSettings.PaneExpansionAnchor {

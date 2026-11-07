@@ -1,8 +1,8 @@
 package de.niklasbednarczyk.nbdex.core.data.mediator
 
-import de.niklasbednarczyk.nbdex.core.common.dispatchers.NBDispatchers
-import de.niklasbednarczyk.nbdex.core.common.logging.NBLogger
-import de.niklasbednarczyk.nbdex.core.common.result.NBResult
+import de.niklasbednarczyk.nbdex.core.common.dispatchers.DexDispatchers
+import de.niklasbednarczyk.nbdex.core.common.logging.DexLogger
+import de.niklasbednarczyk.nbdex.core.common.result.DexResult
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emitAll
@@ -16,8 +16,8 @@ import org.koin.core.component.inject
 abstract class ResultMediator<Input : Any, Output : Any> : KoinComponent {
     protected abstract val loggerName: String
 
-    private val dispatchers: NBDispatchers by inject()
-    private val logger = NBLogger(loggerName)
+    private val dispatchers: DexDispatchers by inject()
+    private val logger = DexLogger(loggerName)
 
     protected abstract suspend fun shouldGetNetwork(): Boolean
 
@@ -29,21 +29,21 @@ abstract class ResultMediator<Input : Any, Output : Any> : KoinComponent {
 
     protected abstract fun getOutput(): Flow<Output>
 
-    operator fun invoke(): Flow<NBResult<Output>> = flow<NBResult<Output>> {
+    operator fun invoke(): Flow<DexResult<Output>> = flow<DexResult<Output>> {
         if (shouldGetNetwork()) {
             val input = getNetworkInput()
             insertPersistenceInput(input)
         }
         emitAll(
             getOutput().map { output ->
-                NBResult.Success(output)
+                DexResult.Success(output)
             },
         )
     }
-        .onStart { emit(NBResult.Loading) }
+        .onStart { emit(DexResult.Loading) }
         .catch { throwable ->
             logger.catching(throwable)
-            emit(NBResult.Error)
+            emit(DexResult.Error)
         }
         .flowOn(dispatchers.io)
 }

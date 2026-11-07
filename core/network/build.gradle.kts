@@ -1,10 +1,10 @@
 import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
-import de.niklasbednarczyk.nbdex.convention.constant.NBApollo
+import de.niklasbednarczyk.nbdex.convention.constant.DexApollo
 import de.niklasbednarczyk.nbdex.convention.ext.modulePackageName
 
 private val schemaFolderPath = "src/commonMain/graphql"
 private val schemaFilePath =
-    "$schemaFolderPath/$modulePackageName/${NBApollo.PACKAGE}/schema.graphqls"
+    "$schemaFolderPath/$modulePackageName/${DexApollo.PACKAGE}/schema.graphqls"
 
 plugins {
     alias(libs.plugins.nbdex.android.kotlin.multiplatform.library)
@@ -24,12 +24,12 @@ kotlin {
 }
 
 apollo {
-    service(NBApollo.SERVICE_NAME) {
-        packageName.set("$modulePackageName.${NBApollo.PACKAGE}")
+    service(DexApollo.SERVICE_NAME) {
+        packageName.set("$modulePackageName.${DexApollo.PACKAGE}")
 
         // Configure introspection schema download
         introspection {
-            endpointUrl.set(NBApollo.URL)
+            endpointUrl.set(DexApollo.URL)
             schemaFile.set(file(schemaFilePath))
         }
 
@@ -46,6 +46,6 @@ apollo {
 
 buildkonfig {
     defaultConfigs {
-        buildConfigField(STRING, "apolloUrl", NBApollo.URL)
+        buildConfigField(STRING, "apolloUrl", DexApollo.URL)
     }
 }

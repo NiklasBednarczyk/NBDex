@@ -6,7 +6,7 @@ import androidx.compose.ui.window.WindowPlacement
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import de.niklasbednarczyk.nbdex.di.initKoin
-import de.niklasbednarczyk.nbdex.ui.NBApp
+import de.niklasbednarczyk.nbdex.ui.DexApp
 import nbdex.core.ui.resource.generated.resources.Res
 import nbdex.core.ui.resource.generated.resources.app_name
 import org.jetbrains.compose.resources.stringResource
@@ -24,7 +24,7 @@ fun main() {
             ),
             title = stringResource(Res.string.app_name),
         ) {
-            NBApp()
+            DexApp()
         }
     }
 }

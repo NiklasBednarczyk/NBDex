@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Fairy: ImageVector
+val DexIcons.Type.Fairy: ImageVector
     get() {
         if (_Fairy != null) {
             return _Fairy!!
@@ -83,6 +83,6 @@ private var _Fairy: ImageVector? = null
 @Composable
 private fun FairyPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Fairy, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Fairy, contentDescription = null)
     }
 }

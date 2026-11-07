@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Grass: ImageVector
+val DexIcons.Type.Grass: ImageVector
     get() {
         if (_Grass != null) {
             return _Grass!!
@@ -63,6 +63,6 @@ private var _Grass: ImageVector? = null
 @Composable
 private fun GrassPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Grass, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Grass, contentDescription = null)
     }
 }

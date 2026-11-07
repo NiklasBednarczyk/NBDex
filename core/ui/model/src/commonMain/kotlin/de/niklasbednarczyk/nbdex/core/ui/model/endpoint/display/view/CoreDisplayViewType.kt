@@ -17,15 +17,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import de.niklasbednarczyk.nbdex.core.common.util.string.nbCapitalize
+import de.niklasbednarczyk.nbdex.core.common.util.string.dexCapitalize
 import de.niklasbednarczyk.nbdex.core.model.endpoint.CoreTypeName
 import de.niklasbednarczyk.nbdex.core.model.endpoint.display.model.type.CoreDisplayModelType
 import de.niklasbednarczyk.nbdex.core.model.endpoint.display.type.CoreDisplayTypeType
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreview
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfo
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfoPreviewParameterProvider
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.NBTextSingleLine
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreview
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfo
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfoPreviewParameterProvider
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.DexTextSingleLine
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.DexTheme
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.extendedColor
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.icon
 import kotlinx.collections.immutable.ImmutableList
@@ -37,7 +37,7 @@ fun CoreDisplayViewTypes(
     modifier: Modifier = Modifier,
 ) {
     Row(
-        horizontalArrangement = Arrangement.spacedBy(NBTheme.dimensions.padding.small),
+        horizontalArrangement = Arrangement.spacedBy(DexTheme.dimensions.padding.small),
         modifier = modifier.fillMaxWidth(),
     ) {
         types?.forEach { type ->
@@ -54,47 +54,47 @@ private fun CoreDisplayViewType(
     type: CoreDisplayModelType,
     modifier: Modifier = Modifier,
 ) {
-    val shape = NBTheme.shapes.small
+    val shape = DexTheme.shapes.small
 
     val icon = type.displayType?.icon
 
     val extendedColor = type.displayType?.extendedColor
-    val color = extendedColor?.color ?: NBTheme.colorScheme.background
-    val onColor = extendedColor?.onColor ?: NBTheme.colorScheme.onBackground
+    val color = extendedColor?.color ?: DexTheme.colorScheme.background
+    val onColor = extendedColor?.onColor ?: DexTheme.colorScheme.onBackground
 
     Box(
         modifier = modifier
             .clip(shape)
             .border(
-                width = NBTheme.dimensions.component.chip.containerOutlineWidth,
-                color = NBTheme.colorScheme.outlineVariant,
+                width = DexTheme.dimensions.component.chip.containerOutlineWidth,
+                color = DexTheme.colorScheme.outlineVariant,
                 shape = shape,
             )
             .background(color)
-            .heightIn(min = NBTheme.dimensions.component.chip.containerHeight),
+            .heightIn(min = DexTheme.dimensions.component.chip.containerHeight),
         contentAlignment = Alignment.Center,
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             if (icon == null) {
-                Spacer(modifier = Modifier.width(NBTheme.dimensions.padding.large))
+                Spacer(modifier = Modifier.width(DexTheme.dimensions.padding.large))
             } else {
-                Spacer(modifier = Modifier.width(NBTheme.dimensions.padding.medium))
+                Spacer(modifier = Modifier.width(DexTheme.dimensions.padding.medium))
                 Icon(
                     imageVector = icon,
                     contentDescription = null,
                     tint = onColor,
-                    modifier = Modifier.size(NBTheme.dimensions.component.chip.iconSize),
+                    modifier = Modifier.size(DexTheme.dimensions.component.chip.iconSize),
                 )
-                Spacer(modifier = Modifier.width(NBTheme.dimensions.padding.medium))
+                Spacer(modifier = Modifier.width(DexTheme.dimensions.padding.medium))
             }
-            NBTextSingleLine(
+            DexTextSingleLine(
                 text = type.typeName.name,
                 color = onColor,
-                style = NBTheme.typography.labelSmall,
+                style = DexTheme.typography.labelSmall,
             )
-            Spacer(modifier = Modifier.width(NBTheme.dimensions.padding.large))
+            Spacer(modifier = Modifier.width(DexTheme.dimensions.padding.large))
         }
     }
 }
@@ -102,9 +102,9 @@ private fun CoreDisplayViewType(
 @Preview
 @Composable
 private fun ListPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         CoreDisplayViewTypes(
@@ -136,9 +136,9 @@ private fun ListPreview(
 @Preview
 @Composable
 private fun ItemPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         CoreDisplayViewType(
@@ -153,7 +153,7 @@ private fun ItemPreview(
                 type = CoreDisplayModelType.example(
                     typeName = CoreTypeName.example(
                         typeId = displayType.id,
-                        name = displayType.name.nbCapitalize(),
+                        name = displayType.name.dexCapitalize(),
                     ),
                 ),
             )

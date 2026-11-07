@@ -3,8 +3,8 @@ package de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import de.niklasbednarczyk.nbdex.core.model.endpoint.display.type.CoreDisplayTypeVersion
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.color.extended.NBExtendedColor
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.DexTheme
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.color.extended.DexExtendedColor
 import nbdex.core.ui.resource.generated.resources.Res
 import nbdex.core.ui.resource.generated.resources.common_endpoint_version_abbreviation_alpha_sapphire
 import nbdex.core.ui.resource.generated.resources.common_endpoint_version_abbreviation_black
@@ -55,62 +55,62 @@ import nbdex.core.ui.resource.generated.resources.common_endpoint_version_abbrev
 import nbdex.core.ui.resource.generated.resources.common_endpoint_version_abbreviation_yellow
 import org.jetbrains.compose.resources.StringResource
 
-val CoreDisplayTypeVersion.extendedColor: NBExtendedColor
+val CoreDisplayTypeVersion.extendedColor: DexExtendedColor
     @Composable @ReadOnlyComposable
     get() = when (this) {
-        CoreDisplayTypeVersion.RED -> NBTheme.extendedColors.version.red
-        CoreDisplayTypeVersion.BLUE -> NBTheme.extendedColors.version.blue
-        CoreDisplayTypeVersion.YELLOW -> NBTheme.extendedColors.version.yellow
-        CoreDisplayTypeVersion.GOLD -> NBTheme.extendedColors.version.gold
-        CoreDisplayTypeVersion.SILVER -> NBTheme.extendedColors.version.silver
-        CoreDisplayTypeVersion.CRYSTAL -> NBTheme.extendedColors.version.crystal
-        CoreDisplayTypeVersion.RUBY -> NBTheme.extendedColors.version.ruby
-        CoreDisplayTypeVersion.SAPPHIRE -> NBTheme.extendedColors.version.sapphire
-        CoreDisplayTypeVersion.EMERALD -> NBTheme.extendedColors.version.emerald
-        CoreDisplayTypeVersion.FIRE_RED -> NBTheme.extendedColors.version.fireRed
-        CoreDisplayTypeVersion.LEAF_GREEN -> NBTheme.extendedColors.version.leafGreen
-        CoreDisplayTypeVersion.DIAMOND -> NBTheme.extendedColors.version.diamond
-        CoreDisplayTypeVersion.PEARL -> NBTheme.extendedColors.version.pearl
-        CoreDisplayTypeVersion.PLATINUM -> NBTheme.extendedColors.version.platinum
-        CoreDisplayTypeVersion.HEART_GOLD -> NBTheme.extendedColors.version.heartGold
-        CoreDisplayTypeVersion.SOUL_SILVER -> NBTheme.extendedColors.version.soulSilver
-        CoreDisplayTypeVersion.BLACK -> NBTheme.extendedColors.version.black
-        CoreDisplayTypeVersion.WHITE -> NBTheme.extendedColors.version.white
-        CoreDisplayTypeVersion.COLOSSEUM -> NBTheme.extendedColors.version.colosseum
-        CoreDisplayTypeVersion.XD -> NBTheme.extendedColors.version.xd
-        CoreDisplayTypeVersion.BLACK_2 -> NBTheme.extendedColors.version.black2
-        CoreDisplayTypeVersion.WHITE_2 -> NBTheme.extendedColors.version.white2
-        CoreDisplayTypeVersion.X -> NBTheme.extendedColors.version.x
-        CoreDisplayTypeVersion.Y -> NBTheme.extendedColors.version.y
-        CoreDisplayTypeVersion.OMEGA_RUBY -> NBTheme.extendedColors.version.omegaRuby
-        CoreDisplayTypeVersion.ALPHA_SAPPHIRE -> NBTheme.extendedColors.version.alphaSapphire
-        CoreDisplayTypeVersion.SUN -> NBTheme.extendedColors.version.sun
-        CoreDisplayTypeVersion.MOON -> NBTheme.extendedColors.version.moon
-        CoreDisplayTypeVersion.ULTRA_SUN -> NBTheme.extendedColors.version.ultraSun
-        CoreDisplayTypeVersion.ULTRA_MOON -> NBTheme.extendedColors.version.ultraMoon
-        CoreDisplayTypeVersion.LETS_GO_PIKACHU -> NBTheme.extendedColors.version.letsGoPikachu
-        CoreDisplayTypeVersion.LETS_GO_EEVEE -> NBTheme.extendedColors.version.letsGoEevee
-        CoreDisplayTypeVersion.SWORD -> NBTheme.extendedColors.version.sword
-        CoreDisplayTypeVersion.SHIELD -> NBTheme.extendedColors.version.shield
-        CoreDisplayTypeVersion.THE_ISLE_OF_ARMOR_SWORD -> NBTheme.extendedColors.version.theIsleOfArmor
-        CoreDisplayTypeVersion.THE_CROWN_TUNDRA_SWORD -> NBTheme.extendedColors.version.theCrownTundra
-        CoreDisplayTypeVersion.BRILLIANT_DIAMOND -> NBTheme.extendedColors.version.brilliantDiamond
-        CoreDisplayTypeVersion.SHINING_PEARL -> NBTheme.extendedColors.version.shiningPearl
-        CoreDisplayTypeVersion.LEGENDS_ARCEUS -> NBTheme.extendedColors.version.legendsArceus
-        CoreDisplayTypeVersion.SCARLET -> NBTheme.extendedColors.version.scarlet
-        CoreDisplayTypeVersion.VIOLET -> NBTheme.extendedColors.version.violet
-        CoreDisplayTypeVersion.THE_TEAL_MASK_SCARLET -> NBTheme.extendedColors.version.theTealMask
-        CoreDisplayTypeVersion.THE_INDIGO_DISK_SCARLET -> NBTheme.extendedColors.version.theIndigoDisk
-        CoreDisplayTypeVersion.RED_JAPAN -> NBTheme.extendedColors.version.red
-        CoreDisplayTypeVersion.GREEN_JAPAN -> NBTheme.extendedColors.version.green
-        CoreDisplayTypeVersion.BLUE_JAPAN -> NBTheme.extendedColors.version.blue
-        CoreDisplayTypeVersion.LEGENDS_ZA -> NBTheme.extendedColors.version.legendsZa
-        CoreDisplayTypeVersion.MEGA_DIMENSION -> NBTheme.extendedColors.version.megaDimension
-        CoreDisplayTypeVersion.CHAMPIONS -> NBTheme.extendedColors.version.champions
-        CoreDisplayTypeVersion.THE_ISLE_OF_ARMOR_SHIELD -> NBTheme.extendedColors.version.theIsleOfArmor
-        CoreDisplayTypeVersion.THE_CROWN_TUNDRA_SHIELD -> NBTheme.extendedColors.version.theCrownTundra
-        CoreDisplayTypeVersion.THE_TEAL_MASK_VIOLET -> NBTheme.extendedColors.version.theTealMask
-        CoreDisplayTypeVersion.THE_INDIGO_DISK_VIOLET -> NBTheme.extendedColors.version.theIndigoDisk
+        CoreDisplayTypeVersion.RED -> DexTheme.extendedColors.version.red
+        CoreDisplayTypeVersion.BLUE -> DexTheme.extendedColors.version.blue
+        CoreDisplayTypeVersion.YELLOW -> DexTheme.extendedColors.version.yellow
+        CoreDisplayTypeVersion.GOLD -> DexTheme.extendedColors.version.gold
+        CoreDisplayTypeVersion.SILVER -> DexTheme.extendedColors.version.silver
+        CoreDisplayTypeVersion.CRYSTAL -> DexTheme.extendedColors.version.crystal
+        CoreDisplayTypeVersion.RUBY -> DexTheme.extendedColors.version.ruby
+        CoreDisplayTypeVersion.SAPPHIRE -> DexTheme.extendedColors.version.sapphire
+        CoreDisplayTypeVersion.EMERALD -> DexTheme.extendedColors.version.emerald
+        CoreDisplayTypeVersion.FIRE_RED -> DexTheme.extendedColors.version.fireRed
+        CoreDisplayTypeVersion.LEAF_GREEN -> DexTheme.extendedColors.version.leafGreen
+        CoreDisplayTypeVersion.DIAMOND -> DexTheme.extendedColors.version.diamond
+        CoreDisplayTypeVersion.PEARL -> DexTheme.extendedColors.version.pearl
+        CoreDisplayTypeVersion.PLATINUM -> DexTheme.extendedColors.version.platinum
+        CoreDisplayTypeVersion.HEART_GOLD -> DexTheme.extendedColors.version.heartGold
+        CoreDisplayTypeVersion.SOUL_SILVER -> DexTheme.extendedColors.version.soulSilver
+        CoreDisplayTypeVersion.BLACK -> DexTheme.extendedColors.version.black
+        CoreDisplayTypeVersion.WHITE -> DexTheme.extendedColors.version.white
+        CoreDisplayTypeVersion.COLOSSEUM -> DexTheme.extendedColors.version.colosseum
+        CoreDisplayTypeVersion.XD -> DexTheme.extendedColors.version.xd
+        CoreDisplayTypeVersion.BLACK_2 -> DexTheme.extendedColors.version.black2
+        CoreDisplayTypeVersion.WHITE_2 -> DexTheme.extendedColors.version.white2
+        CoreDisplayTypeVersion.X -> DexTheme.extendedColors.version.x
+        CoreDisplayTypeVersion.Y -> DexTheme.extendedColors.version.y
+        CoreDisplayTypeVersion.OMEGA_RUBY -> DexTheme.extendedColors.version.omegaRuby
+        CoreDisplayTypeVersion.ALPHA_SAPPHIRE -> DexTheme.extendedColors.version.alphaSapphire
+        CoreDisplayTypeVersion.SUN -> DexTheme.extendedColors.version.sun
+        CoreDisplayTypeVersion.MOON -> DexTheme.extendedColors.version.moon
+        CoreDisplayTypeVersion.ULTRA_SUN -> DexTheme.extendedColors.version.ultraSun
+        CoreDisplayTypeVersion.ULTRA_MOON -> DexTheme.extendedColors.version.ultraMoon
+        CoreDisplayTypeVersion.LETS_GO_PIKACHU -> DexTheme.extendedColors.version.letsGoPikachu
+        CoreDisplayTypeVersion.LETS_GO_EEVEE -> DexTheme.extendedColors.version.letsGoEevee
+        CoreDisplayTypeVersion.SWORD -> DexTheme.extendedColors.version.sword
+        CoreDisplayTypeVersion.SHIELD -> DexTheme.extendedColors.version.shield
+        CoreDisplayTypeVersion.THE_ISLE_OF_ARMOR_SWORD -> DexTheme.extendedColors.version.theIsleOfArmor
+        CoreDisplayTypeVersion.THE_CROWN_TUNDRA_SWORD -> DexTheme.extendedColors.version.theCrownTundra
+        CoreDisplayTypeVersion.BRILLIANT_DIAMOND -> DexTheme.extendedColors.version.brilliantDiamond
+        CoreDisplayTypeVersion.SHINING_PEARL -> DexTheme.extendedColors.version.shiningPearl
+        CoreDisplayTypeVersion.LEGENDS_ARCEUS -> DexTheme.extendedColors.version.legendsArceus
+        CoreDisplayTypeVersion.SCARLET -> DexTheme.extendedColors.version.scarlet
+        CoreDisplayTypeVersion.VIOLET -> DexTheme.extendedColors.version.violet
+        CoreDisplayTypeVersion.THE_TEAL_MASK_SCARLET -> DexTheme.extendedColors.version.theTealMask
+        CoreDisplayTypeVersion.THE_INDIGO_DISK_SCARLET -> DexTheme.extendedColors.version.theIndigoDisk
+        CoreDisplayTypeVersion.RED_JAPAN -> DexTheme.extendedColors.version.red
+        CoreDisplayTypeVersion.GREEN_JAPAN -> DexTheme.extendedColors.version.green
+        CoreDisplayTypeVersion.BLUE_JAPAN -> DexTheme.extendedColors.version.blue
+        CoreDisplayTypeVersion.LEGENDS_ZA -> DexTheme.extendedColors.version.legendsZa
+        CoreDisplayTypeVersion.MEGA_DIMENSION -> DexTheme.extendedColors.version.megaDimension
+        CoreDisplayTypeVersion.CHAMPIONS -> DexTheme.extendedColors.version.champions
+        CoreDisplayTypeVersion.THE_ISLE_OF_ARMOR_SHIELD -> DexTheme.extendedColors.version.theIsleOfArmor
+        CoreDisplayTypeVersion.THE_CROWN_TUNDRA_SHIELD -> DexTheme.extendedColors.version.theCrownTundra
+        CoreDisplayTypeVersion.THE_TEAL_MASK_VIOLET -> DexTheme.extendedColors.version.theTealMask
+        CoreDisplayTypeVersion.THE_INDIGO_DISK_VIOLET -> DexTheme.extendedColors.version.theIndigoDisk
     }
 
 val CoreDisplayTypeVersion.stringResourceAbbreviation: StringResource

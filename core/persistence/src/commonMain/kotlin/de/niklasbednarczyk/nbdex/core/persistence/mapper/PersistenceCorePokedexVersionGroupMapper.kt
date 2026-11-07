@@ -4,7 +4,7 @@ import de.niklasbednarczyk.nbdex.core.model.endpoint.CorePokedexVersionGroup
 import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokedexVersionGroup
 
 object PersistenceCorePokedexVersionGroupMapper :
-    NBPersistenceCoreMapper<CorePokedexVersionGroup, PersistenceCorePokedexVersionGroup> {
+    DexPersistenceCoreMapper<CorePokedexVersionGroup, PersistenceCorePokedexVersionGroup> {
     override fun modelToPersistence(
         model: CorePokedexVersionGroup,
     ): PersistenceCorePokedexVersionGroup {

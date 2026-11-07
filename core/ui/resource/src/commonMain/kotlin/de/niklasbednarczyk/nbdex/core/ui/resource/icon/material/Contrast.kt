@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.Contrast: ImageVector
+val DexIcons.Material.Contrast: ImageVector
     get() {
         if (_Contrast != null) {
             return _Contrast!!
@@ -64,6 +64,6 @@ private var _Contrast: ImageVector? = null
 @Composable
 private fun ContrastPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.Contrast, contentDescription = null)
+        Image(imageVector = DexIcons.Material.Contrast, contentDescription = null)
     }
 }

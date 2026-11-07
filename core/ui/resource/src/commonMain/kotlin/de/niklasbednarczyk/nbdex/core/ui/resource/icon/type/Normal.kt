@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Normal: ImageVector
+val DexIcons.Type.Normal: ImageVector
     get() {
         if (_Normal != null) {
             return _Normal!!
@@ -55,6 +55,6 @@ private var _Normal: ImageVector? = null
 @Composable
 private fun NormalPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Normal, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Normal, contentDescription = null)
     }
 }

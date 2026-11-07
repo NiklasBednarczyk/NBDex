@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.Lightbulb2Filled: ImageVector
+val DexIcons.Material.Lightbulb2Filled: ImageVector
     get() {
         if (_Lightbulb2Filled != null) {
             return _Lightbulb2Filled!!
@@ -66,6 +66,6 @@ private var _Lightbulb2Filled: ImageVector? = null
 @Composable
 private fun Lightbulb2FilledPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.Lightbulb2Filled, contentDescription = null)
+        Image(imageVector = DexIcons.Material.Lightbulb2Filled, contentDescription = null)
     }
 }

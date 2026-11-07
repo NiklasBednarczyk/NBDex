@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.ArrowDropUp: ImageVector
+val DexIcons.Material.ArrowDropUp: ImageVector
     get() {
         if (_ArrowDropUp != null) {
             return _ArrowDropUp!!
@@ -44,6 +44,6 @@ private var _ArrowDropUp: ImageVector? = null
 @Composable
 private fun ArrowDropUpPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.ArrowDropUp, contentDescription = null)
+        Image(imageVector = DexIcons.Material.ArrowDropUp, contentDescription = null)
     }
 }

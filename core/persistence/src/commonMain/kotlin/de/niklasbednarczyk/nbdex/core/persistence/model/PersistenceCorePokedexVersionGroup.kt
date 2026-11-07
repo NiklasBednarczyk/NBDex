@@ -6,10 +6,10 @@ import androidx.room3.PrimaryKey
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexVersionGroupId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionGroupId
-import de.niklasbednarczyk.nbdex.core.persistence.constant.NBTableName
+import de.niklasbednarczyk.nbdex.core.persistence.constant.DexTableName
 
 @Entity(
-    tableName = NBTableName.POKEDEX_VERSION_GROUP,
+    tableName = DexTableName.POKEDEX_VERSION_GROUP,
     indices = [
         Index("pokedexId"),
         Index("versionGroupId"),

@@ -7,7 +7,7 @@ import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonDexNumberId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonSpeciesId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCorePokemonDexNumber
 
-object NetworkCorePokemonDexNumberMapper : NBNetworkMapper<CorePokemonDexNumber, NetworkCorePokemonDexNumber> {
+object NetworkCorePokemonDexNumberMapper : DexNetworkMapper<CorePokemonDexNumber, NetworkCorePokemonDexNumber> {
     override fun networkToModel(
         network: NetworkCorePokemonDexNumber,
     ): CorePokemonDexNumber {

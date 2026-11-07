@@ -1,8 +1,8 @@
 package de.niklasbednarczyk.nbdex.feature.more.impl.di
 
 import androidx.compose.material3.adaptive.navigation3.ListDetailSceneStrategy
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.NBDetailPlaceholderContent
-import de.niklasbednarczyk.nbdex.core.ui.navigation.NBTopLevelDestination
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.DexDetailPlaceholderContent
+import de.niklasbednarczyk.nbdex.core.ui.navigation.DexTopLevelDestination
 import de.niklasbednarczyk.nbdex.feature.more.api.navigation.MoreNavKey
 import de.niklasbednarczyk.nbdex.feature.more.impl.ui.MoreScreen
 import de.niklasbednarczyk.nbdex.feature.more.impl.ui.MoreViewModel
@@ -15,8 +15,8 @@ val featureMoreModule = module {
 
     navigation<MoreNavKey>(
         metadata = ListDetailSceneStrategy.listPane(
-            sceneKey = NBTopLevelDestination.MORE.sceneKey,
-            detailPlaceholder = { NBDetailPlaceholderContent() },
+            sceneKey = DexTopLevelDestination.MORE.sceneKey,
+            detailPlaceholder = { DexDetailPlaceholderContent() },
         ),
     ) {
         MoreScreen()

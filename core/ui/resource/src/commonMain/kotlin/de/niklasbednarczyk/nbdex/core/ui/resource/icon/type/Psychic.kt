@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Psychic: ImageVector
+val DexIcons.Type.Psychic: ImageVector
     get() {
         if (_Psychic != null) {
             return _Psychic!!
@@ -69,6 +69,6 @@ private var _Psychic: ImageVector? = null
 @Composable
 private fun PsychicPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Psychic, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Psychic, contentDescription = null)
     }
 }

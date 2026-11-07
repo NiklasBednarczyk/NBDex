@@ -7,7 +7,7 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionGroupId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCorePokedexVersionGroup
 
 object NetworkCorePokedexVersionGroupMapper :
-    NBNetworkMapper<CorePokedexVersionGroup, NetworkCorePokedexVersionGroup> {
+    DexNetworkMapper<CorePokedexVersionGroup, NetworkCorePokedexVersionGroup> {
     override fun networkToModel(
         network: NetworkCorePokedexVersionGroup,
     ): CorePokedexVersionGroup {

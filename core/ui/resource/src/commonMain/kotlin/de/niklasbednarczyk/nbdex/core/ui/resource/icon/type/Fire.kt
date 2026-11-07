@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Fire: ImageVector
+val DexIcons.Type.Fire: ImageVector
     get() {
         if (_Fire != null) {
             return _Fire!!
@@ -70,6 +70,6 @@ private var _Fire: ImageVector? = null
 @Composable
 private fun FirePreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Fire, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Fire, contentDescription = null)
     }
 }

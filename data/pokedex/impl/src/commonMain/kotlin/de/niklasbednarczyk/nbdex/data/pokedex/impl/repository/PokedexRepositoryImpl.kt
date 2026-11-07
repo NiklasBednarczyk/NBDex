@@ -1,6 +1,6 @@
 package de.niklasbednarczyk.nbdex.data.pokedex.impl.repository
 
-import de.niklasbednarczyk.nbdex.core.common.result.NBResult
+import de.niklasbednarczyk.nbdex.core.common.result.DexResult
 import de.niklasbednarczyk.nbdex.core.data.mediator.ResultMediator
 import de.niklasbednarczyk.nbdex.core.model.id.CoreGenerationId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
@@ -27,7 +27,7 @@ internal class PokedexRepositoryImpl(
 ) : PokedexRepository {
     override fun getResult(
         languageId: CoreLanguageId,
-    ): Flow<NBResult<PokedexData>> {
+    ): Flow<DexResult<PokedexData>> {
         return object : ResultMediator<PokedexEndpoints, PokedexData>() {
             override val loggerName: String
                 get() = "PokedexRepositoryImpl.getResult"

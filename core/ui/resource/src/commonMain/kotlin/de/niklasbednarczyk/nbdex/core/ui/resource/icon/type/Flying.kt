@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Flying: ImageVector
+val DexIcons.Type.Flying: ImageVector
     get() {
         if (_Flying != null) {
             return _Flying!!
@@ -62,6 +62,6 @@ private var _Flying: ImageVector? = null
 @Composable
 private fun FlyingPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Flying, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Flying, contentDescription = null)
     }
 }

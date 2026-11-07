@@ -4,18 +4,18 @@ import androidx.room3.Dao
 import androidx.room3.Insert
 import androidx.room3.Query
 import de.niklasbednarczyk.nbdex.core.model.id.CoreTypeId
-import de.niklasbednarczyk.nbdex.core.persistence.constant.NBDao
-import de.niklasbednarczyk.nbdex.core.persistence.constant.NBTableName
+import de.niklasbednarczyk.nbdex.core.persistence.constant.DexDao
+import de.niklasbednarczyk.nbdex.core.persistence.constant.DexTableName
 import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemonType
 
 @Dao
 interface CorePokemonTypeDao {
     @Query(
         """
-            SELECT EXISTS 
+            SELECT EXISTS
             (
-                SELECT 1 
-                FROM ${NBTableName.POKEMON_TYPE}
+                SELECT 1
+                FROM ${DexTableName.POKEMON_TYPE}
             );
         """,
     )
@@ -23,10 +23,10 @@ interface CorePokemonTypeDao {
 
     @Query(
         """
-            SELECT EXISTS 
+            SELECT EXISTS
             (
-                SELECT 1 
-                FROM ${NBTableName.POKEMON_TYPE}
+                SELECT 1
+                FROM ${DexTableName.POKEMON_TYPE}
                 WHERE typeId = :typeId
             );
         """,
@@ -35,7 +35,7 @@ interface CorePokemonTypeDao {
         typeId: CoreTypeId,
     ): Boolean
 
-    @Insert(onConflict = NBDao.ON_CONFLICT)
+    @Insert(onConflict = DexDao.ON_CONFLICT)
     suspend fun insertPokemonTypes(
         pokemonTypes: List<PersistenceCorePokemonType>,
     )

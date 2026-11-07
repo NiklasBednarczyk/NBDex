@@ -9,7 +9,7 @@ VALKYRIE_CLI_TMP_ZIP="valkyrie_cli.zip"
 SVG_DIRECTORY="scripts/svgToImageVector/svg"
 
 IMAGE_VECTOR_COLOR_DEFAULT="Color(0xFFBA1A1A)"
-IMAGE_VECTOR_ICON_PACK="NBIcons"
+IMAGE_VECTOR_ICON_PACK="DexIcons"
 IMAGE_VECTOR_IMPORT_LAST="androidx.compose.ui.unit.dp"
 IMAGE_VECTOR_OUTPUT_PATH="core/ui/resource/src/commonMain/kotlin/de/niklasbednarczyk/nbdex/core/ui/resource/icon"
 IMAGE_VECTOR_PACKAGE_NAME="de.niklasbednarczyk.nbdex.core.ui.resource.icon"

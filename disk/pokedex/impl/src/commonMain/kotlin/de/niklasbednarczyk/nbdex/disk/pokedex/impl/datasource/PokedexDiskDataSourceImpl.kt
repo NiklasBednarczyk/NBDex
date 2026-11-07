@@ -1,7 +1,7 @@
 package de.niklasbednarczyk.nbdex.disk.pokedex.impl.datasource
 
-import de.niklasbednarczyk.nbdex.core.disk.constant.NBDataStoreName
-import de.niklasbednarczyk.nbdex.core.disk.datasource.NBDiskDataSourceImpl
+import de.niklasbednarczyk.nbdex.core.disk.constant.DexDataStoreName
+import de.niklasbednarczyk.nbdex.core.disk.datasource.DexDiskDataSourceImpl
 import de.niklasbednarczyk.nbdex.core.model.id.CoreGenerationId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreTypeId
@@ -13,10 +13,10 @@ import de.niklasbednarczyk.nbdex.model.pokedex.preferences.PokedexPreferencesCat
 import kotlinx.coroutines.flow.Flow
 
 internal class PokedexDiskDataSourceImpl :
-    NBDiskDataSourceImpl<DiskPokedexPreferences>(),
+    DexDiskDataSourceImpl<DiskPokedexPreferences>(),
     PokedexDiskDataSource {
     override val dataStoreName: String
-        get() = NBDataStoreName.POKEDEX_PREFERENCES
+        get() = DexDataStoreName.POKEDEX_PREFERENCES
 
     override fun getPreferences(): Flow<PokedexPreferences> {
         return getModelFlow(

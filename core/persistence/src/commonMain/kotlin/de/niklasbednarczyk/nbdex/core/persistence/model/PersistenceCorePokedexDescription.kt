@@ -5,10 +5,10 @@ import androidx.room3.PrimaryKey
 import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexDescriptionId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexId
-import de.niklasbednarczyk.nbdex.core.persistence.constant.NBTableName
+import de.niklasbednarczyk.nbdex.core.persistence.constant.DexTableName
 
 @Entity(
-    tableName = NBTableName.POKEDEX_DESCRIPTION,
+    tableName = DexTableName.POKEDEX_DESCRIPTION,
 )
 data class PersistenceCorePokedexDescription(
     @PrimaryKey

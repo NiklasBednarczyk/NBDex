@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Steel: ImageVector
+val DexIcons.Type.Steel: ImageVector
     get() {
         if (_Steel != null) {
             return _Steel!!
@@ -63,6 +63,6 @@ private var _Steel: ImageVector? = null
 @Composable
 private fun SteelPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Steel, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Steel, contentDescription = null)
     }
 }

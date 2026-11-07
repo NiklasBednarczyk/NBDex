@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.MenuBookFilled: ImageVector
+val DexIcons.Material.MenuBookFilled: ImageVector
     get() {
         if (_MenuBookFilled != null) {
             return _MenuBookFilled!!
@@ -115,6 +115,6 @@ private var _MenuBookFilled: ImageVector? = null
 @Composable
 private fun MenuBookFilledPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.MenuBookFilled, contentDescription = null)
+        Image(imageVector = DexIcons.Material.MenuBookFilled, contentDescription = null)
     }
 }

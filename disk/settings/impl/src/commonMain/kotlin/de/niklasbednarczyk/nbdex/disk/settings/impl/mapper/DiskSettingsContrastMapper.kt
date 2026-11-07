@@ -1,11 +1,11 @@
 package de.niklasbednarczyk.nbdex.disk.settings.impl.mapper
 
-import de.niklasbednarczyk.nbdex.core.disk.mapper.NBDiskEnumMapper
+import de.niklasbednarczyk.nbdex.core.disk.mapper.DexDiskEnumMapper
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsContrast
 import de.niklasbednarczyk.nbdex.disk.settings.impl.proto.DiskSettings
 
 internal object DiskSettingsContrastMapper :
-    NBDiskEnumMapper<CoreSettingsContrast, DiskSettings.Contrast> {
+    DexDiskEnumMapper<CoreSettingsContrast, DiskSettings.Contrast> {
     override fun modelToDisk(
         model: CoreSettingsContrast,
     ): DiskSettings.Contrast {

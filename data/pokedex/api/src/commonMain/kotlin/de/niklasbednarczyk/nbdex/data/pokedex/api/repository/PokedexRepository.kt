@@ -1,6 +1,6 @@
 package de.niklasbednarczyk.nbdex.data.pokedex.api.repository
 
-import de.niklasbednarczyk.nbdex.core.common.result.NBResult
+import de.niklasbednarczyk.nbdex.core.common.result.DexResult
 import de.niklasbednarczyk.nbdex.core.model.id.CoreGenerationId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexId
@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 interface PokedexRepository {
     fun getResult(
         languageId: CoreLanguageId,
-    ): Flow<NBResult<PokedexData>>
+    ): Flow<DexResult<PokedexData>>
 
     suspend fun updatePreferencesGenerationId(
         generationId: CoreGenerationId?,

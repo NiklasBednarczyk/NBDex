@@ -1,13 +1,13 @@
 package de.niklasbednarczyk.nbdex.persistence.pokedex.impl.mapper.pokedex
 
 import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
-import de.niklasbednarczyk.nbdex.core.persistence.mapper.NBPersistenceFeatureMapper
+import de.niklasbednarczyk.nbdex.core.persistence.mapper.DexPersistenceFeatureMapper
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCoreVersionGroupMapper
 import de.niklasbednarczyk.nbdex.model.pokedex.pokedex.PokedexVersionGroup
 import de.niklasbednarczyk.nbdex.persistence.pokedex.impl.model.pokedex.PersistencePokedexVersionGroup
 
 internal object PersistencePokedexVersionGroupMapper :
-    NBPersistenceFeatureMapper<PokedexVersionGroup, PersistencePokedexVersionGroup, CoreLanguageId> {
+    DexPersistenceFeatureMapper<PokedexVersionGroup, PersistencePokedexVersionGroup, CoreLanguageId> {
     override fun persistenceToModel(
         persistence: PersistencePokedexVersionGroup,
         input: CoreLanguageId,

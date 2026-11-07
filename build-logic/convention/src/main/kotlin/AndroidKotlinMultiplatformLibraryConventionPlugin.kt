@@ -1,6 +1,6 @@
 import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
-import de.niklasbednarczyk.nbdex.convention.constant.NBAndroidSdk
-import de.niklasbednarczyk.nbdex.convention.constant.NBJava
+import de.niklasbednarczyk.nbdex.convention.constant.DexAndroidSdk
+import de.niklasbednarczyk.nbdex.convention.constant.DexJava
 import de.niklasbednarczyk.nbdex.convention.ext.getLibrary
 import de.niklasbednarczyk.nbdex.convention.ext.getPluginId
 import de.niklasbednarczyk.nbdex.convention.ext.libs
@@ -26,7 +26,7 @@ class AndroidKotlinMultiplatformLibraryConventionPlugin : Plugin<Project> {
         }
 
         extensions.configure<KotlinMultiplatformExtension> {
-            jvmToolchain(NBJava.JDK_VERSION)
+            jvmToolchain(DexJava.JDK_VERSION)
 
             applyDefaultHierarchyTemplate()
 
@@ -48,8 +48,8 @@ class AndroidKotlinMultiplatformLibraryConventionPlugin : Plugin<Project> {
             extensions.configure<KotlinMultiplatformAndroidLibraryTarget>("android") {
                 namespace = modulePackageName
 
-                minSdk = NBAndroidSdk.MIN
-                compileSdk = NBAndroidSdk.COMPILE
+                minSdk = DexAndroidSdk.MIN
+                compileSdk = DexAndroidSdk.COMPILE
 
                 androidResources {
                     enable = true

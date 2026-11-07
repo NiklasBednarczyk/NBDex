@@ -5,10 +5,10 @@ import kotlin.jvm.JvmInline
 
 @Serializable
 @JvmInline
-value class CoreMoveDamageClassId private constructor(override val value: Int) : NBId {
+value class CoreMoveDamageClassId private constructor(override val value: Int) : DexId {
     companion object {
         fun example(
-            value: Int = NBId.EXAMPLE_VALUE,
+            value: Int = DexId.EXAMPLE_VALUE,
         ): CoreMoveDamageClassId {
             return CoreMoveDamageClassId(value)
         }
@@ -22,7 +22,7 @@ value class CoreMoveDamageClassId private constructor(override val value: Int) :
         fun from(
             value: Int?,
         ): CoreMoveDamageClassId? {
-            return NBId.fromNullable(
+            return DexId.fromNullable(
                 value = value,
                 block = ::from,
             )

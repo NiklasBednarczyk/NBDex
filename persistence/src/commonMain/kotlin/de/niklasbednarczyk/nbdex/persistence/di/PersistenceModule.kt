@@ -1,6 +1,6 @@
 package de.niklasbednarczyk.nbdex.persistence.di
 
-import de.niklasbednarczyk.nbdex.persistence.db.NBDatabase
+import de.niklasbednarczyk.nbdex.persistence.db.DexDatabase
 import de.niklasbednarczyk.nbdex.persistence.db.createDatabase
 import de.niklasbednarczyk.nbdex.persistence.pokedex.impl.di.persistencePokedexModule
 import org.koin.dsl.module
@@ -11,36 +11,36 @@ val persistenceModule = module {
     )
 
     single {
-        createDatabase<NBDatabase>(
+        createDatabase<DexDatabase>(
             scope = this,
         )
     }
 
     // Core
-    single { get<NBDatabase>().coreGenerationDao() }
-    single { get<NBDatabase>().coreGenerationNameDao() }
-    single { get<NBDatabase>().corePokedexDao() }
-    single { get<NBDatabase>().corePokedexDescriptionDao() }
-    single { get<NBDatabase>().corePokedexNameDao() }
-    single { get<NBDatabase>().corePokedexVersionGroupDao() }
-    single { get<NBDatabase>().corePokemonDao() }
-    single { get<NBDatabase>().corePokemonDexNumberDao() }
-    single { get<NBDatabase>().corePokemonFormDao() }
-    single { get<NBDatabase>().corePokemonFormNameDao() }
-    single { get<NBDatabase>().corePokemonSpeciesDao() }
-    single { get<NBDatabase>().corePokemonSpeciesNameDao() }
-    single { get<NBDatabase>().corePokemonTypeDao() }
-    single { get<NBDatabase>().coreRegionDao() }
-    single { get<NBDatabase>().coreRegionNameDao() }
-    single { get<NBDatabase>().coreTypeDao() }
-    single { get<NBDatabase>().coreTypeNameDao() }
-    single { get<NBDatabase>().coreVersionDao() }
-    single { get<NBDatabase>().coreVersionGroupDao() }
-    single { get<NBDatabase>().coreVersionNameDao() }
+    single { get<DexDatabase>().coreGenerationDao() }
+    single { get<DexDatabase>().coreGenerationNameDao() }
+    single { get<DexDatabase>().corePokedexDao() }
+    single { get<DexDatabase>().corePokedexDescriptionDao() }
+    single { get<DexDatabase>().corePokedexNameDao() }
+    single { get<DexDatabase>().corePokedexVersionGroupDao() }
+    single { get<DexDatabase>().corePokemonDao() }
+    single { get<DexDatabase>().corePokemonDexNumberDao() }
+    single { get<DexDatabase>().corePokemonFormDao() }
+    single { get<DexDatabase>().corePokemonFormNameDao() }
+    single { get<DexDatabase>().corePokemonSpeciesDao() }
+    single { get<DexDatabase>().corePokemonSpeciesNameDao() }
+    single { get<DexDatabase>().corePokemonTypeDao() }
+    single { get<DexDatabase>().coreRegionDao() }
+    single { get<DexDatabase>().coreRegionNameDao() }
+    single { get<DexDatabase>().coreTypeDao() }
+    single { get<DexDatabase>().coreTypeNameDao() }
+    single { get<DexDatabase>().coreVersionDao() }
+    single { get<DexDatabase>().coreVersionGroupDao() }
+    single { get<DexDatabase>().coreVersionNameDao() }
 
     // Pokedex
-    single { get<NBDatabase>().pokedexGenerationDao() }
-    single { get<NBDatabase>().pokedexPokedexDao() }
-    single { get<NBDatabase>().pokedexPokemonFormDao() }
-    single { get<NBDatabase>().pokedexTypeDao() }
+    single { get<DexDatabase>().pokedexGenerationDao() }
+    single { get<DexDatabase>().pokedexPokedexDao() }
+    single { get<DexDatabase>().pokedexPokemonFormDao() }
+    single { get<DexDatabase>().pokedexTypeDao() }
 }

@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.Error: ImageVector
+val DexIcons.Material.Error: ImageVector
     get() {
         if (_Error != null) {
             return _Error!!
@@ -85,6 +85,6 @@ private var _Error: ImageVector? = null
 @Composable
 private fun ErrorPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.Error, contentDescription = null)
+        Image(imageVector = DexIcons.Material.Error, contentDescription = null)
     }
 }

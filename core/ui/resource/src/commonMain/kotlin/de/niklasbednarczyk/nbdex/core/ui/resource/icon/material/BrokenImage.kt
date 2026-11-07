@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.BrokenImage: ImageVector
+val DexIcons.Material.BrokenImage: ImageVector
     get() {
         if (_BrokenImage != null) {
             return _BrokenImage!!
@@ -79,6 +79,6 @@ private var _BrokenImage: ImageVector? = null
 @Composable
 private fun BrokenImagePreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.BrokenImage, contentDescription = null)
+        Image(imageVector = DexIcons.Material.BrokenImage, contentDescription = null)
     }
 }

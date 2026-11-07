@@ -4,10 +4,10 @@ import androidx.room3.Entity
 import androidx.room3.PrimaryKey
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreRegionId
-import de.niklasbednarczyk.nbdex.core.persistence.constant.NBTableName
+import de.niklasbednarczyk.nbdex.core.persistence.constant.DexTableName
 
 @Entity(
-    tableName = NBTableName.POKEDEX,
+    tableName = DexTableName.POKEDEX,
 )
 data class PersistenceCorePokedex(
     @PrimaryKey

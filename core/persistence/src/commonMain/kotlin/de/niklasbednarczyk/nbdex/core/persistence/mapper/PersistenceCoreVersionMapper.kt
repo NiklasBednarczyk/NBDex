@@ -3,7 +3,7 @@ package de.niklasbednarczyk.nbdex.core.persistence.mapper
 import de.niklasbednarczyk.nbdex.core.model.endpoint.CoreVersion
 import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCoreVersion
 
-object PersistenceCoreVersionMapper : NBPersistenceCoreMapper<CoreVersion, PersistenceCoreVersion> {
+object PersistenceCoreVersionMapper : DexPersistenceCoreMapper<CoreVersion, PersistenceCoreVersion> {
     override fun modelToPersistence(
         model: CoreVersion,
     ): PersistenceCoreVersion {

@@ -21,7 +21,7 @@ import de.niklasbednarczyk.nbdex.core.persistence.dao.CoreTypeNameDao
 import de.niklasbednarczyk.nbdex.core.persistence.dao.CoreVersionDao
 import de.niklasbednarczyk.nbdex.core.persistence.dao.CoreVersionGroupDao
 import de.niklasbednarczyk.nbdex.core.persistence.dao.CoreVersionNameDao
-import de.niklasbednarczyk.nbdex.core.persistence.datasource.NBPersistenceDataSourceImpl
+import de.niklasbednarczyk.nbdex.core.persistence.datasource.DexPersistenceDataSourceImpl
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCoreGenerationMapper
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCoreGenerationNameMapper
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCorePokedexDescriptionMapper
@@ -64,7 +64,7 @@ import kotlinx.coroutines.flow.map
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-internal class PokedexPersistenceDataSourceImpl : NBPersistenceDataSourceImpl(), PokedexPersistenceDataSource, KoinComponent {
+internal class PokedexPersistenceDataSourceImpl : DexPersistenceDataSourceImpl(), PokedexPersistenceDataSource, KoinComponent {
     // Core
     private val coreGenerationDao: CoreGenerationDao by inject()
     private val coreGenerationNameDao: CoreGenerationNameDao by inject()

@@ -1,12 +1,12 @@
 package de.niklasbednarczyk.nbdex.feature.theme.api.navigation
 
-import de.niklasbednarczyk.nbdex.core.ui.navigation.NBNavKey
-import de.niklasbednarczyk.nbdex.core.ui.navigation.NBNavigator
+import de.niklasbednarczyk.nbdex.core.ui.navigation.DexNavKey
+import de.niklasbednarczyk.nbdex.core.ui.navigation.DexNavigator
 import kotlinx.serialization.Serializable
 
 @Serializable
-data object ThemeNavKey : NBNavKey
+data object ThemeNavKey : DexNavKey
 
-fun NBNavigator.navigateToTheme() {
+fun DexNavigator.navigateToTheme() {
     navigate(ThemeNavKey)
 }

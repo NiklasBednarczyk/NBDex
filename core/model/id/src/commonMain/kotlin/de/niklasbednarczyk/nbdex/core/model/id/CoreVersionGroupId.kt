@@ -5,10 +5,10 @@ import kotlin.jvm.JvmInline
 
 @Serializable
 @JvmInline
-value class CoreVersionGroupId private constructor(override val value: Int) : NBId {
+value class CoreVersionGroupId private constructor(override val value: Int) : DexId {
     companion object {
         fun example(
-            value: Int = NBId.EXAMPLE_VALUE,
+            value: Int = DexId.EXAMPLE_VALUE,
         ): CoreVersionGroupId {
             return CoreVersionGroupId(value)
         }
@@ -22,7 +22,7 @@ value class CoreVersionGroupId private constructor(override val value: Int) : NB
         fun from(
             value: Int?,
         ): CoreVersionGroupId? {
-            return NBId.fromNullable(
+            return DexId.fromNullable(
                 value = value,
                 block = ::from,
             )

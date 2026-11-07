@@ -2,7 +2,7 @@ package de.niklasbednarczyk.nbdex.core.model.endpoint.display.type
 
 import de.niklasbednarczyk.nbdex.core.model.id.CoreTypeId
 
-enum class CoreDisplayTypeType : NBDisplayType<CoreTypeId> {
+enum class CoreDisplayTypeType : DexDisplayType<CoreTypeId> {
     NORMAL,
     FIGHTING,
     FLYING,
