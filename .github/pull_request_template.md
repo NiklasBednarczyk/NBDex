@@ -28,7 +28,7 @@
 ## Checklist
 
 - Before creating pull request
-  - [ ] I have named the branch correctly (<bugfix/feature>/<example-name>)
+  - [ ] I have named the branch correctly (`<bugfix/feature>/<example-name>`)
   - [ ] I have ensured that all code quality checks have passed
   - [ ] I have made sure that all the tests have passed
 - After creating pull request
