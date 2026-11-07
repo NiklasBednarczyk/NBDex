@@ -9,10 +9,10 @@ import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonColorId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonHabitatId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonShapeId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonSpeciesId
-import de.niklasbednarczyk.nbdex.core.persistence.constant.NBTableName
+import de.niklasbednarczyk.nbdex.core.persistence.constant.DexTableName
 
 @Entity(
-    tableName = NBTableName.POKEMON_SPECIES,
+    tableName = DexTableName.POKEMON_SPECIES,
 )
 data class PersistenceCorePokemonSpecies(
     @PrimaryKey

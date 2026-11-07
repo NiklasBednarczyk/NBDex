@@ -5,10 +5,10 @@ import kotlin.jvm.JvmInline
 
 @Serializable
 @JvmInline
-value class CorePokemonFormNameId private constructor(override val value: Int) : NBId {
+value class CorePokemonFormNameId private constructor(override val value: Int) : DexId {
     companion object {
         fun example(
-            value: Int = NBId.EXAMPLE_VALUE,
+            value: Int = DexId.EXAMPLE_VALUE,
         ): CorePokemonFormNameId {
             return CorePokemonFormNameId(value)
         }
@@ -22,7 +22,7 @@ value class CorePokemonFormNameId private constructor(override val value: Int) :
         fun from(
             value: Int?,
         ): CorePokemonFormNameId? {
-            return NBId.fromNullable(
+            return DexId.fromNullable(
                 value = value,
                 block = ::from,
             )

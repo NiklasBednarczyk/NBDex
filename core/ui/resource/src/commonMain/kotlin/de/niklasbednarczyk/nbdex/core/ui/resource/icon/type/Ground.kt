@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Ground: ImageVector
+val DexIcons.Type.Ground: ImageVector
     get() {
         if (_Ground != null) {
             return _Ground!!
@@ -64,6 +64,6 @@ private var _Ground: ImageVector? = null
 @Composable
 private fun GroundPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Ground, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Ground, contentDescription = null)
     }
 }

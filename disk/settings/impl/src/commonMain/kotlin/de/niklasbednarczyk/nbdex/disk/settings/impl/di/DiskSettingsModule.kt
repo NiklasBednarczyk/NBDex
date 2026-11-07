@@ -1,6 +1,6 @@
 package de.niklasbednarczyk.nbdex.disk.settings.impl.di
 
-import de.niklasbednarczyk.nbdex.core.disk.constant.NBDataStoreName
+import de.niklasbednarczyk.nbdex.core.disk.constant.DexDataStoreName
 import de.niklasbednarczyk.nbdex.core.disk.datastore.createDataStore
 import de.niklasbednarczyk.nbdex.disk.settings.api.datasource.SettingsDiskDataSource
 import de.niklasbednarczyk.nbdex.disk.settings.impl.datasource.SettingsDiskDataSourceImpl
@@ -11,10 +11,10 @@ import org.koin.dsl.bind
 import org.koin.dsl.module
 
 val diskSettingsModule = module {
-    single(named(NBDataStoreName.SETTINGS)) {
+    single(named(DexDataStoreName.SETTINGS)) {
         createDataStore(
             scope = this,
-            dataStoreName = NBDataStoreName.SETTINGS,
+            dataStoreName = DexDataStoreName.SETTINGS,
             serializer = SettingsSerializer,
         )
     }

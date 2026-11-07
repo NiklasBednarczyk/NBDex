@@ -4,13 +4,13 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
 import androidx.datastore.core.Storage
 import com.squareup.wire.Message
-import de.niklasbednarczyk.nbdex.core.disk.serializer.NBSerializer
+import de.niklasbednarczyk.nbdex.core.disk.serializer.DexSerializer
 import org.koin.core.scope.Scope
 
 fun <Disk : Message<*, *>> createDataStore(
     scope: Scope,
     dataStoreName: String,
-    serializer: NBSerializer<Disk>,
+    serializer: DexSerializer<Disk>,
 ): DataStore<Disk> {
     return DataStoreFactory.create(
         storage = createStorage(
@@ -24,7 +24,7 @@ fun <Disk : Message<*, *>> createDataStore(
 internal expect fun <Disk : Message<*, *>> createStorage(
     scope: Scope,
     dataStoreFileName: String,
-    serializer: NBSerializer<Disk>,
+    serializer: DexSerializer<Disk>,
 ): Storage<Disk>
 
 private fun getDataStoreFileName(

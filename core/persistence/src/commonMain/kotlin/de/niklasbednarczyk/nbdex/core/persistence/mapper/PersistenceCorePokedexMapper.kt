@@ -3,7 +3,7 @@ package de.niklasbednarczyk.nbdex.core.persistence.mapper
 import de.niklasbednarczyk.nbdex.core.model.endpoint.CorePokedex
 import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokedex
 
-object PersistenceCorePokedexMapper : NBPersistenceCoreMapper<CorePokedex, PersistenceCorePokedex> {
+object PersistenceCorePokedexMapper : DexPersistenceCoreMapper<CorePokedex, PersistenceCorePokedex> {
     override fun modelToPersistence(
         model: CorePokedex,
     ): PersistenceCorePokedex {

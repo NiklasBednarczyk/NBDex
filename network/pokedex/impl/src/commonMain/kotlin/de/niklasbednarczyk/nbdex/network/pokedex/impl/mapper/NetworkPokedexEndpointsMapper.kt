@@ -1,6 +1,6 @@
 package de.niklasbednarczyk.nbdex.network.pokedex.impl.mapper
 
-import de.niklasbednarczyk.nbdex.core.network.mapper.NBNetworkMapper
+import de.niklasbednarczyk.nbdex.core.network.mapper.DexNetworkMapper
 import de.niklasbednarczyk.nbdex.core.network.mapper.NetworkCoreGenerationMapper
 import de.niklasbednarczyk.nbdex.core.network.mapper.NetworkCoreGenerationNameMapper
 import de.niklasbednarczyk.nbdex.core.network.mapper.NetworkCorePokedexDescriptionMapper
@@ -25,7 +25,7 @@ import de.niklasbednarczyk.nbdex.model.pokedex.endpoints.PokedexEndpoints
 import de.niklasbednarczyk.nbdex.network.pokedex.impl.apollo.NetworkPokedexEndpointsQuery
 
 internal object NetworkPokedexEndpointsMapper :
-    NBNetworkMapper<PokedexEndpoints, NetworkPokedexEndpointsQuery.Data> {
+    DexNetworkMapper<PokedexEndpoints, NetworkPokedexEndpointsQuery.Data> {
     override fun networkToModel(
         network: NetworkPokedexEndpointsQuery.Data,
     ): PokedexEndpoints {

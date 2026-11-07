@@ -8,11 +8,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreview
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfo
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfoPreviewParameterProvider
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.NBCenteredTopAppBar
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.NBNotYetImplementedContent
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreview
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfo
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfoPreviewParameterProvider
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.DexCenteredTopAppBar
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.DexNotYetImplementedContent
 import nbdex.core.ui.resource.generated.resources.Res
 import nbdex.core.ui.resource.generated.resources.info_title
 import org.jetbrains.compose.resources.stringResource
@@ -25,13 +25,13 @@ fun InfoScreen(
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            NBCenteredTopAppBar(
+            DexCenteredTopAppBar(
                 scrollBehavior = scrollBehavior,
                 titleText = stringResource(Res.string.info_title),
             )
         },
     ) { innerPadding ->
-        NBNotYetImplementedContent(
+        DexNotYetImplementedContent(
             modifier = Modifier.padding(innerPadding),
         )
     }
@@ -40,9 +40,9 @@ fun InfoScreen(
 @Preview
 @Composable
 private fun Preview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         InfoScreen()

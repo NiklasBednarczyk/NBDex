@@ -6,7 +6,7 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreRegionId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreRegionNameId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCoreRegionName
 
-object NetworkCoreRegionNameMapper : NBNetworkMapper<CoreRegionName, NetworkCoreRegionName> {
+object NetworkCoreRegionNameMapper : DexNetworkMapper<CoreRegionName, NetworkCoreRegionName> {
     override fun networkToModel(
         network: NetworkCoreRegionName,
     ): CoreRegionName {

@@ -1,8 +1,8 @@
 package de.niklasbednarczyk.nbdex.feature.pokedex.impl.di
 
 import androidx.compose.material3.adaptive.navigation3.ListDetailSceneStrategy
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.NBDetailPlaceholderContent
-import de.niklasbednarczyk.nbdex.core.ui.navigation.NBTopLevelDestination
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.DexDetailPlaceholderContent
+import de.niklasbednarczyk.nbdex.core.ui.navigation.DexTopLevelDestination
 import de.niklasbednarczyk.nbdex.feature.pokedex.api.navigation.PokedexNavKey
 import de.niklasbednarczyk.nbdex.feature.pokedex.impl.ui.PokedexScreen
 import de.niklasbednarczyk.nbdex.feature.pokedex.impl.ui.PokedexViewModel
@@ -15,8 +15,8 @@ val featurePokedexModule = module {
 
     navigation<PokedexNavKey>(
         metadata = ListDetailSceneStrategy.listPane(
-            sceneKey = NBTopLevelDestination.POKEDEX.sceneKey,
-            detailPlaceholder = { NBDetailPlaceholderContent() },
+            sceneKey = DexTopLevelDestination.POKEDEX.sceneKey,
+            detailPlaceholder = { DexDetailPlaceholderContent() },
         ),
     ) {
         PokedexScreen()

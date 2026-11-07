@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Dark: ImageVector
+val DexIcons.Type.Dark: ImageVector
     get() {
         if (_Dark != null) {
             return _Dark!!
@@ -57,6 +57,6 @@ private var _Dark: ImageVector? = null
 @Composable
 private fun DarkPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Dark, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Dark, contentDescription = null)
     }
 }

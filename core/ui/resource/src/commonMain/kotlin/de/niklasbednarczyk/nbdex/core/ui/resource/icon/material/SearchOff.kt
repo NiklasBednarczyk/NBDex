@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.SearchOff: ImageVector
+val DexIcons.Material.SearchOff: ImageVector
     get() {
         if (_SearchOff != null) {
             return _SearchOff!!
@@ -88,6 +88,6 @@ private var _SearchOff: ImageVector? = null
 @Composable
 private fun SearchOffPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.SearchOff, contentDescription = null)
+        Image(imageVector = DexIcons.Material.SearchOff, contentDescription = null)
     }
 }

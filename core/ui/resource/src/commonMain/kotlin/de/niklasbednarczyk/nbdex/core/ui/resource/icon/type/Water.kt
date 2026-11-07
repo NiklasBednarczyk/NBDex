@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Water: ImageVector
+val DexIcons.Type.Water: ImageVector
     get() {
         if (_Water != null) {
             return _Water!!
@@ -56,6 +56,6 @@ private var _Water: ImageVector? = null
 @Composable
 private fun WaterPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Water, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Water, contentDescription = null)
     }
 }

@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Ice: ImageVector
+val DexIcons.Type.Ice: ImageVector
     get() {
         if (_Ice != null) {
             return _Ice!!
@@ -104,6 +104,6 @@ private var _Ice: ImageVector? = null
 @Composable
 private fun IcePreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Ice, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Ice, contentDescription = null)
     }
 }

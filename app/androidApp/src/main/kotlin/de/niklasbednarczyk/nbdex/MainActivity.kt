@@ -10,9 +10,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.app.rememberIsDarkTheme
-import de.niklasbednarczyk.nbdex.ui.NBApp
-import de.niklasbednarczyk.nbdex.ui.NBAppState
-import de.niklasbednarczyk.nbdex.ui.NBAppViewModel
+import de.niklasbednarczyk.nbdex.ui.DexApp
+import de.niklasbednarczyk.nbdex.ui.DexAppState
+import de.niklasbednarczyk.nbdex.ui.DexAppViewModel
 import org.koin.compose.viewmodel.koinViewModel
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            val viewModel = koinViewModel<NBAppViewModel>()
+            val viewModel = koinViewModel<DexAppViewModel>()
             val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
             Content(
@@ -33,12 +33,12 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun Content(
-        uiState: NBAppState,
+        uiState: DexAppState,
     ) {
         when (uiState) {
-            NBAppState.Initial -> {}
+            DexAppState.Initial -> {}
 
-            is NBAppState.Success -> {
+            is DexAppState.Success -> {
                 val isDarkTheme = rememberIsDarkTheme(uiState.theme)
 
                 enableEdgeToEdge(
@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
                     ) { isDarkTheme },
                 )
 
-                NBApp()
+                DexApp()
             }
         }
     }

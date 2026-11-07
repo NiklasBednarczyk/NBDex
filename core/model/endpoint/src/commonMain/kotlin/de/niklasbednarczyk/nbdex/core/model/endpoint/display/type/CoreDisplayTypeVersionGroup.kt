@@ -2,7 +2,7 @@ package de.niklasbednarczyk.nbdex.core.model.endpoint.display.type
 
 import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionGroupId
 
-sealed interface CoreDisplayTypeVersionGroup : NBDisplayType<CoreVersionGroupId> {
+sealed interface CoreDisplayTypeVersionGroup : DexDisplayType<CoreVersionGroupId> {
     sealed interface Basic : CoreDisplayTypeVersionGroup
 
     sealed interface SameVersions : CoreDisplayTypeVersionGroup

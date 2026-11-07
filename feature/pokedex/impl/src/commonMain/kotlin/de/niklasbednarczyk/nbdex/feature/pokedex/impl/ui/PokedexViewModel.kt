@@ -1,11 +1,11 @@
 package de.niklasbednarczyk.nbdex.feature.pokedex.impl.ui
 
 import androidx.lifecycle.viewModelScope
-import de.niklasbednarczyk.nbdex.core.common.logging.NBLogger
-import de.niklasbednarczyk.nbdex.core.common.result.NBResult
+import de.niklasbednarczyk.nbdex.core.common.logging.DexLogger
+import de.niklasbednarczyk.nbdex.core.common.result.DexResult
 import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.NBViewModel
-import de.niklasbednarczyk.nbdex.core.ui.navigation.NBNavigator
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.DexViewModel
+import de.niklasbednarczyk.nbdex.core.ui.navigation.DexNavigator
 import de.niklasbednarczyk.nbdex.data.pokedex.api.repository.PokedexRepository
 import de.niklasbednarczyk.nbdex.feature.pokedex.impl.ext.order
 import de.niklasbednarczyk.nbdex.feature.pokedex.impl.ui.model.PokedexFilter
@@ -29,10 +29,10 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 internal class PokedexViewModel(
-    private val navigator: NBNavigator,
+    private val navigator: DexNavigator,
     private val pokedexRepository: PokedexRepository,
-) : NBViewModel() {
-    private val logger = NBLogger(this::class)
+) : DexViewModel() {
+    private val logger = DexLogger(this::class)
 
     private val selectedFilter: MutableStateFlow<PokedexFilter?> = MutableStateFlow(null)
 
@@ -49,15 +49,15 @@ internal class PokedexViewModel(
                 selectedFilter,
             ) { result, currentNavKey, filter ->
                 when (result) {
-                    is NBResult.Error -> {
+                    is DexResult.Error -> {
                         PokedexUiState.Error
                     }
 
-                    is NBResult.Loading -> {
+                    is DexResult.Loading -> {
                         PokedexUiState.Loading
                     }
 
-                    is NBResult.Success<PokedexData> -> {
+                    is DexResult.Success<PokedexData> -> {
                         val preferences = result.data.preferences
 
                         val pokedexesMap = result.data.pokedexesMap
@@ -107,7 +107,7 @@ internal class PokedexViewModel(
             logger.catching(throwable)
             emit(PokedexUiState.Error)
         }
-        .nbStateIn(PokedexUiState.Loading)
+        .dexStateIn(PokedexUiState.Loading)
 
     fun navigateToPokemonForm(
         pokemonForm: PokedexPokemonForm,

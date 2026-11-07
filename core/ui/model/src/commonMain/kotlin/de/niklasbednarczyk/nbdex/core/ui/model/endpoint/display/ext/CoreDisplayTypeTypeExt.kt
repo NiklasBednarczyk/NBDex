@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.vector.ImageVector
 import de.niklasbednarczyk.nbdex.core.model.endpoint.display.type.CoreDisplayTypeType
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.color.extended.NBExtendedColor
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.DexTheme
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.color.extended.DexExtendedColor
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.type.Bug
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.type.Dark
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.type.Dragon
@@ -26,52 +26,52 @@ import de.niklasbednarczyk.nbdex.core.ui.resource.icon.type.Rock
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.type.Steel
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.type.Water
 
-val CoreDisplayTypeType.extendedColor: NBExtendedColor
+val CoreDisplayTypeType.extendedColor: DexExtendedColor
     @Composable @ReadOnlyComposable
     get() = when (this) {
-        CoreDisplayTypeType.NORMAL -> NBTheme.extendedColors.type.normal
-        CoreDisplayTypeType.FIGHTING -> NBTheme.extendedColors.type.fighting
-        CoreDisplayTypeType.FLYING -> NBTheme.extendedColors.type.flying
-        CoreDisplayTypeType.POISON -> NBTheme.extendedColors.type.poison
-        CoreDisplayTypeType.GROUND -> NBTheme.extendedColors.type.ground
-        CoreDisplayTypeType.ROCK -> NBTheme.extendedColors.type.rock
-        CoreDisplayTypeType.BUG -> NBTheme.extendedColors.type.bug
-        CoreDisplayTypeType.GHOST -> NBTheme.extendedColors.type.ghost
-        CoreDisplayTypeType.STEEL -> NBTheme.extendedColors.type.steel
-        CoreDisplayTypeType.FIRE -> NBTheme.extendedColors.type.fire
-        CoreDisplayTypeType.WATER -> NBTheme.extendedColors.type.water
-        CoreDisplayTypeType.GRASS -> NBTheme.extendedColors.type.grass
-        CoreDisplayTypeType.ELECTRIC -> NBTheme.extendedColors.type.electric
-        CoreDisplayTypeType.PSYCHIC -> NBTheme.extendedColors.type.psychic
-        CoreDisplayTypeType.ICE -> NBTheme.extendedColors.type.ice
-        CoreDisplayTypeType.DRAGON -> NBTheme.extendedColors.type.dragon
-        CoreDisplayTypeType.DARK -> NBTheme.extendedColors.type.dark
-        CoreDisplayTypeType.FAIRY -> NBTheme.extendedColors.type.fairy
-        CoreDisplayTypeType.STELLAR -> NBTheme.extendedColors.type.stellar
-        CoreDisplayTypeType.UNKNOWN -> NBTheme.extendedColors.type.unknown
-        CoreDisplayTypeType.SHADOW -> NBTheme.extendedColors.type.shadow
+        CoreDisplayTypeType.NORMAL -> DexTheme.extendedColors.type.normal
+        CoreDisplayTypeType.FIGHTING -> DexTheme.extendedColors.type.fighting
+        CoreDisplayTypeType.FLYING -> DexTheme.extendedColors.type.flying
+        CoreDisplayTypeType.POISON -> DexTheme.extendedColors.type.poison
+        CoreDisplayTypeType.GROUND -> DexTheme.extendedColors.type.ground
+        CoreDisplayTypeType.ROCK -> DexTheme.extendedColors.type.rock
+        CoreDisplayTypeType.BUG -> DexTheme.extendedColors.type.bug
+        CoreDisplayTypeType.GHOST -> DexTheme.extendedColors.type.ghost
+        CoreDisplayTypeType.STEEL -> DexTheme.extendedColors.type.steel
+        CoreDisplayTypeType.FIRE -> DexTheme.extendedColors.type.fire
+        CoreDisplayTypeType.WATER -> DexTheme.extendedColors.type.water
+        CoreDisplayTypeType.GRASS -> DexTheme.extendedColors.type.grass
+        CoreDisplayTypeType.ELECTRIC -> DexTheme.extendedColors.type.electric
+        CoreDisplayTypeType.PSYCHIC -> DexTheme.extendedColors.type.psychic
+        CoreDisplayTypeType.ICE -> DexTheme.extendedColors.type.ice
+        CoreDisplayTypeType.DRAGON -> DexTheme.extendedColors.type.dragon
+        CoreDisplayTypeType.DARK -> DexTheme.extendedColors.type.dark
+        CoreDisplayTypeType.FAIRY -> DexTheme.extendedColors.type.fairy
+        CoreDisplayTypeType.STELLAR -> DexTheme.extendedColors.type.stellar
+        CoreDisplayTypeType.UNKNOWN -> DexTheme.extendedColors.type.unknown
+        CoreDisplayTypeType.SHADOW -> DexTheme.extendedColors.type.shadow
     }
 
 val CoreDisplayTypeType.icon: ImageVector?
     get() = when (this) {
-        CoreDisplayTypeType.NORMAL -> NBIcons.Type.Normal
-        CoreDisplayTypeType.FIGHTING -> NBIcons.Type.Fighting
-        CoreDisplayTypeType.FLYING -> NBIcons.Type.Flying
-        CoreDisplayTypeType.POISON -> NBIcons.Type.Poison
-        CoreDisplayTypeType.GROUND -> NBIcons.Type.Ground
-        CoreDisplayTypeType.ROCK -> NBIcons.Type.Rock
-        CoreDisplayTypeType.BUG -> NBIcons.Type.Bug
-        CoreDisplayTypeType.GHOST -> NBIcons.Type.Ghost
-        CoreDisplayTypeType.STEEL -> NBIcons.Type.Steel
-        CoreDisplayTypeType.FIRE -> NBIcons.Type.Fire
-        CoreDisplayTypeType.WATER -> NBIcons.Type.Water
-        CoreDisplayTypeType.GRASS -> NBIcons.Type.Grass
-        CoreDisplayTypeType.ELECTRIC -> NBIcons.Type.Electric
-        CoreDisplayTypeType.PSYCHIC -> NBIcons.Type.Psychic
-        CoreDisplayTypeType.ICE -> NBIcons.Type.Ice
-        CoreDisplayTypeType.DRAGON -> NBIcons.Type.Dragon
-        CoreDisplayTypeType.DARK -> NBIcons.Type.Dark
-        CoreDisplayTypeType.FAIRY -> NBIcons.Type.Fairy
+        CoreDisplayTypeType.NORMAL -> DexIcons.Type.Normal
+        CoreDisplayTypeType.FIGHTING -> DexIcons.Type.Fighting
+        CoreDisplayTypeType.FLYING -> DexIcons.Type.Flying
+        CoreDisplayTypeType.POISON -> DexIcons.Type.Poison
+        CoreDisplayTypeType.GROUND -> DexIcons.Type.Ground
+        CoreDisplayTypeType.ROCK -> DexIcons.Type.Rock
+        CoreDisplayTypeType.BUG -> DexIcons.Type.Bug
+        CoreDisplayTypeType.GHOST -> DexIcons.Type.Ghost
+        CoreDisplayTypeType.STEEL -> DexIcons.Type.Steel
+        CoreDisplayTypeType.FIRE -> DexIcons.Type.Fire
+        CoreDisplayTypeType.WATER -> DexIcons.Type.Water
+        CoreDisplayTypeType.GRASS -> DexIcons.Type.Grass
+        CoreDisplayTypeType.ELECTRIC -> DexIcons.Type.Electric
+        CoreDisplayTypeType.PSYCHIC -> DexIcons.Type.Psychic
+        CoreDisplayTypeType.ICE -> DexIcons.Type.Ice
+        CoreDisplayTypeType.DRAGON -> DexIcons.Type.Dragon
+        CoreDisplayTypeType.DARK -> DexIcons.Type.Dark
+        CoreDisplayTypeType.FAIRY -> DexIcons.Type.Fairy
         CoreDisplayTypeType.STELLAR -> null
         CoreDisplayTypeType.UNKNOWN -> null
         CoreDisplayTypeType.SHADOW -> null

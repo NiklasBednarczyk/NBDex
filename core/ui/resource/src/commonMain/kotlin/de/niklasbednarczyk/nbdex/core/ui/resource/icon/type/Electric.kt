@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Electric: ImageVector
+val DexIcons.Type.Electric: ImageVector
     get() {
         if (_Electric != null) {
             return _Electric!!
@@ -59,6 +59,6 @@ private var _Electric: ImageVector? = null
 @Composable
 private fun ElectricPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Electric, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Electric, contentDescription = null)
     }
 }

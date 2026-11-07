@@ -4,18 +4,18 @@ import androidx.room3.Dao
 import androidx.room3.Insert
 import androidx.room3.Query
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokedexId
-import de.niklasbednarczyk.nbdex.core.persistence.constant.NBDao
-import de.niklasbednarczyk.nbdex.core.persistence.constant.NBTableName
+import de.niklasbednarczyk.nbdex.core.persistence.constant.DexDao
+import de.niklasbednarczyk.nbdex.core.persistence.constant.DexTableName
 import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemonDexNumber
 
 @Dao
 interface CorePokemonDexNumberDao {
     @Query(
         """
-            SELECT EXISTS 
+            SELECT EXISTS
             (
-                SELECT 1 
-                FROM ${NBTableName.POKEMON_DEX_NUMBER}
+                SELECT 1
+                FROM ${DexTableName.POKEMON_DEX_NUMBER}
             );
         """,
     )
@@ -23,10 +23,10 @@ interface CorePokemonDexNumberDao {
 
     @Query(
         """
-            SELECT EXISTS 
+            SELECT EXISTS
             (
-                SELECT 1 
-                FROM ${NBTableName.POKEMON_DEX_NUMBER}
+                SELECT 1
+                FROM ${DexTableName.POKEMON_DEX_NUMBER}
                 WHERE pokedexId = :pokedexId
             );
         """,
@@ -35,7 +35,7 @@ interface CorePokemonDexNumberDao {
         pokedexId: CorePokedexId,
     ): Boolean
 
-    @Insert(onConflict = NBDao.ON_CONFLICT)
+    @Insert(onConflict = DexDao.ON_CONFLICT)
     suspend fun insertPokemonDexNumbers(
         pokemonDexNumbers: List<PersistenceCorePokemonDexNumber>,
     )

@@ -6,7 +6,7 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreTypeId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreTypeNameId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCoreTypeName
 
-object NetworkCoreTypeNameMapper : NBNetworkMapper<CoreTypeName, NetworkCoreTypeName> {
+object NetworkCoreTypeNameMapper : DexNetworkMapper<CoreTypeName, NetworkCoreTypeName> {
     override fun networkToModel(
         network: NetworkCoreTypeName,
     ): CoreTypeName {

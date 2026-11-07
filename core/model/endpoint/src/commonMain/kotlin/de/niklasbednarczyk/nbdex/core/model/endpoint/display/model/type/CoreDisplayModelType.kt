@@ -1,11 +1,11 @@
 package de.niklasbednarczyk.nbdex.core.model.endpoint.display.model.type
 
 import de.niklasbednarczyk.nbdex.core.model.endpoint.CoreTypeName
-import de.niklasbednarczyk.nbdex.core.model.endpoint.display.model.NBDisplayModel
+import de.niklasbednarczyk.nbdex.core.model.endpoint.display.model.DexDisplayModel
 import de.niklasbednarczyk.nbdex.core.model.endpoint.display.type.CoreDisplayTypeType
 import de.niklasbednarczyk.nbdex.core.model.id.CoreTypeId
 
-interface CoreDisplayModelType : NBDisplayModel<CoreTypeId, CoreDisplayTypeType> {
+interface CoreDisplayModelType : DexDisplayModel<CoreTypeId, CoreDisplayTypeType> {
     val typeName: CoreTypeName
 
     override val id: CoreTypeId?

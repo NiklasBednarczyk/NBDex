@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Fighting: ImageVector
+val DexIcons.Type.Fighting: ImageVector
     get() {
         if (_Fighting != null) {
             return _Fighting!!
@@ -67,6 +67,6 @@ private var _Fighting: ImageVector? = null
 @Composable
 private fun FightingPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Fighting, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Fighting, contentDescription = null)
     }
 }

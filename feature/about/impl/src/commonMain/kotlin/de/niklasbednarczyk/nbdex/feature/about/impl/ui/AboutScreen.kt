@@ -20,17 +20,17 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.ext.plus
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.NBSegmentedListItemBasic
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.NBSegmentedListItemSingleAction
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.DexSegmentedListItemBasic
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.DexSegmentedListItemSingleAction
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.listItemDefaultContainerColor
 import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.listItemGap
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreview
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfo
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfoPreviewParameterProvider
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.NBSmallTopAppBar
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.NBSectionTitle
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreview
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfo
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfoPreviewParameterProvider
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.DexSmallTopAppBar
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.DexSectionTitle
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.DexTheme
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.OpenInNew
 import de.niklasbednarczyk.nbdex.feature.about.impl.ui.model.AboutContent
 import de.niklasbednarczyk.nbdex.feature.about.impl.ui.model.AboutListItem
@@ -63,7 +63,7 @@ private fun AboutScreen(
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            NBSmallTopAppBar(
+            DexSmallTopAppBar(
                 scrollBehavior = scrollBehavior,
                 titleText = stringResource(Res.string.about_title),
                 onBack = onBack,
@@ -72,14 +72,14 @@ private fun AboutScreen(
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
-            contentPadding = innerPadding + NBTheme.dimensions.padding.screenPaddingValues,
+            contentPadding = innerPadding + DexTheme.dimensions.padding.screenPaddingValues,
         ) {
             uiState.sectionsWithContent.forEach { (section, content) ->
                 item(
                     key = section,
                     contentType = AboutSection::class,
                 ) {
-                    NBSectionTitle(
+                    DexSectionTitle(
                         title = stringResource(section.titleStringResource),
                     )
                 }
@@ -120,15 +120,15 @@ private fun Card(
 ) {
     Box(
         modifier = modifier
-            .clip(NBTheme.shapes.medium)
+            .clip(DexTheme.shapes.medium)
             .background(listItemDefaultContainerColor)
-            .padding(NBTheme.dimensions.padding.large)
+            .padding(DexTheme.dimensions.padding.large)
             .fillMaxWidth(),
     ) {
         Text(
             text = stringResource(card.textStringResource),
-            style = NBTheme.typography.bodyLarge,
-            color = NBTheme.colorScheme.onSurface,
+            style = DexTheme.typography.bodyLarge,
+            color = DexTheme.colorScheme.onSurface,
         )
     }
 }
@@ -150,7 +150,7 @@ private fun ListItem(
 
     when (val type = listItem.type) {
         AboutListItemType.Basic -> {
-            NBSegmentedListItemBasic(
+            DexSegmentedListItemBasic(
                 modifier = modifier,
                 index = index,
                 count = count,
@@ -168,7 +168,7 @@ private fun ListItem(
 
         is AboutListItemType.Link -> {
             val uriHandler = LocalUriHandler.current
-            NBSegmentedListItemSingleAction(
+            DexSegmentedListItemSingleAction(
                 modifier = modifier,
                 onClick = { uriHandler.openUri(type.url) },
                 index = index,
@@ -182,7 +182,7 @@ private fun ListItem(
                     }
                 },
                 leadingIcon = leadingIcon,
-                trailingIcon = NBIcons.Material.OpenInNew,
+                trailingIcon = DexIcons.Material.OpenInNew,
             )
         }
     }
@@ -191,9 +191,9 @@ private fun ListItem(
 @Composable
 @Preview
 private fun Preview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         AboutScreen(
@@ -206,9 +206,9 @@ private fun Preview(
 @Preview
 @Composable
 private fun MultiplePanesPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
         isSinglePane = false,
     ) {

@@ -1,6 +1,6 @@
 package de.niklasbednarczyk.nbdex.disk.pokedex.impl.di
 
-import de.niklasbednarczyk.nbdex.core.disk.constant.NBDataStoreName
+import de.niklasbednarczyk.nbdex.core.disk.constant.DexDataStoreName
 import de.niklasbednarczyk.nbdex.core.disk.datastore.createDataStore
 import de.niklasbednarczyk.nbdex.disk.pokedex.api.datasource.PokedexDiskDataSource
 import de.niklasbednarczyk.nbdex.disk.pokedex.impl.datasource.PokedexDiskDataSourceImpl
@@ -11,10 +11,10 @@ import org.koin.dsl.bind
 import org.koin.dsl.module
 
 val diskPokedexModule = module {
-    single(named(NBDataStoreName.POKEDEX_PREFERENCES)) {
+    single(named(DexDataStoreName.POKEDEX_PREFERENCES)) {
         createDataStore(
             scope = this,
-            dataStoreName = NBDataStoreName.POKEDEX_PREFERENCES,
+            dataStoreName = DexDataStoreName.POKEDEX_PREFERENCES,
             serializer = PokedexPreferencesSerializer,
         )
     }

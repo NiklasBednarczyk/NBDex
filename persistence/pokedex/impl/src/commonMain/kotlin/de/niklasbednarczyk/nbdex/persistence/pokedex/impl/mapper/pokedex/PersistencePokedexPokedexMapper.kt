@@ -1,7 +1,7 @@
 package de.niklasbednarczyk.nbdex.persistence.pokedex.impl.mapper.pokedex
 
 import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
-import de.niklasbednarczyk.nbdex.core.persistence.mapper.NBPersistenceFeatureMapper
+import de.niklasbednarczyk.nbdex.core.persistence.mapper.DexPersistenceFeatureMapper
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCorePokedexDescriptionMapper
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCorePokedexMapper
 import de.niklasbednarczyk.nbdex.core.persistence.mapper.PersistenceCorePokedexNameMapper
@@ -10,7 +10,7 @@ import de.niklasbednarczyk.nbdex.persistence.pokedex.impl.model.pokedex.Persiste
 import kotlinx.collections.immutable.toImmutableList
 
 internal object PersistencePokedexPokedexMapper :
-    NBPersistenceFeatureMapper<PokedexPokedex, PersistencePokedexPokedex, CoreLanguageId> {
+    DexPersistenceFeatureMapper<PokedexPokedex, PersistencePokedexPokedex, CoreLanguageId> {
     override fun persistenceToModel(
         persistence: PersistencePokedexPokedex,
         input: CoreLanguageId,

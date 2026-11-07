@@ -1,7 +1,7 @@
 package de.niklasbednarczyk.nbdex.feature.more.impl.ui
 
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.NBViewModel
-import de.niklasbednarczyk.nbdex.core.ui.navigation.NBNavigator
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.DexViewModel
+import de.niklasbednarczyk.nbdex.core.ui.navigation.DexNavigator
 import de.niklasbednarczyk.nbdex.data.settings.api.repository.SettingsRepository
 import de.niklasbednarczyk.nbdex.feature.about.api.navigation.navigateToAbout
 import de.niklasbednarczyk.nbdex.feature.contrast.api.navigation.navigateToContrast
@@ -11,9 +11,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 
 internal class MoreViewModel(
-    private val navigator: NBNavigator,
+    private val navigator: DexNavigator,
     settingsRepository: SettingsRepository,
-) : NBViewModel() {
+) : DexViewModel() {
     val uiState: StateFlow<MoreUiState> = combine(
         settingsRepository.getSettings(),
         navigator.state.currentKeyFlow,
@@ -28,7 +28,7 @@ internal class MoreViewModel(
             selectedContrast = settings.contrast,
         )
     }
-        .nbStateIn(MoreUiState.Initial)
+        .dexStateIn(MoreUiState.Initial)
 
     fun navigateToAbout() {
         navigator.navigateToAbout()

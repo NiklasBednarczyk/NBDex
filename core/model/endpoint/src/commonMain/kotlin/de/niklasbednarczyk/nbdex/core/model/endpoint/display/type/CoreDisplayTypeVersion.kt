@@ -2,7 +2,7 @@ package de.niklasbednarczyk.nbdex.core.model.endpoint.display.type
 
 import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionId
 
-enum class CoreDisplayTypeVersion : NBDisplayType<CoreVersionId> {
+enum class CoreDisplayTypeVersion : DexDisplayType<CoreVersionId> {
     RED,
     BLUE,
     YELLOW,

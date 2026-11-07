@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.ArrowDropDown: ImageVector
+val DexIcons.Material.ArrowDropDown: ImageVector
     get() {
         if (_ArrowDropDown != null) {
             return _ArrowDropDown!!
@@ -44,6 +44,6 @@ private var _ArrowDropDown: ImageVector? = null
 @Composable
 private fun ArrowDropDownPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.ArrowDropDown, contentDescription = null)
+        Image(imageVector = DexIcons.Material.ArrowDropDown, contentDescription = null)
     }
 }

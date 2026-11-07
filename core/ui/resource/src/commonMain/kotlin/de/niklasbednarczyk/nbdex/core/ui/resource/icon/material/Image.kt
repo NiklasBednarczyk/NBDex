@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.Image: ImageVector
+val DexIcons.Material.Image: ImageVector
     get() {
         if (_Image != null) {
             return _Image!!
@@ -70,6 +70,6 @@ private var _Image: ImageVector? = null
 @Composable
 private fun ImagePreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.Image, contentDescription = null)
+        Image(imageVector = DexIcons.Material.Image, contentDescription = null)
     }
 }

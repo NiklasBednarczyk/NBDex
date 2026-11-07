@@ -1,11 +1,11 @@
 package de.niklasbednarczyk.nbdex.disk.settings.impl.mapper
 
-import de.niklasbednarczyk.nbdex.core.disk.mapper.NBDiskEnumMapper
+import de.niklasbednarczyk.nbdex.core.disk.mapper.DexDiskEnumMapper
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsTheme
 import de.niklasbednarczyk.nbdex.disk.settings.impl.proto.DiskSettings
 
 internal object DiskSettingsThemeMapper :
-    NBDiskEnumMapper<CoreSettingsTheme, DiskSettings.Theme> {
+    DexDiskEnumMapper<CoreSettingsTheme, DiskSettings.Theme> {
     override fun modelToDisk(
         model: CoreSettingsTheme,
     ): DiskSettings.Theme {

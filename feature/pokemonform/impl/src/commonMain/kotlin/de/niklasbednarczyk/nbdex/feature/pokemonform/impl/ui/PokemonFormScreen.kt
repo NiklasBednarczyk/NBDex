@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonFormId
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.NBSmallTopAppBar
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.NBNotYetImplementedContent
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.DexSmallTopAppBar
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.content.DexNotYetImplementedContent
 import de.niklasbednarczyk.nbdex.feature.pokemonform.api.navigation.PokemonFormNavKey
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.parameter.parametersOf
@@ -38,14 +38,14 @@ private fun PokemonFormScreen(
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            NBSmallTopAppBar(
+            DexSmallTopAppBar(
                 scrollBehavior = scrollBehavior,
                 titleText = id?.value?.toString().orEmpty(),
                 onBack = onBack,
             )
         },
     ) { innerPadding ->
-        NBNotYetImplementedContent(
+        DexNotYetImplementedContent(
             modifier = Modifier.padding(innerPadding),
         )
     }

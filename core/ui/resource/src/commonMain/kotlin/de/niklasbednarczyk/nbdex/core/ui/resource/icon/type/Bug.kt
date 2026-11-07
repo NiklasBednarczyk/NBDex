@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Bug: ImageVector
+val DexIcons.Type.Bug: ImageVector
     get() {
         if (_Bug != null) {
             return _Bug!!
@@ -76,6 +76,6 @@ private var _Bug: ImageVector? = null
 @Composable
 private fun BugPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Bug, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Bug, contentDescription = null)
     }
 }

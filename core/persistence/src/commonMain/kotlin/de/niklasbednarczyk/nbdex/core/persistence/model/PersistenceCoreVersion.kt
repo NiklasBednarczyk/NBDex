@@ -4,10 +4,10 @@ import androidx.room3.Entity
 import androidx.room3.PrimaryKey
 import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionGroupId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionId
-import de.niklasbednarczyk.nbdex.core.persistence.constant.NBTableName
+import de.niklasbednarczyk.nbdex.core.persistence.constant.DexTableName
 
 @Entity(
-    tableName = NBTableName.VERSION,
+    tableName = DexTableName.VERSION,
 )
 data class PersistenceCoreVersion(
     @PrimaryKey

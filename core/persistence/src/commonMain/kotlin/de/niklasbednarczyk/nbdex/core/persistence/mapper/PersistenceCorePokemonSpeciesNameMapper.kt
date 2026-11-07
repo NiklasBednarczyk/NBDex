@@ -5,7 +5,7 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
 import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCorePokemonSpeciesName
 
 object PersistenceCorePokemonSpeciesNameMapper :
-    NBPersistenceCoreInputMapper<CorePokemonSpeciesName, PersistenceCorePokemonSpeciesName, CoreLanguageId> {
+    DexPersistenceCoreInputMapper<CorePokemonSpeciesName, PersistenceCorePokemonSpeciesName, CoreLanguageId> {
     override fun modelToPersistence(
         model: CorePokemonSpeciesName,
     ): PersistenceCorePokemonSpeciesName {

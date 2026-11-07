@@ -1,7 +1,7 @@
 package de.niklasbednarczyk.nbdex.feature.about.impl.ui.model
 
 import androidx.compose.ui.graphics.vector.ImageVector
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.Api
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.Code
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.Commit
@@ -34,7 +34,7 @@ sealed interface AboutListItem {
 
     data object Bulbapedia : AboutListItem {
         override val leadingIcon: ImageVector
-            get() = NBIcons.Material.FormatPaint
+            get() = DexIcons.Material.FormatPaint
 
         override val contentStringResource: StringResource
             get() = Res.string.about_list_item_bulbapedia_content
@@ -52,7 +52,7 @@ sealed interface AboutListItem {
 
     data object Developer : AboutListItem {
         override val leadingIcon: ImageVector
-            get() = NBIcons.Material.Person
+            get() = DexIcons.Material.Person
 
         override val contentStringResource: StringResource
             get() = Res.string.about_list_item_developer_content
@@ -68,7 +68,7 @@ sealed interface AboutListItem {
 
     data object Duiker101 : AboutListItem {
         override val leadingIcon: ImageVector
-            get() = NBIcons.Material.Image
+            get() = DexIcons.Material.Image
 
         override val contentStringResource: StringResource
             get() = Res.string.about_list_item_duiker101_content
@@ -86,7 +86,7 @@ sealed interface AboutListItem {
 
     data object PokeApi : AboutListItem {
         override val leadingIcon: ImageVector
-            get() = NBIcons.Material.Api
+            get() = DexIcons.Material.Api
 
         override val contentStringResource: StringResource
             get() = Res.string.about_list_item_pokeapi_content
@@ -104,7 +104,7 @@ sealed interface AboutListItem {
 
     data object SourceCode : AboutListItem {
         override val leadingIcon: ImageVector
-            get() = NBIcons.Material.Code
+            get() = DexIcons.Material.Code
 
         override val contentStringResource: StringResource
             get() = Res.string.about_list_item_source_code_content
@@ -120,7 +120,7 @@ sealed interface AboutListItem {
 
     data object Version : AboutListItem {
         override val leadingIcon: ImageVector
-            get() = NBIcons.Material.Commit
+            get() = DexIcons.Material.Commit
 
         override val contentStringResource: StringResource
             get() = Res.string.about_list_item_version_content

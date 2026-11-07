@@ -1,5 +1,5 @@
 import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
-import de.niklasbednarczyk.nbdex.convention.constant.NBAppInfo
+import de.niklasbednarczyk.nbdex.convention.constant.DexAppInfo
 
 plugins {
     alias(libs.plugins.nbdex.dependency.buildkonfig)
@@ -16,6 +16,6 @@ kotlin {
 
 buildkonfig {
     defaultConfigs {
-        buildConfigField(STRING, "appVersionName", NBAppInfo.VERSION_NAME)
+        buildConfigField(STRING, "appVersionName", DexAppInfo.VERSION_NAME)
     }
 }

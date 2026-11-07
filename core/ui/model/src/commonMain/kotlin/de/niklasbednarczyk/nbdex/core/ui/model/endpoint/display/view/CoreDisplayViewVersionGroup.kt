@@ -19,18 +19,18 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import de.niklasbednarczyk.nbdex.core.common.util.string.nbCapitalize
+import de.niklasbednarczyk.nbdex.core.common.util.string.dexCapitalize
 import de.niklasbednarczyk.nbdex.core.model.endpoint.CoreVersionName
 import de.niklasbednarczyk.nbdex.core.model.endpoint.display.model.versiongroup.CoreDisplayModelVersionGroup
 import de.niklasbednarczyk.nbdex.core.model.endpoint.display.model.versiongroup.CoreDisplayModelVersionGroupVersion
 import de.niklasbednarczyk.nbdex.core.model.endpoint.display.type.CoreDisplayTypeVersion
 import de.niklasbednarczyk.nbdex.core.model.endpoint.display.type.CoreDisplayTypeVersionGroup
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreview
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfo
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfoPreviewParameterProvider
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.NBTextSingleLine
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.NBTheme
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.color.extended.NBExtendedColor
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreview
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfo
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfoPreviewParameterProvider
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.text.DexTextSingleLine
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.DexTheme
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.theme.color.extended.DexExtendedColor
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.extendedColor
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.stringResourceAbbreviation
 import de.niklasbednarczyk.nbdex.core.ui.model.endpoint.display.ext.stringResourceText
@@ -46,8 +46,8 @@ fun CoreDisplayViewVersionGroups(
 ) {
     FlowRow(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(NBTheme.dimensions.padding.small),
-        verticalArrangement = Arrangement.spacedBy(NBTheme.dimensions.padding.small),
+        horizontalArrangement = Arrangement.spacedBy(DexTheme.dimensions.padding.small),
+        verticalArrangement = Arrangement.spacedBy(DexTheme.dimensions.padding.small),
     ) {
         versionGroups.forEach { versionGroup ->
             CoreDisplayViewVersionGroup(
@@ -64,14 +64,14 @@ fun CoreDisplayViewVersionGroup(
     showAbbreviations: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    val shape = NBTheme.shapes.small
+    val shape = DexTheme.shapes.small
 
     Row(
         modifier = modifier
             .clip(shape)
             .border(
-                width = NBTheme.dimensions.component.chip.containerOutlineWidth,
-                color = NBTheme.colorScheme.outlineVariant,
+                width = DexTheme.dimensions.component.chip.containerOutlineWidth,
+                color = DexTheme.colorScheme.outlineVariant,
                 shape = shape,
             )
             .height(IntrinsicSize.Max)
@@ -114,28 +114,28 @@ fun CoreDisplayViewVersionGroup(
 
 @Composable
 private fun RowScope.VersionText(
-    extendedColor: NBExtendedColor?,
+    extendedColor: DexExtendedColor?,
     text: String,
     modifier: Modifier = Modifier,
 ) {
-    val color = extendedColor?.color ?: NBTheme.colorScheme.background
-    val onColor = extendedColor?.onColor ?: NBTheme.colorScheme.onBackground
+    val color = extendedColor?.color ?: DexTheme.colorScheme.background
+    val onColor = extendedColor?.onColor ?: DexTheme.colorScheme.onBackground
 
     Box(
         modifier = modifier
             .background(color)
             .padding(
-                horizontal = NBTheme.dimensions.padding.medium,
-                vertical = NBTheme.dimensions.padding.small,
+                horizontal = DexTheme.dimensions.padding.medium,
+                vertical = DexTheme.dimensions.padding.small,
             )
             .weight(1f),
         contentAlignment = Alignment.Center,
     ) {
-        NBTextSingleLine(
+        DexTextSingleLine(
             modifier = Modifier.fillMaxWidth(),
             text = text,
             color = onColor,
-            style = NBTheme.typography.labelSmall,
+            style = DexTheme.typography.labelSmall,
             textAlign = TextAlign.Center,
         )
     }
@@ -144,9 +144,9 @@ private fun RowScope.VersionText(
 @Preview
 @Composable
 private fun VersionGroupPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         val versionGroups = persistentListOf(
@@ -189,16 +189,16 @@ private fun VersionGroupPreview(
 @Preview
 @Composable
 private fun VersionPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         CoreDisplayTypeVersion.entries.forEach { displayType ->
             Row {
                 VersionText(
                     extendedColor = displayType.extendedColor,
-                    text = displayType.name.nbCapitalize(),
+                    text = displayType.name.dexCapitalize(),
                 )
             }
         }

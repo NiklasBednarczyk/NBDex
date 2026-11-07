@@ -1,7 +1,7 @@
 package de.niklasbednarczyk.nbdex.disk.settings.impl.datasource
 
-import de.niklasbednarczyk.nbdex.core.disk.constant.NBDataStoreName
-import de.niklasbednarczyk.nbdex.core.disk.datasource.NBDiskDataSourceImpl
+import de.niklasbednarczyk.nbdex.core.disk.constant.DexDataStoreName
+import de.niklasbednarczyk.nbdex.core.disk.datasource.DexDiskDataSourceImpl
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettings
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsContrast
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsPaneExpansionAnchor
@@ -14,9 +14,9 @@ import de.niklasbednarczyk.nbdex.disk.settings.impl.mapper.DiskSettingsThemeMapp
 import de.niklasbednarczyk.nbdex.disk.settings.impl.proto.DiskSettings
 import kotlinx.coroutines.flow.Flow
 
-internal class SettingsDiskDataSourceImpl : NBDiskDataSourceImpl<DiskSettings>(), SettingsDiskDataSource {
+internal class SettingsDiskDataSourceImpl : DexDiskDataSourceImpl<DiskSettings>(), SettingsDiskDataSource {
     override val dataStoreName: String
-        get() = NBDataStoreName.SETTINGS
+        get() = DexDataStoreName.SETTINGS
 
     override fun getSettings(): Flow<CoreSettings> {
         return getModelFlow(

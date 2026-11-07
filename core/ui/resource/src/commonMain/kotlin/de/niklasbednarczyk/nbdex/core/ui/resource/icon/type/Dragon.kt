@@ -12,9 +12,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Type.Dragon: ImageVector
+val DexIcons.Type.Dragon: ImageVector
     get() {
         if (_Dragon != null) {
             return _Dragon!!
@@ -99,6 +99,6 @@ private var _Dragon: ImageVector? = null
 @Composable
 private fun DragonPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Type.Dragon, contentDescription = null)
+        Image(imageVector = DexIcons.Type.Dragon, contentDescription = null)
     }
 }

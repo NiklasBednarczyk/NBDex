@@ -1,11 +1,11 @@
 package de.niklasbednarczyk.nbdex.core.model.endpoint.sprites
 
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonId
-import de.niklasbednarczyk.nbdex.core.model.id.NBId
+import de.niklasbednarczyk.nbdex.core.model.id.DexId
 import kotlin.jvm.JvmInline
 
 @JvmInline
-value class CorePokemonSprite private constructor(override val id: CorePokemonId) : NBSprite<NBId> {
+value class CorePokemonSprite private constructor(override val id: CorePokemonId) : DexSprite<DexId> {
     override val basePath: String
         get() = BASE_PATH
 

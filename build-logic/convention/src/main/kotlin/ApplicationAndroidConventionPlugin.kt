@@ -1,7 +1,7 @@
 import com.android.build.api.dsl.ApplicationExtension
-import de.niklasbednarczyk.nbdex.convention.constant.NBAndroidSdk
-import de.niklasbednarczyk.nbdex.convention.constant.NBAppInfo
-import de.niklasbednarczyk.nbdex.convention.constant.NBJava
+import de.niklasbednarczyk.nbdex.convention.constant.DexAndroidSdk
+import de.niklasbednarczyk.nbdex.convention.constant.DexAppInfo
+import de.niklasbednarczyk.nbdex.convention.constant.DexJava
 import de.niklasbednarczyk.nbdex.convention.ext.getPluginId
 import de.niklasbednarczyk.nbdex.convention.ext.libs
 import de.niklasbednarczyk.nbdex.convention.ext.plugins
@@ -23,19 +23,19 @@ class ApplicationAndroidConventionPlugin : Plugin<Project> {
         }
 
         extensions.configure<ApplicationExtension> {
-            namespace = NBAppInfo.PACKAGE_NAME
+            namespace = DexAppInfo.PACKAGE_NAME
             defaultConfig {
-                applicationId = NBAppInfo.PACKAGE_NAME
-                versionCode = NBAppInfo.VERSION_CODE
-                versionName = NBAppInfo.VERSION_NAME
+                applicationId = DexAppInfo.PACKAGE_NAME
+                versionCode = DexAppInfo.VERSION_CODE
+                versionName = DexAppInfo.VERSION_NAME
 
-                minSdk = NBAndroidSdk.MIN
-                targetSdk = NBAndroidSdk.TARGET
-                compileSdk = NBAndroidSdk.COMPILE
+                minSdk = DexAndroidSdk.MIN
+                targetSdk = DexAndroidSdk.TARGET
+                compileSdk = DexAndroidSdk.COMPILE
             }
             compileOptions {
-                sourceCompatibility = NBJava.javaVersion
-                targetCompatibility = NBJava.javaVersion
+                sourceCompatibility = DexJava.javaVersion
+                targetCompatibility = DexJava.javaVersion
             }
             buildTypes {
                 getByName("release") {
@@ -52,7 +52,7 @@ class ApplicationAndroidConventionPlugin : Plugin<Project> {
         extensions.configure<KotlinAndroidProjectExtension> {
             target {
                 compilerOptions {
-                    jvmTarget.set(NBJava.jvmTarget)
+                    jvmTarget.set(DexJava.jvmTarget)
                 }
             }
         }

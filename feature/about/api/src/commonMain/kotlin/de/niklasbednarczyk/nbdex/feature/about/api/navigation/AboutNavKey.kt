@@ -1,12 +1,12 @@
 package de.niklasbednarczyk.nbdex.feature.about.api.navigation
 
-import de.niklasbednarczyk.nbdex.core.ui.navigation.NBNavKey
-import de.niklasbednarczyk.nbdex.core.ui.navigation.NBNavigator
+import de.niklasbednarczyk.nbdex.core.ui.navigation.DexNavKey
+import de.niklasbednarczyk.nbdex.core.ui.navigation.DexNavigator
 import kotlinx.serialization.Serializable
 
 @Serializable
-data object AboutNavKey : NBNavKey
+data object AboutNavKey : DexNavKey
 
-fun NBNavigator.navigateToAbout() {
+fun DexNavigator.navigateToAbout() {
     navigate(AboutNavKey)
 }

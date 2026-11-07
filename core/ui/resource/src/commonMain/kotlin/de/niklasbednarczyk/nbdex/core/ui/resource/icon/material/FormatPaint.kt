@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 
-val NBIcons.Material.FormatPaint: ImageVector
+val DexIcons.Material.FormatPaint: ImageVector
     get() {
         if (_FormatPaint != null) {
             return _FormatPaint!!
@@ -85,6 +85,6 @@ private var _FormatPaint: ImageVector? = null
 @Composable
 private fun FormatPaintPreview() {
     Box(modifier = Modifier.padding(12.dp)) {
-        Image(imageVector = NBIcons.Material.FormatPaint, contentDescription = null)
+        Image(imageVector = DexIcons.Material.FormatPaint, contentDescription = null)
     }
 }

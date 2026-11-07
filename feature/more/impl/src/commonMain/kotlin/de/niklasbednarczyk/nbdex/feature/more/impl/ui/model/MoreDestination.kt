@@ -1,8 +1,8 @@
 package de.niklasbednarczyk.nbdex.feature.more.impl.ui.model
 
 import androidx.compose.ui.graphics.vector.ImageVector
-import de.niklasbednarczyk.nbdex.core.ui.navigation.NBNavKey
-import de.niklasbednarczyk.nbdex.core.ui.resource.icon.NBIcons
+import de.niklasbednarczyk.nbdex.core.ui.navigation.DexNavKey
+import de.niklasbednarczyk.nbdex.core.ui.resource.icon.DexIcons
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.Contrast
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.Info
 import de.niklasbednarczyk.nbdex.core.ui.resource.icon.material.LightMode
@@ -21,7 +21,7 @@ internal enum class MoreDestination {
     THEME,
     ;
 
-    val navKey: NBNavKey
+    val navKey: DexNavKey
         get() = when (this) {
             ABOUT -> AboutNavKey
             CONTRAST -> ContrastNavKey
@@ -37,8 +37,8 @@ internal enum class MoreDestination {
 
     val leadingIcon: ImageVector
         get() = when (this) {
-            ABOUT -> NBIcons.Material.Info
-            CONTRAST -> NBIcons.Material.Contrast
-            THEME -> NBIcons.Material.LightMode
+            ABOUT -> DexIcons.Material.Info
+            CONTRAST -> DexIcons.Material.Contrast
+            THEME -> DexIcons.Material.LightMode
         }
 }

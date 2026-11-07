@@ -6,7 +6,7 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreMoveDamageClassId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreTypeId
 import de.niklasbednarczyk.nbdex.core.network.apollo.fragment.NetworkCoreType
 
-object NetworkCoreTypeMapper : NBNetworkMapper<CoreType, NetworkCoreType> {
+object NetworkCoreTypeMapper : DexNetworkMapper<CoreType, NetworkCoreType> {
     override fun networkToModel(
         network: NetworkCoreType,
     ): CoreType {

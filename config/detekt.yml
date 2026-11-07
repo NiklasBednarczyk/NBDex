@@ -40,7 +40,7 @@ comments:
     - '**/core/model/id/Core**'
     - '**/core/ui/designsystem/theme/color/extended/**/**'
     - '**/core/ui/designsystem/theme/dimension/**/**'
-    - '**/core/ui/designsystem/theme/dimension/NBDimensionsPadding.kt'
+    - '**/core/ui/designsystem/theme/dimension/DexDimensionsPadding.kt'
 complexity:
   active: true
   CognitiveComplexMethod:
@@ -534,10 +534,10 @@ Compose:
   CompositionLocalAllowlist:
     active: true
     allowedCompositionLocals:
-    - LocalNBDimensions
-    - LocalNBExtendedColors
-    - LocalNBIsDarkTheme
-    - LocalNBIsSinglePane
+    - LocalDexDimensions
+    - LocalDexExtendedColors
+    - LocalDexIsDarkTheme
+    - LocalDexIsSinglePane
   CompositionLocalNaming:
     active: true
   ContentEmitterReturningValues:

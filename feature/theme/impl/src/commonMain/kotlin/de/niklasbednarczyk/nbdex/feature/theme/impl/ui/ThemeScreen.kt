@@ -14,11 +14,11 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsTheme
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsTheme.DARK
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.NBSegmentedListSingleSelection
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreview
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfo
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfoPreviewParameterProvider
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.NBSmallTopAppBar
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.DexSegmentedListSingleSelection
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreview
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfo
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfoPreviewParameterProvider
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.DexSmallTopAppBar
 import de.niklasbednarczyk.nbdex.core.ui.model.settings.ext.stringResource
 import nbdex.core.ui.resource.generated.resources.Res
 import nbdex.core.ui.resource.generated.resources.theme_title
@@ -48,7 +48,7 @@ private fun ThemeScreen(
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            NBSmallTopAppBar(
+            DexSmallTopAppBar(
                 scrollBehavior = scrollBehavior,
                 titleText = stringResource(Res.string.theme_title),
                 onBack = onBack,
@@ -59,7 +59,7 @@ private fun ThemeScreen(
             ThemeUiState.Initial -> {}
 
             is ThemeUiState.Success -> {
-                NBSegmentedListSingleSelection(
+                DexSegmentedListSingleSelection(
                     items = uiState.themes,
                     selectedItem = uiState.selectedTheme,
                     onClick = onThemeClick,
@@ -75,9 +75,9 @@ private fun ThemeScreen(
 @Preview
 @Composable
 private fun Preview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         var selectedTheme by remember { mutableStateOf(DARK) }
@@ -95,9 +95,9 @@ private fun Preview(
 @Preview
 @Composable
 private fun InitialPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         ThemeScreen(
@@ -111,9 +111,9 @@ private fun InitialPreview(
 @Preview
 @Composable
 private fun InitialMultiplePanesPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
         isSinglePane = false,
     ) {

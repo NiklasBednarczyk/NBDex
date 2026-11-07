@@ -5,7 +5,7 @@ import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
 import de.niklasbednarczyk.nbdex.core.persistence.model.PersistenceCoreGenerationName
 
 object PersistenceCoreGenerationNameMapper :
-    NBPersistenceCoreInputMapper<CoreGenerationName, PersistenceCoreGenerationName, CoreLanguageId> {
+    DexPersistenceCoreInputMapper<CoreGenerationName, PersistenceCoreGenerationName, CoreLanguageId> {
     override fun modelToPersistence(
         model: CoreGenerationName,
     ): PersistenceCoreGenerationName {

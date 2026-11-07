@@ -1,12 +1,12 @@
 package de.niklasbednarczyk.nbdex.core.model.endpoint.display.model.versiongroup
 
 import de.niklasbednarczyk.nbdex.core.model.endpoint.CoreVersionGroup
-import de.niklasbednarczyk.nbdex.core.model.endpoint.display.model.NBDisplayModel
+import de.niklasbednarczyk.nbdex.core.model.endpoint.display.model.DexDisplayModel
 import de.niklasbednarczyk.nbdex.core.model.endpoint.display.type.CoreDisplayTypeVersionGroup
 import de.niklasbednarczyk.nbdex.core.model.id.CoreVersionGroupId
 
 interface CoreDisplayModelVersionGroup :
-    NBDisplayModel<CoreVersionGroupId, CoreDisplayTypeVersionGroup> {
+    DexDisplayModel<CoreVersionGroupId, CoreDisplayTypeVersionGroup> {
     val versionGroup: CoreVersionGroup
 
     val versions: List<CoreDisplayModelVersionGroupVersion>

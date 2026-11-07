@@ -15,11 +15,11 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsContrast
 import de.niklasbednarczyk.nbdex.core.model.settings.CoreSettingsTheme
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.NBSegmentedListSingleActionGroup
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreview
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfo
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.NBPreviewInfoPreviewParameterProvider
-import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.NBCenteredTopAppBar
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.list.DexSegmentedListSingleActionGroup
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreview
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfo
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.preview.DexPreviewInfoPreviewParameterProvider
+import de.niklasbednarczyk.nbdex.core.ui.designsystem.screen.DexCenteredTopAppBar
 import de.niklasbednarczyk.nbdex.core.ui.model.settings.ext.stringResource
 import de.niklasbednarczyk.nbdex.feature.more.impl.ui.model.MoreDestination
 import nbdex.core.ui.resource.generated.resources.Res
@@ -52,7 +52,7 @@ private fun MoreScreen(
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
-            NBCenteredTopAppBar(
+            DexCenteredTopAppBar(
                 scrollBehavior = scrollBehavior,
                 titleText = stringResource(Res.string.more_title),
             )
@@ -62,7 +62,7 @@ private fun MoreScreen(
             MoreUiState.Initial -> {}
 
             is MoreUiState.Success -> {
-                NBSegmentedListSingleActionGroup(
+                DexSegmentedListSingleActionGroup(
                     map = uiState.sectionsWithDestinations,
                     selectedItem = uiState.selectedDestination,
                     getKeyGroup = { section -> section },
@@ -101,9 +101,9 @@ private fun MoreScreen(
 @Preview
 @Composable
 private fun Preview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         var selectedDestination by remember { mutableStateOf<MoreDestination?>(null) }
@@ -124,9 +124,9 @@ private fun Preview(
 @Preview
 @Composable
 private fun InitialPreview(
-    @PreviewParameter(NBPreviewInfoPreviewParameterProvider::class) previewInfo: NBPreviewInfo,
+    @PreviewParameter(DexPreviewInfoPreviewParameterProvider::class) previewInfo: DexPreviewInfo,
 ) {
-    NBPreview(
+    DexPreview(
         previewInfo = previewInfo,
     ) {
         MoreScreen(

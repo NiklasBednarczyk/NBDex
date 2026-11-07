@@ -5,10 +5,10 @@ import androidx.room3.PrimaryKey
 import de.niklasbednarczyk.nbdex.core.model.id.CoreLanguageId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonFormId
 import de.niklasbednarczyk.nbdex.core.model.id.CorePokemonFormNameId
-import de.niklasbednarczyk.nbdex.core.persistence.constant.NBTableName
+import de.niklasbednarczyk.nbdex.core.persistence.constant.DexTableName
 
 @Entity(
-    tableName = NBTableName.POKEMON_FORM_NAME,
+    tableName = DexTableName.POKEMON_FORM_NAME,
 )
 data class PersistenceCorePokemonFormName(
     @PrimaryKey

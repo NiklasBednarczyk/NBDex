@@ -1,5 +1,5 @@
 import com.apollographql.apollo.gradle.api.ApolloExtension
-import de.niklasbednarczyk.nbdex.convention.constant.NBApollo
+import de.niklasbednarczyk.nbdex.convention.constant.DexApollo
 import de.niklasbednarczyk.nbdex.convention.ext.getPluginId
 import de.niklasbednarczyk.nbdex.convention.ext.libs
 import de.niklasbednarczyk.nbdex.convention.ext.modulePackageName
@@ -30,8 +30,8 @@ class LibraryNetworkImplConventionPlugin : Plugin<Project> {
         }
 
         extensions.configure<ApolloExtension> {
-            service(NBApollo.SERVICE_NAME) {
-                packageName.set("$modulePackageName.${NBApollo.PACKAGE}")
+            service(DexApollo.SERVICE_NAME) {
+                packageName.set("$modulePackageName.${DexApollo.PACKAGE}")
 
                 // Use `bidirectional` to have the schema module get the used types from this module
                 dependsOn(

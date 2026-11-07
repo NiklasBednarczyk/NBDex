@@ -5,10 +5,10 @@ import androidx.room3.PrimaryKey
 import de.niklasbednarczyk.nbdex.core.model.id.CoreGenerationId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreMoveDamageClassId
 import de.niklasbednarczyk.nbdex.core.model.id.CoreTypeId
-import de.niklasbednarczyk.nbdex.core.persistence.constant.NBTableName
+import de.niklasbednarczyk.nbdex.core.persistence.constant.DexTableName
 
 @Entity(
-    tableName = NBTableName.TYPE,
+    tableName = DexTableName.TYPE,
 )
 data class PersistenceCoreType(
     @PrimaryKey
