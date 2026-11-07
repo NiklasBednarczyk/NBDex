@@ -10,7 +10,7 @@
 
 ### Dependencies
 
-- 🟩 Add [`<Dependency>`](<Url>): <Reason>
+- 🟩 Add \[`<Dependency>`\](<Url>): <Reason>
 - 🟨 Upgrade `<Dependency>`: From `<Previous Version>` to `<New Version>`
 - 🟥 Remove `<Dependency>`: <Reason>
 
