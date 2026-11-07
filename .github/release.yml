@@ -1,8 +1,0 @@
-changelog:
-  categories:
-  - title: ✨ Features
-    labels:
-    - "pull request: feature"
-  - title: 🐛 Bugfixes
-    labels:
-    - "pull request: bugfix"
