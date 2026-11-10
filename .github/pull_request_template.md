@@ -32,7 +32,7 @@
   - [ ] I have ensured that all code quality checks have passed
   - [ ] I have made sure that all the tests have passed
 - After creating pull request
-  - [ ] I named the pull request correctly in the present tense (f.e. add, redesign, remove)
+  - [ ] I named the pull request correctly in the present tense (f.e. add, fix, redesign, remove)
   - [ ] I used the correct label on the pull request.
   - [ ] I correctly assigned the pull request
   - [ ] I correctly used **N/A** for any field that was not applicable to this pull request.
